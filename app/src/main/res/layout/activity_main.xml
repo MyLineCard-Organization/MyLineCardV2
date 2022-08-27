@@ -88,6 +88,7 @@
         android:layout_height="50dp"
         android:backgroundTint="#00B1AC"
         android:fontFamily="@font/poppins_regular"
+        android:onClick="principal"
         android:text="Iniciar sesión"
         app:cornerRadius="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -95,7 +96,8 @@
         app:layout_constraintHorizontal_bias="0.468"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.809" />
+        app:layout_constraintVertical_bias="0.809"
+        tools:ignore="TextContrastCheck" />
 
     <Button
         android:id="@+id/button2"

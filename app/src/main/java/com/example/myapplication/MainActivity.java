@@ -14,10 +14,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
 
@@ -32,4 +32,11 @@ public class MainActivity extends AppCompatActivity {
         Intent intent= new Intent(this, Recuperar_password.class);
         startActivity(intent);
     }
+
+    public void principal(View v)
+    {
+        Intent intent= new Intent(this, Despligue_Opciones.class);
+        startActivity(intent);
+    }
+
 }
