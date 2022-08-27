@@ -75,7 +75,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="1000sp"
                 android:background="@color/white">
 
                 <LinearLayout
@@ -97,7 +97,50 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Reclamo 1 (USER#5329)"
+                            android:text="USER#5329"
+                            android:layout_marginStart="5sp"
+                            android:fontFamily="@font/poppins_medium">
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="--------------------------------------------------------------------------------------------
+                            --------------------------------------------------------------------------------------------
+                            --------------------------------------------------------------------------------------------">
+                        </TextView>
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="10sp"
+                            android:hint="   Escribe una respuesta"
+                            android:fontFamily="@font/poppins_regular"
+                            android:textSize="14sp"
+                            android:background="@drawable/card_registro_sugerencia_o_reclamo"/>
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="24dp"
+                            android:layout_gravity="end"
+                            android:background="@drawable/btn_responder_quejas_y_sugerencias"
+                            android:text="Responder"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/card_sugerencia_o_reclamo"
+                        android:orientation="vertical"
+                        android:paddingVertical="10sp"
+                        android:paddingHorizontal="10sp"
+                        android:layout_marginVertical="15sp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="USER#5514"
                             android:layout_marginStart="5sp"
                             android:fontFamily="@font/poppins_medium">
                         </TextView>
@@ -131,7 +174,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Sugerencia 1 (USER#5514)"
+                            android:text="USER#5514"
                             android:layout_marginStart="5sp"
                             android:fontFamily="@font/poppins_medium">
                         </TextView>
@@ -165,41 +208,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Sugerencia 1 (USER#5514)"
-                            android:layout_marginStart="5sp"
-                            android:fontFamily="@font/poppins_medium">
-                        </TextView>
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="--------------------------------------------------------------------------------------------
-                            --------------------------------------------------------------------------------------------
-                            --------------------------------------------------------------------------------------------">
-                        </TextView>
-
-                        <androidx.appcompat.widget.AppCompatButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="24dp"
-                            android:layout_gravity="end"
-                            android:background="@drawable/btn_responder_quejas_y_sugerencias"
-                            android:text="Responder"
-                            android:textSize="12sp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/card_sugerencia_o_reclamo"
-                        android:orientation="vertical"
-                        android:paddingVertical="10sp"
-                        android:paddingHorizontal="10sp"
-                        android:layout_marginVertical="15sp">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Reclamo 2 (USER#5454)"
+                            android:text="USER#5454"
                             android:layout_marginStart="5sp"
                             android:fontFamily="@font/poppins_medium">
                         </TextView>
@@ -240,7 +249,7 @@
             android:text="Registrar sugerencia o reclamo"
             android:layout_marginHorizontal="20sp"
             android:layout_marginVertical="10sp"
-            android:fontFamily="@font/poppins_medium"
+            android:fontFamily="@font/poppins_semibold"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:background="@drawable/btn_crear_sugerencia_o_reclamo">
