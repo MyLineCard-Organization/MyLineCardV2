@@ -57,9 +57,9 @@
         android:layout_width="346dp"
         android:layout_height="51dp"
         android:backgroundTint="@color/white"
+        android:fontFamily="@font/poppins_regular"
         android:textColor="@color/white"
         android:ems="10"
-        android:fontFamily="@font/poppins_regular"
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -73,6 +73,7 @@
         android:layout_width="191dp"
         android:layout_height="24dp"
         android:fontFamily="@font/poppins_regular"
+        android:onClick="recuperar"
         android:text="¿Olvidate tu contraseña?"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -85,9 +86,9 @@
         android:id="@+id/button"
         android:layout_width="347dp"
         android:layout_height="50dp"
+        android:backgroundTint="#00B1AC"
         android:fontFamily="@font/poppins_regular"
         android:text="Iniciar sesión"
-        android:backgroundTint="#00B1AC"
         app:cornerRadius="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -97,22 +98,35 @@
         app:layout_constraintVertical_bias="0.809" />
 
     <Button
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:id="@+id/button2"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="345dp"
         android:layout_height="53dp"
         android:color="@android:color/white"
         android:fontFamily="@font/poppins_regular"
+        android:onClick="Registrate"
         android:text="Registrate"
         android:textColor="@color/white"
         app:backgroundTint="@android:color/transparent"
         app:cornerRadius="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.468"
+        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.904"
+        app:layout_constraintVertical_bias="0.886"
         app:strokeColor="@color/white" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="240dp"
+        android:layout_height="217dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.093"
+        app:srcCompat="@drawable/logo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

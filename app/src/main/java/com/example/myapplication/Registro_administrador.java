@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
-public class MainActivity extends AppCompatActivity {
+public class Registro_administrador extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,18 +18,16 @@ public class MainActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_registro_administrador);
     }
-
-    public void Registrate(View v)
-    {
-        Intent intent= new Intent(this, Registro_pasajero.class);
+    public void back(View v){
+        Intent intent= new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
-    public void recuperar(View v)
-    {
-        Intent intent= new Intent(this, Recuperar_password.class);
+    public void pasajero(View v){
+        Intent intent= new Intent(this, Registro_pasajero.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(intent);
     }
 }
