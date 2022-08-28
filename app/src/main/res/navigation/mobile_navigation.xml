@@ -12,14 +12,38 @@
         tools:layout="@layout/fragment_billetera__virtual" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.myapplication.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_lineas_afiliadas"
+        android:name="com.example.myapplication.Lineas_Afiliadas"
+        android:label="Líneas afiliadas"
+        tools:layout="@layout/fragment_lineas__afiliadas" />
+    <fragment
+        android:id="@+id/nav_tarifas"
+        android:name="com.example.myapplication.Tarifas"
+        android:label="Tarifas"
+        tools:layout="@layout/fragment_tarifas" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.myapplication.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_rutas"
+        android:name="com.example.myapplication.Rutas"
+        android:label="Rutas"
+        tools:layout="@layout/fragment_rutas" />
+
+    <fragment
+        android:id="@+id/nav_pagos"
+        android:name="com.example.myapplication.Pagos_Realizados"
+        android:label="Pagos realizados"
+        tools:layout="@layout/fragment_pagos__realizados" />
+
+    <fragment
+        android:id="@+id/nav_manual"
+        android:name="com.example.myapplication.Manual_Instrucciones"
+        android:label="Manual de instrucciones"
+        tools:layout="@layout/fragment_manual__instrucciones" />
+
+    <fragment
+        android:id="@+id/nav_configuraciones"
+        android:name="com.example.myapplication.Configuraciones"
+        android:label="Configuraciones"
+        tools:layout="@layout/fragment_configuraciones" />
+
 </navigation>

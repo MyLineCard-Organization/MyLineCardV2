@@ -34,7 +34,7 @@ public class Despligue_Opciones extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
+                R.id.nav_home, R.id.nav_lineas_afiliadas,R.id.nav_tarifas,R.id.nav_rutas,R.id.nav_pagos,R.id.nav_manual,R.id.nav_configuraciones)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_despligue_opciones);

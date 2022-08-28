@@ -7,14 +7,39 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/home"
+            android:fontFamily="@font/poppins_regular"
             android:title="@string/menu_home" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
+            android:id="@+id/nav_lineas_afiliadas"
+            android:icon="@drawable/bus_line"
+            android:fontFamily="@font/poppins_regular"
+            android:title="Líneas afiliadas" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+            android:id="@+id/nav_tarifas"
+            android:icon="@drawable/tarifa"
+            android:fontFamily="@font/poppins_regular"
+            android:title="Tarifas" />
+        <item
+            android:id="@+id/nav_rutas"
+            android:icon="@drawable/rutas"
+            android:fontFamily="@font/poppins_regular"
+            android:title="Rutas" />
+        <item
+            android:id="@+id/nav_pagos"
+            android:icon="@drawable/pagos"
+            android:fontFamily="@font/poppins_regular"
+            android:title="Pagos realizados" />
+
+        <item
+            android:id="@+id/nav_manual"
+            android:icon="@drawable/manual"
+            android:fontFamily="@font/poppins_regular"
+            android:title="Manual de instrucciones" />
+
+        <item
+            android:id="@+id/nav_configuraciones"
+            android:icon="@drawable/config"
+            android:fontFamily="@font/poppins_regular"
+            android:title="Configuraciones" />
     </group>
 </menu>
