@@ -1,8 +1,10 @@
 package com.example.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -61,4 +63,5 @@ public class Lineas_Afiliadas extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_lineas__afiliadas, container, false);
     }
+
 }
