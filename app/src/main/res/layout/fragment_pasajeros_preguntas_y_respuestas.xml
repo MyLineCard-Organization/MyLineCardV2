@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#323643"
+    android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+
+    <ScrollView
+        android:id="@+id/scrollViewQuejasYSugerencias"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#00B1AC"
+        android:layout_marginTop="60sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageButton
+                        android:id="@+id/imageButton"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:onClick="back"
+                        app:backgroundTint="@android:color/transparent"
+                        android:layout_marginTop="20sp"
+                        android:layout_marginStart="10sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/arrow" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_marginTop="20sp">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/pasajeropreguntasyrespuestas"
+                            android:layout_marginEnd="55sp"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="Preguntas
+                    Frecuentes"
+                    android:textColor="@color/white"
+                    android:textSize="30sp"
+                    android:layout_marginHorizontal="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1000sp"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="20sp"
+                    android:layout_marginHorizontal="20sp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/fondo_buscador_preguntas"
+                    android:paddingHorizontal="10sp"
+                    android:paddingVertical="5sp">
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/poppins_regular"
+                        android:hint="Escribe una palabra clave"
+                        android:textSize="15sp">
+                    </EditText>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0"
+                        android:src="@drawable/lupa">
+                    </ImageView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginVertical="10sp"
+                    android:layout_marginHorizontal="20sp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/card_sugerencia_o_reclamo"
+                        android:orientation="horizontal"
+                        android:padding="5sp"
+                        android:paddingHorizontal="10sp"
+                        android:layout_marginBottom="15sp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="3"
+                            android:text="¿CÓMO RECARGAR MI SALDO?"
+                            android:layout_marginStart="5sp"
+                            android:fontFamily="@font/poppins_medium"
+                            android:layout_gravity="center_vertical">
+                        </TextView>
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0"
+                            android:src="@drawable/cuadro_pregunta"
+                            android:layout_gravity="center_vertical"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/card_sugerencia_o_reclamo"
+                        android:orientation="horizontal"
+                        android:padding="5sp"
+                        android:paddingHorizontal="10sp"
+                        android:layout_marginBottom="15sp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="3"
+                            android:text="¿CUÁNTO DEMORARÁ RECARGAR MI SALDO?"
+                            android:layout_marginStart="5sp"
+                            android:fontFamily="@font/poppins_medium"
+                            android:layout_gravity="center_vertical">
+                        </TextView>
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0"
+                            android:src="@drawable/cuadro_pregunta"
+                            android:layout_gravity="center_vertical"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/card_sugerencia_o_reclamo"
+                        android:orientation="horizontal"
+                        android:padding="5sp"
+                        android:paddingHorizontal="10sp"
+                        android:layout_marginBottom="15sp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="3"
+                            android:text="¿LE PUEDO PRESTAR MI TARJETA VIRTUAL A ALGUIEN MÁS?"
+                            android:layout_marginStart="5sp"
+                            android:fontFamily="@font/poppins_medium"
+                            android:layout_gravity="center_vertical">
+                        </TextView>
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0"
+                            android:src="@drawable/cuadro_pregunta"
+                            android:layout_gravity="center_vertical"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
