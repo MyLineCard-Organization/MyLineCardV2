@@ -138,7 +138,7 @@
                                 android:textColor="@color/black" />
 
                             <EditText
-                                android:id="@+id/editTextTextPersonName2"
+                                android:id="@+id/edit_passager_names"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="20sp"
@@ -158,7 +158,7 @@
                                 android:textColor="@color/black" />
 
                             <EditText
-                                android:id="@+id/editTextTextPersonName3"
+                                android:id="@+id/edit_passeger_surnames"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="20sp"
@@ -178,7 +178,7 @@
                                 android:textColor="@color/black" />
 
                             <EditText
-                                android:id="@+id/editTextTextEmailAddress3"
+                                android:id="@+id/edit_passeger_email"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="20sp"
@@ -198,7 +198,7 @@
                                 android:textColor="@color/black" />
 
                             <EditText
-                                android:id="@+id/editTextTextPassword5"
+                                android:id="@+id/edit_passeger_password"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="20sp"
@@ -218,7 +218,7 @@
                                 android:textColor="@color/black" />
 
                             <EditText
-                                android:id="@+id/editTextTextPassword6"
+                                android:id="@+id/edit_passeger_confirm_password"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="20sp"
@@ -238,7 +238,7 @@
                                 android:textColor="@color/black" />
 
                             <EditText
-                                android:id="@+id/editTextTextPersonName4"
+                                android:id="@+id/edit_passeger_direction"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="20sp"
@@ -287,7 +287,7 @@
                                 android:text="Acepto Términos y Condiciones" />
 
                             <Button
-                                android:id="@+id/button5"
+                                android:id="@+id/btn_saveNewPassenger"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="20sp"

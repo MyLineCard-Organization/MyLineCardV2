@@ -9,7 +9,7 @@
     android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress"
+        android:id="@+id/edit_login_email"
         android:layout_width="349dp"
         android:layout_height="47dp"
         android:backgroundTint="@color/white"
@@ -28,15 +28,15 @@
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_regular"
         android:text="Correo"
         android:textColor="@color/white"
-        android:fontFamily="@font/poppins_regular"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.084"
+        app:layout_constraintHorizontal_bias="0.063"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.408" />
+        app:layout_constraintVertical_bias="0.407" />
 
     <TextView
         android:id="@+id/textView2"
@@ -53,20 +53,20 @@
         app:layout_constraintVertical_bias="0.557" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/edit_login_pass"
         android:layout_width="346dp"
         android:layout_height="51dp"
         android:backgroundTint="@color/white"
-        android:fontFamily="@font/poppins_regular"
-        android:textColor="@color/white"
         android:ems="10"
+        android:fontFamily="@font/poppins_regular"
         android:inputType="textPassword"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintHorizontal_bias="0.468"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.613" />
+        app:layout_constraintVertical_bias="0.615" />
 
     <TextView
         android:id="@+id/textView3"
@@ -83,12 +83,11 @@
         app:layout_constraintVertical_bias="0.697" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btn_login"
         android:layout_width="347dp"
         android:layout_height="50dp"
         android:backgroundTint="#00B1AC"
         android:fontFamily="@font/poppins_regular"
-        android:onClick="principal"
         android:text="Iniciar sesión"
         app:cornerRadius="15dp"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -41,5 +41,11 @@
             android:icon="@drawable/config"
             android:fontFamily="@font/poppins_regular"
             android:title="Configuraciones" />
+
+        <item
+            android:id="@+id/nav_sign_out"
+            android:icon="@drawable/sign_out"
+            android:fontFamily="@font/poppins_regular"
+            android:title="Cerrar sesión" />
     </group>
 </menu>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "787872246422",
+    "project_id": "mylinecard-3a7aa",
+    "storage_bucket": "mylinecard-3a7aa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:787872246422:android:1aff1fbdaa44c5336670b7",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "787872246422-oail21a3anj8ke3u2pc4kh075tlg63s4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6rFevD335BlS1GXVo51c6SpeoURIVaJs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "787872246422-oail21a3anj8ke3u2pc4kh075tlg63s4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
