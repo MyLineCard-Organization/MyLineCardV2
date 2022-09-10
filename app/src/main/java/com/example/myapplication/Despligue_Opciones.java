@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,6 +16,10 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -35,6 +41,7 @@ public class Despligue_Opciones extends AppCompatActivity {
     private FirebaseAuth auth;
     private FirebaseFirestore db;
     private DocumentReference Data;
+    // Prueba
     TextView fullnameOptions;
 
     @Override
@@ -48,6 +55,7 @@ public class Despligue_Opciones extends AppCompatActivity {
         NavigationView navigationView = binding.navView;
         auth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
+        //cardRecarga = (CardView) findViewById(R.id.Recarga);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
@@ -66,6 +74,8 @@ public class Despligue_Opciones extends AppCompatActivity {
             Toast.makeText(Despligue_Opciones.this, "Sesión cerrada", Toast.LENGTH_SHORT).show();
             return true;
         });
+
+
         updateNavHeader();
     }
 
@@ -83,7 +93,6 @@ public class Despligue_Opciones extends AppCompatActivity {
                 || super.onSupportNavigateUp();
     }
     public void updateNavHeader() {
-
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         View herderView = navigationView .getHeaderView(0);
         fullnameOptions = herderView.findViewById(R.id.text_fullname_options);
@@ -114,5 +123,6 @@ public class Despligue_Opciones extends AppCompatActivity {
             /// Data
         }
     }
+
 
 }

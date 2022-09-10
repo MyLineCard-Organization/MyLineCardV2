@@ -18,6 +18,7 @@ public class Passenger {
         this.phone = phone;
         this.direction = direction;
     }
+    public Passenger(){}
 // Get and Set
 
     public String getId() {

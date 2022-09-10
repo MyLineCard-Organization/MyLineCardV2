@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void login(String email, String password){
         String passHash = sha256(password).toString();
-        auth.signInWithEmailAndPassword(email,passHash).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+        auth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){

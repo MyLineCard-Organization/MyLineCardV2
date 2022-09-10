@@ -46,4 +46,23 @@
         android:label="Configuraciones"
         tools:layout="@layout/fragment_configuraciones" />
 
+    <fragment
+        android:id="@+id/nav_Recarga"
+        android:name="com.example.myapplication.Recargar_saldo"
+        android:label="Recargar saldo"
+        tools:layout="@layout/fragment_recargar_saldo" >
+        <action
+            android:id="@+id/action_nav_Recarga_to_nav_Paga_seguro"
+            app:destination="@id/nav_Paga_seguro" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_Paga_seguro"
+        android:name="com.example.myapplication.Paga_seguro"
+        android:label="Paga seguro"
+        tools:layout="@layout/fragment_paga_seguro" >
+        <argument
+            android:name="pricedata"
+            app:argType="string" />
+    </fragment>
+
 </navigation>
