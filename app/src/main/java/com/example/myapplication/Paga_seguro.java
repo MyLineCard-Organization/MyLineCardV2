@@ -72,9 +72,6 @@ public class Paga_seguro extends Fragment {
                 Wallet = db.collection("passenger").document(id)
                         .collection("wallet").document(id);
 
-
-
-
                     Wallet.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                         @Override
                         public void onSuccess(DocumentSnapshot documentSnapshot) {
@@ -85,6 +82,8 @@ public class Paga_seguro extends Fragment {
                                     monto = String.valueOf(Integer.parseInt(monto)+Integer.parseInt(documentSnapshot.getString("balance")));
                                     Map<String,Object> map = new HashMap<>();
                                     map.put("balance", monto);
+                                    map.put("Dia", Dia);
+                                    map.put("Mes", Mes);
                                     db.collection("passenger").document(id)
                                             .collection("wallet").document(id).update(map).addOnSuccessListener(new OnSuccessListener<Void>() {
                                                 @Override
