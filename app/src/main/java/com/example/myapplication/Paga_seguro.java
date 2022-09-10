@@ -72,21 +72,21 @@ public class Paga_seguro extends Fragment {
                 Wallet = db.collection("passenger").document(id)
                         .collection("wallet").document(id);
 
-                if(Wallet.get().isSuccessful()){
+
+
+
                     Wallet.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                         @Override
                         public void onSuccess(DocumentSnapshot documentSnapshot) {
                             if (documentSnapshot.exists()) {
+                                //Toast.makeText(getContext(), "Existe", Toast.LENGTH_SHORT).show();
                                 if(documentSnapshot.getString("balance")!=null){
                                     Toast.makeText(getContext(),"Pago exitoso" , Toast.LENGTH_SHORT).show();
                                     monto = String.valueOf(Integer.parseInt(monto)+Integer.parseInt(documentSnapshot.getString("balance")));
                                     Map<String,Object> map = new HashMap<>();
-                                    map.put("id", id);
                                     map.put("balance", monto);
-                                    map.put("Dia", Dia);
-                                    map.put("Mes", Mes);
                                     db.collection("passenger").document(id)
-                                            .collection("wallet").document(id).set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            .collection("wallet").document(id).update(map).addOnSuccessListener(new OnSuccessListener<Void>() {
                                                 @Override
                                                 public void onSuccess(Void unused) {
                                                     // Lo que pasa cuando se realiza correctamente el pago
@@ -101,11 +101,33 @@ public class Paga_seguro extends Fragment {
                                                     Toast.makeText(getContext(), "Error al procesar los datos", Toast.LENGTH_SHORT).show();
                                                 }
                                             });
-                                    /* Firebase Se crea por primera vez*/
                                 }else {
                                     Toast.makeText(getContext(), "Error al procesar los datos", Toast.LENGTH_SHORT).show();
                                     progressDialog.dismiss();
                                 }
+                            }else {
+                                //Toast.makeText(getContext(), "No existe", Toast.LENGTH_SHORT).show();
+                                Map<String,Object> map = new HashMap<>();
+                                map.put("id", id);
+                                map.put("balance", monto);
+                                map.put("Dia", Dia);
+                                map.put("Mes", Mes);
+                                db.collection("passenger").document(id)
+                                        .collection("wallet").document(id).set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            @Override
+                                            public void onSuccess(Void unused) {
+                                                // Lo que pasa cuando se realiza correctamente el pago
+                                                progressDialog.dismiss();
+                                                NavController navController = Navigation.findNavController(view);
+                                                navController.navigate(R.id.nav_home);
+                                            }
+                                        }).addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
+                                                progressDialog.dismiss();
+                                                Toast.makeText(getContext(), "Error al procesar los datos", Toast.LENGTH_SHORT).show();
+                                            }
+                                        });
                             }
 
                         }
@@ -116,30 +138,7 @@ public class Paga_seguro extends Fragment {
                             Toast.makeText(getContext(), "Null?", Toast.LENGTH_SHORT).show();
                         }
                     });
-                }else {
-                    ////////// Inicializar ///////////
-                    Map<String,Object> map = new HashMap<>();
-                    map.put("id", id);
-                    map.put("balance", monto);
-                    map.put("Dia", Dia);
-                    map.put("Mes", Mes);
-                    db.collection("passenger").document(id)
-                            .collection("wallet").document(id).set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                @Override
-                                public void onSuccess(Void unused) {
-                                    // Lo que pasa cuando se realiza correctamente el pago
-                                    progressDialog.dismiss();
-                                    NavController navController = Navigation.findNavController(view);
-                                    navController.navigate(R.id.nav_home);
-                                }
-                            }).addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    progressDialog.dismiss();
-                                    Toast.makeText(getContext(), "Error al procesar los datos", Toast.LENGTH_SHORT).show();
-                                }
-                            });
-                        }
+
                     }
 
         });
