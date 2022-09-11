@@ -74,8 +74,8 @@ public class Registro_pasajero extends AppCompatActivity {
             Toast.makeText(this, "Complete todos los datos", Toast.LENGTH_SHORT).show();
         }
         else if(Pass.equals(ConfirmPass)){
-            String newPass = sha256(Pass).toString();
-                registerPassenger(Names,Surnames, Email, newPass, Direction, Phone);
+
+                registerPassenger(Names,Surnames, Email, Pass, Direction, Phone);
         }
         else{
             Toast.makeText(this, Pass, Toast.LENGTH_SHORT).show();
@@ -85,6 +85,7 @@ public class Registro_pasajero extends AppCompatActivity {
     }
 
     private void registerPassenger(String name, String surname, String email, String pass, String Direction, String Phone){
+        String newPass = sha256(pass).toString();
         auth.createUserWithEmailAndPassword(email,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -94,7 +95,7 @@ public class Registro_pasajero extends AppCompatActivity {
                 map.put("name", name);
                 map.put("surname", surname);
                 map.put("email", email);
-                map.put("password", pass);
+                map.put("password", newPass);
                 map.put("direction",Direction);
                 map.put("phone",Phone);
 
