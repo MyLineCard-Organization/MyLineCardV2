@@ -27,7 +27,7 @@ public class Recargar_saldo extends Fragment {
             @Override
             public void onClick(View v) {
                 price = (EditText) view.findViewById(R.id.edit_recargar_saldo);
-                    if(Integer.parseInt(price.getText().toString())>0){
+                    if(Double.valueOf(price.getText().toString())>0){
                         NavController navController = Navigation.findNavController(view);
                         NavDirections action = Recargar_saldoDirections.actionNavRecargaToNavPagaSeguro(price.getText().toString());
                         navController.navigate(action);

@@ -65,4 +65,9 @@
             app:argType="string" />
     </fragment>
 
+    <fragment
+        android:id="@+id/nav_pago_exitoso"
+        android:name="com.example.myapplication.Pago_exitoso"
+        android:label="Pago exitoso"
+        tools:layout="@layout/fragment_pago_exitoso"/>
 </navigation>

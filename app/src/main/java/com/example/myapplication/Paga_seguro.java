@@ -23,6 +23,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.text.DecimalFormat;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
@@ -32,7 +33,7 @@ public class Paga_seguro extends Fragment {
     private String id;
     private FirebaseFirestore db;
     private FirebaseAuth auth;
-    private String monto;
+    private Double monto;
     private String Dia, Mes;
     private DocumentReference Wallet;
     private ProgressDialog progressDialog;
@@ -55,7 +56,7 @@ public class Paga_seguro extends Fragment {
 
         ////
         Pagar = (Button) view.findViewById(R.id.paga_seguro_btn);
-        monto = Paga_seguroArgs.fromBundle(getArguments()).getPricedata();
+        monto = Double.valueOf(Paga_seguroArgs.fromBundle(getArguments()).getPricedata());
         Pagar.setText("Pagar S/"+monto+" Soles");
         /////
         Pagar.setOnClickListener(new View.OnClickListener() {
@@ -76,10 +77,9 @@ public class Paga_seguro extends Fragment {
                         @Override
                         public void onSuccess(DocumentSnapshot documentSnapshot) {
                             if (documentSnapshot.exists()) {
-                                //Toast.makeText(getContext(), "Existe", Toast.LENGTH_SHORT).show();
-                                if(documentSnapshot.getString("balance")!=null){
                                     Toast.makeText(getContext(),"Pago exitoso" , Toast.LENGTH_SHORT).show();
-                                    monto = String.valueOf(Integer.parseInt(monto)+Integer.parseInt(documentSnapshot.getString("balance")));
+                                    DecimalFormat twoDForm = new DecimalFormat("#.##");
+                                    monto = Double.valueOf(twoDForm.format(monto+documentSnapshot.getDouble("balance"))) ;
                                     Map<String,Object> map = new HashMap<>();
                                     map.put("balance", monto);
                                     map.put("Dia", Dia);
@@ -100,10 +100,6 @@ public class Paga_seguro extends Fragment {
                                                     Toast.makeText(getContext(), "Error al procesar los datos", Toast.LENGTH_SHORT).show();
                                                 }
                                             });
-                                }else {
-                                    Toast.makeText(getContext(), "Error al procesar los datos", Toast.LENGTH_SHORT).show();
-                                    progressDialog.dismiss();
-                                }
                             }else {
                                 //Toast.makeText(getContext(), "No existe", Toast.LENGTH_SHORT).show();
                                 Map<String,Object> map = new HashMap<>();

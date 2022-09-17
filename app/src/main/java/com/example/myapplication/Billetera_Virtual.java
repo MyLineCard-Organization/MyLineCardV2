@@ -1,20 +1,22 @@
 package com.example.myapplication;
 
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.nfc.NfcAdapter;
+import android.nfc.Tag;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -24,6 +26,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.math.BigInteger;
 
 public class Billetera_Virtual extends Fragment {
     private FirebaseFirestore db;
@@ -62,18 +66,17 @@ public class Billetera_Virtual extends Fragment {
         if(user != null){
             /// Data
             String doc = auth.getCurrentUser().getUid();
-
             Wallet = db.collection("passenger").document(doc)
                     .collection("wallet").document(doc);
             Wallet.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                 @Override
                 public void onSuccess(DocumentSnapshot documentSnapshot) {
                     if (documentSnapshot.exists()) {
-                        Balance.setText(documentSnapshot.getString("balance"));
+                        int mes = 1 + Integer.parseInt(documentSnapshot.getString("Mes"));
+                        Balance.setText(String.valueOf(documentSnapshot.getDouble("balance")));
                         Dia.setText(documentSnapshot.getString("Dia"));
-                        Mes.setText(documentSnapshot.getString("Mes"));
+                        Mes.setText(String.valueOf(mes));
                     }
-
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
@@ -81,9 +84,7 @@ public class Billetera_Virtual extends Fragment {
                     Toast.makeText(getContext(), "Error!", Toast.LENGTH_SHORT).show();
                 }
             });
-
             Data = db.collection("passenger").document(doc);
-
             Data.get()
                     .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                         @Override

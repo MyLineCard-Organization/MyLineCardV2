@@ -27,7 +27,7 @@ public class ListViewTransportPrice extends FirestoreRecyclerAdapter<Transportat
     @Override
     protected void onBindViewHolder(@NonNull ListViewTransportPrice.ViewHolder holder, int position, @NonNull Transportation model) {
         holder.name.setText(model.getName());
-        holder.price.setText(model.getPrice());
+        holder.price.setText(model.getPrice().toString());
     }
 
     @NonNull

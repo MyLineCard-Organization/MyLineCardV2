@@ -4,9 +4,9 @@ public class Transportation {
     private String id;
     private String name;
     private String code;
-    private String price;
+    private Double price;
 
-    public Transportation(String id, String name, String code, String price) {
+    public Transportation(String id, String name, String code, Double price) {
         this.id = id;
         this.name = name;
         this.code = code;
@@ -40,11 +40,11 @@ public class Transportation {
         this.code = code;
     }
 
-    public String getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 }
