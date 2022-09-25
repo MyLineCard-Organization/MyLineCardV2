@@ -11,7 +11,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/txt_comentario_name"
+            android:id="@+id/txt_comentario_name_pasajero"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_semibold"
@@ -21,7 +21,7 @@
 
 
         <TextView
-            android:id="@+id/txt_comentario_texto"
+            android:id="@+id/txt_comentario_texto_pasajero"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_light"
@@ -35,18 +35,6 @@
             android:gravity="center|right"
             android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/edit_respuesta"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:lines="4"
-                android:inputType="textPersonName"
-                android:hint="Respuesta"
-                android:gravity="top"
-                android:textColor="@color/black"
-                android:textSize="15dp" />
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -54,25 +42,15 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/btn_mostrar_respuesta"
+                    android:id="@+id/btn_mostrar_respuesta_pasajero"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
                     android:backgroundTint="#323643"
-                    android:text="Ver comentarios"
+                    android:text="Ver respuestas"
                     android:textColor="@color/white"
                     android:textSize="12dp"
                     app:cornerRadius="15dp" />
 
-                <Button
-                    android:id="@+id/btn_responder"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:backgroundTint="#323643"
-                    android:text="Enviar"
-                    android:textColor="@color/white"
-                    app:cornerRadius="15dp" />
             </LinearLayout>
 
         </LinearLayout>

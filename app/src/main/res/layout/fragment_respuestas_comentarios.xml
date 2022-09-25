@@ -5,10 +5,26 @@
     android:layout_height="match_parent"
     tools:context=".Respuestas_comentarios">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_respuestas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </androidx.recyclerview.widget.RecyclerView>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
-
+        android:gravity="center"
+        android:id="@+id/noFound"
+        android:visibility="invisible"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/poppins_semibold"
+            android:gravity="center"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            android:text="No se encuentran respuestas"/>
+    </LinearLayout>
 </FrameLayout>

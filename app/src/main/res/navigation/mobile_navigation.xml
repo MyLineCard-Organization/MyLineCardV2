@@ -70,4 +70,30 @@
         android:name="com.example.myapplication.Pago_exitoso"
         android:label="Pago exitoso"
         tools:layout="@layout/fragment_pago_exitoso"/>
+
+    <fragment
+        android:id="@+id/nav_sugerencias_reclamos_pasajero"
+        android:name="com.example.myapplication.Sugerencias_reclamos_pasajero"
+        android:label="Sugerencias y reclamos"
+        tools:layout="@layout/fragment_sugerencias_reclamos_pasajero">
+        <action
+            android:id="@+id/action_nav_sugerencias_reclamos_pasajero_to_nav_respuestas_comentarios_pasajero"
+            app:destination="@id/nav_respuestas_comentarios_pasajero" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_respuestas_comentarios_pasajero"
+        android:name="com.example.myapplication.Respuestas_comentarios"
+        android:label="Respuestas a comentarios"
+        tools:layout="@layout/fragment_respuestas_comentarios">
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_preguntas_frecuentes"
+        android:name="com.example.myapplication.Preguntas_frecuentes"
+        android:label="Preguntas frecuentes"
+        tools:layout="@layout/fragment_preguntas_frecuentes"/>
 </navigation>

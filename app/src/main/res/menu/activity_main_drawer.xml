@@ -35,6 +35,16 @@
             android:icon="@drawable/manual"
             android:fontFamily="@font/poppins_regular"
             android:title="Manual de instrucciones" />
+        <item
+            android:id="@+id/nav_sugerencias_reclamos_pasajero"
+            android:icon="@drawable/sugerencias"
+            android:fontFamily="@font/poppins_regular"
+            android:title="Sugerencias y reclamos" />
+        <item
+            android:id="@+id/nav_preguntas_frecuentes"
+            android:icon="@drawable/pregunta"
+            android:fontFamily="@font/poppins_regular"
+            android:title="Preguntas frecuentes" />
 
         <item
             android:id="@+id/nav_configuraciones"

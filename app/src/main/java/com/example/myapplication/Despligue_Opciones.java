@@ -95,7 +95,7 @@ public class Despligue_Opciones extends AppCompatActivity{
         Mes = String.valueOf(calendario.get(Calendar.MONTH)+1);
         context = this;
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_lineas_afiliadas,R.id.nav_tarifas,R.id.nav_rutas,R.id.nav_pagos,R.id.nav_manual,R.id.nav_configuraciones, R.id.nav_sign_out)
+                R.id.nav_home, R.id.nav_lineas_afiliadas,R.id.nav_tarifas,R.id.nav_rutas,R.id.nav_pagos,R.id.nav_manual,R.id.nav_configuraciones, R.id.nav_sugerencias_reclamos_pasajero, R.id.nav_preguntas_frecuentes, R.id.nav_sign_out)
                 .setOpenableLayout(drawer)
                 .build();
         navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_despligue_opciones);
