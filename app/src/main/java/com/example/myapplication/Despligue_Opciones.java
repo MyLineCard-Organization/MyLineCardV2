@@ -135,13 +135,7 @@ public class Despligue_Opciones extends AppCompatActivity{
 
     ///NFC
     private void readFromIntent(Intent intent){
-        date = calendario.get(Calendar.DAY_OF_MONTH)
-                +"/"+ (calendario.get(Calendar.MONTH)+1)
-                +"/"+calendario.get(Calendar.YEAR);
 
-        hour = calendario.get(Calendar.HOUR_OF_DAY)
-                +":"+calendario.get(Calendar.MINUTE)
-                +":"+ calendario.get(Calendar.SECOND);
         String action = intent.getAction();
         if (NfcAdapter.ACTION_TAG_DISCOVERED.equals(action)
                 || NfcAdapter.ACTION_TECH_DISCOVERED.equals(action)
@@ -217,7 +211,13 @@ public class Despligue_Opciones extends AppCompatActivity{
                                                                                                                             @Override
                                                                                                                             public void onSuccess(Void unused) {
                                                                                                                                 //// Historial
+                                                                                                                                date = calendario.get(Calendar.DAY_OF_MONTH)
+                                                                                                                                        +"/"+ (calendario.get(Calendar.MONTH)+1)
+                                                                                                                                        +"/"+calendario.get(Calendar.YEAR);
 
+                                                                                                                                hour = calendario.get(Calendar.HOUR_OF_DAY)
+                                                                                                                                        +":"+calendario.get(Calendar.MINUTE)
+                                                                                                                                        +":"+ calendario.get(Calendar.SECOND);
                                                                                                                                 Map<String,Object> map = new HashMap<>();
                                                                                                                                 map.put("transportation", document.getString("name"));
                                                                                                                                 map.put("date", date);
@@ -426,7 +426,7 @@ public class Despligue_Opciones extends AppCompatActivity{
     }
     public void updateNavHeader() {
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        View herderView = navigationView .getHeaderView(0);
+        View herderView = navigationView.getHeaderView(0);
         fullnameOptions = herderView.findViewById(R.id.text_fullname_options);
         FirebaseUser user = auth.getCurrentUser();
         if(user != null){

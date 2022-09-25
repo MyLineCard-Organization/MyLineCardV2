@@ -35,7 +35,7 @@
                     android:textColor="@color/black" />
 
                 <EditText
-                    android:id="@+id/edit_passager_names"
+                    android:id="@+id/edit_admin_names"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20sp"
@@ -55,7 +55,7 @@
                     android:textColor="@color/black" />
 
                 <EditText
-                    android:id="@+id/edit_passeger_surnames"
+                    android:id="@+id/edit_admin_surnames"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20sp"
@@ -75,7 +75,7 @@
                     android:textColor="@color/black" />
 
                 <EditText
-                    android:id="@+id/edit_passeger_confirm_password"
+                    android:id="@+id/edit_admin_confirm_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20sp"
@@ -106,7 +106,7 @@
                     android:inputType="numberSigned" />
 
                 <Button
-                    android:id="@+id/btn_enlace_pago"
+                    android:id="@+id/btn_admin_register"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20sp"
@@ -135,15 +135,8 @@
             android:gravity="bottom"
             android:orientation="vertical">
 
-            <ImageButton
-                android:id="@+id/lineas_Afiliadas_btn"
-                android:layout_width="87dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15sp"
-                android:src="@drawable/arrow"
-                app:backgroundTint="@android:color/transparent" />
-
             <ImageView
+                android:layout_marginTop="50dp"
                 android:id="@+id/imageView11"
                 android:layout_width="232dp"
                 android:layout_height="170dp"

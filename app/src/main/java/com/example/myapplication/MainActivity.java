@@ -3,6 +3,7 @@ package com.example.myapplication;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
@@ -30,8 +31,10 @@ public class MainActivity extends AppCompatActivity {
     private EditText editEmail, editPassword;
     private Button btn_login;
     private FirebaseAuth auth;
+    private ProgressDialog progressDialog;
     private FirebaseFirestore db;
     private DocumentReference Data;
+    private String id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,9 +57,10 @@ public class MainActivity extends AppCompatActivity {
                 String Password = editPassword.getText().toString().trim();
 
                 if(Email.isEmpty() && Password.isEmpty()){
-                    Toast.makeText(MainActivity.this, "Ingresar los datos >:(", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Llene todas las casillas", Toast.LENGTH_SHORT).show();
                 }else{
                     login(Email, Password);
+                    //startActivity(new Intent(MainActivity.this, Administrador.class));
                 }
             }
         });
@@ -68,8 +72,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    finish();
-                    startActivity(new Intent(MainActivity.this, Despligue_Opciones.class));
+                    id = auth.getCurrentUser().getUid();
+                    isExist(id);
                     Toast.makeText(MainActivity.this, "Bienvenido", Toast.LENGTH_SHORT).show();
                 }else{
                     Toast.makeText(MainActivity.this, "Error", Toast.LENGTH_SHORT).show();
@@ -103,12 +107,34 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onStart() {
+        progressDialog = new ProgressDialog(this);
         super.onStart();
         FirebaseUser user = auth.getCurrentUser();
+
         if(user != null){
-            startActivity(new Intent(MainActivity.this, Despligue_Opciones.class));
-            finish();
+            id = auth.getCurrentUser().getUid();
+            isExist(id);
         }
+
+    }
+
+    public void isExist(String id){
+        progressDialog.setMessage("Espera un momento...");
+        progressDialog.setCanceledOnTouchOutside(false);
+        progressDialog.show();
+        db.collection("passenger").document(id)
+                .get()
+                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                if(documentSnapshot.exists()){
+                    startActivity(new Intent(MainActivity.this, Despligue_Opciones.class));
+                }else{
+                    startActivity(new Intent(MainActivity.this, Administrador.class));
+                }
+            }
+        });
+        progressDialog.dismiss();
     }
 
     public void Registrate(View v)

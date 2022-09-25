@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D1D5DB"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Sugerencias_reclamos_admin">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_line_join"
+        android:layout_width="330dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center|top"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="30dp"
+        app:cardCornerRadius="15dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_sugerencias"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"/>
+    </androidx.cardview.widget.CardView>
+
+    <FrameLayout
+        android:id="@+id/partTwo"
+        android:layout_width="match_parent"
+        android:layout_height="275dp"
+        android:background="#00B1AC">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:gravity="center|top"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:gravity="start"
+                android:text="Sugerencia  y reclamos"
+                android:textColor="@color/white"
+                android:textSize="25dp" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</FrameLayout>

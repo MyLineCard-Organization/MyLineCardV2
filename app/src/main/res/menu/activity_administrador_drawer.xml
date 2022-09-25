@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home2"
+            android:icon="@drawable/home"
+            android:fontFamily="@font/poppins_regular"
+            android:title="@string/menu_home" />
+        <item
+            android:id="@+id/nav_lineas_afiliadas"
+            android:icon="@drawable/bus_line"
+            android:fontFamily="@font/poppins_regular"
+            android:title="Líneas afiliadas" />
+        <item
+            android:id="@+id/nav_tarifas"
+            android:icon="@drawable/tarifa"
+            android:fontFamily="@font/poppins_regular"
+            android:title="Tarifas" />
+        <item
+            android:id="@+id/nav_configuraciones"
+            android:icon="@drawable/config"
+            android:fontFamily="@font/poppins_regular"
+            android:title="Configuraciones" />
+        <item
+            android:id="@+id/nav_sugerencias_reclamos"
+            android:icon="@drawable/sugerencias"
+            android:fontFamily="@font/poppins_regular"
+            android:title="Sugencias y reclamos" />
+        <item
+            android:id="@+id/nav_sign_out_admin"
+            android:icon="@drawable/sign_out"
+            android:fontFamily="@font/poppins_regular"
+            android:title="Cerrar sesión" />
+    </group>
+</menu>

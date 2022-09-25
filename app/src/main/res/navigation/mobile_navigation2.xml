@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation2"
+    app:startDestination="@+id/nav_home2">
+
+    <fragment
+        android:id="@+id/nav_home2"
+        android:name="com.example.myapplication.Estadisticas"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_estadisticas" />
+
+    <fragment
+        android:id="@+id/nav_lineas_afiliadas"
+        android:name="com.example.myapplication.Lineas_Afiliadas"
+        android:label="Líneas afiliadas"
+        tools:layout="@layout/fragment_lineas__afiliadas" />
+    <fragment
+        android:id="@+id/nav_tarifas"
+        android:name="com.example.myapplication.Tarifas"
+        android:label="Tarifas"
+        tools:layout="@layout/fragment_tarifas" />
+
+    <fragment
+        android:id="@+id/nav_configuraciones"
+        android:name="com.example.myapplication.Configuraciones"
+        android:label="Configuraciones"
+        tools:layout="@layout/fragment_configuraciones" />
+
+    <fragment
+        android:id="@+id/nav_sugerencias_reclamos"
+        android:name="com.example.myapplication.Sugerencias_reclamos_admin"
+        android:label="Sugerencias y reclamos"
+        tools:layout="@layout/fragment_sugerencias_reclamos_admin" >
+        <action
+            android:id="@+id/action_nav_sugerencias_reclamos_to_nav_respuestas_comentarios2"
+            app:destination="@id/nav_respuestas_comentarios" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_respuestas_comentarios"
+        android:name="com.example.myapplication.Respuestas_comentarios"
+        android:label="Respuestas a comentarios"
+        tools:layout="@layout/fragment_respuestas_comentarios" >
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </fragment>
+</navigation>

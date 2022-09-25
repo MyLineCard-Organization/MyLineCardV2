@@ -51,12 +51,12 @@ public class Registro_pasajero extends AppCompatActivity {
 
         // Information of EditText
 
-        editName = findViewById(R.id.edit_passager_names);
-        editSurnames = findViewById(R.id.edit_passeger_surnames);
-        editEmail = findViewById(R.id.edit_passeger_email);
-        editPass = findViewById(R.id.edit_passeger_password);
-        editConfirmPass = findViewById(R.id.edit_passeger_confirm_password);
-        editDirection = findViewById(R.id.edit_passeger_direction);
+        editName = findViewById(R.id.edit_passenger_names);
+        editSurnames = findViewById(R.id.edit_passenger_surnames);
+        editEmail = findViewById(R.id.edit_passenger_email);
+        editPass = findViewById(R.id.edit_passenger_password);
+        editConfirmPass = findViewById(R.id.edit_passenger_confirm_password);
+        editDirection = findViewById(R.id.edit_passenger_direction);
         editPhone = findViewById(R.id.edit_passeger_phone);
 
     }

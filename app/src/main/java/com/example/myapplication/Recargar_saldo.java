@@ -22,7 +22,7 @@ public class Recargar_saldo extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_recargar_saldo, container, false);
 
-        enlace = (Button) view.findViewById(R.id.btn_enlace_pago);
+        enlace = (Button) view.findViewById(R.id.btn_admin_register);
         enlace.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

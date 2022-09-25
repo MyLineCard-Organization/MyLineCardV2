@@ -15,6 +15,7 @@
         <entry key="..\:/Users/Sho Lee/Documents/8vo ciclo UPC/Dispositivos moviles/MyLineCardV2/app/src/main/res/drawable/btn_crear_sugerencia_o_reclamo.xml" value="0.1935" />
         <entry key="..\:/Users/Sho Lee/Documents/8vo ciclo UPC/Dispositivos moviles/MyLineCardV2/app/src/main/res/drawable/btn_responder_quejas_y_sugerencias.xml" value="0.1935" />
         <entry key="..\:/Users/Sho Lee/Documents/8vo ciclo UPC/Dispositivos moviles/MyLineCardV2/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1935" />
+        <entry key="..\:/Users/Sho Lee/Documents/8vo ciclo UPC/Dispositivos moviles/MyLineCardV2/app/src/main/res/layout/activity_administrador.xml" value="0.33" />
         <entry key="..\:/Users/Sho Lee/Documents/8vo ciclo UPC/Dispositivos moviles/MyLineCardV2/app/src/main/res/layout/activity_despligue_opciones.xml" value="0.22" />
         <entry key="..\:/Users/Sho Lee/Documents/8vo ciclo UPC/Dispositivos moviles/MyLineCardV2/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/Sho Lee/Documents/8vo ciclo UPC/Dispositivos moviles/MyLineCardV2/app/src/main/res/layout/activity_pasajero_quejas_y_sugerencias.xml" value="0.16" />
@@ -22,11 +23,14 @@
         <entry key="..\:/Users/Sho Lee/Documents/8vo ciclo UPC/Dispositivos moviles/MyLineCardV2/app/src/main/res/layout/activity_recuperar_password.xml" value="0.33" />
         <entry key="..\:/Users/Sho Lee/Documents/8vo ciclo UPC/Dispositivos moviles/MyLineCardV2/app/src/main/res/layout/activity_registro_administrador.xml" value="0.33" />
         <entry key="..\:/Users/Sho Lee/Documents/8vo ciclo UPC/Dispositivos moviles/MyLineCardV2/app/src/main/res/layout/activity_registro_pasajero.xml" value="0.33" />
+        <entry key="..\:/Users/Sho Lee/Documents/8vo ciclo UPC/Dispositivos moviles/MyLineCardV2/app/src/main/res/layout/app_bar_administrador.xml" value="0.3111413043478261" />
         <entry key="..\:/Users/Sho Lee/Documents/8vo ciclo UPC/Dispositivos moviles/MyLineCardV2/app/src/main/res/layout/app_bar_despligue_opciones.xml" value="0.2" />
+        <entry key="..\:/Users/Sho Lee/Documents/8vo ciclo UPC/Dispositivos moviles/MyLineCardV2/app/src/main/res/layout/content_administrador.xml" value="0.3111413043478261" />
         <entry key="..\:/Users/Sho Lee/Documents/8vo ciclo UPC/Dispositivos moviles/MyLineCardV2/app/src/main/res/layout/content_despligue_opciones.xml" value="0.22" />
         <entry key="..\:/Users/Sho Lee/Documents/8vo ciclo UPC/Dispositivos moviles/MyLineCardV2/app/src/main/res/layout/fragment_billetera__virtual.xml" value="0.3686806411837238" />
         <entry key="..\:/Users/Sho Lee/Documents/8vo ciclo UPC/Dispositivos moviles/MyLineCardV2/app/src/main/res/layout/fragment_configuraciones.xml" value="0.25" />
         <entry key="..\:/Users/Sho Lee/Documents/8vo ciclo UPC/Dispositivos moviles/MyLineCardV2/app/src/main/res/layout/fragment_detalle__tarjeta.xml" value="0.15213675213675212" />
+        <entry key="..\:/Users/Sho Lee/Documents/8vo ciclo UPC/Dispositivos moviles/MyLineCardV2/app/src/main/res/layout/fragment_estadisticas.xml" value="0.3111413043478261" />
         <entry key="..\:/Users/Sho Lee/Documents/8vo ciclo UPC/Dispositivos moviles/MyLineCardV2/app/src/main/res/layout/fragment_gallery.xml" value="0.3432971014492754" />
         <entry key="..\:/Users/Sho Lee/Documents/8vo ciclo UPC/Dispositivos moviles/MyLineCardV2/app/src/main/res/layout/fragment_home.xml" value="0.22" />
         <entry key="..\:/Users/Sho Lee/Documents/8vo ciclo UPC/Dispositivos moviles/MyLineCardV2/app/src/main/res/layout/fragment_lineas__afiliadas.xml" value="0.2857142857142857" />
@@ -34,16 +38,23 @@
         <entry key="..\:/Users/Sho Lee/Documents/8vo ciclo UPC/Dispositivos moviles/MyLineCardV2/app/src/main/res/layout/fragment_paga_seguro.xml" value="0.29743589743589743" />
         <entry key="..\:/Users/Sho Lee/Documents/8vo ciclo UPC/Dispositivos moviles/MyLineCardV2/app/src/main/res/layout/fragment_pago_exitoso.xml" value="0.18857142857142858" />
         <entry key="..\:/Users/Sho Lee/Documents/8vo ciclo UPC/Dispositivos moviles/MyLineCardV2/app/src/main/res/layout/fragment_pagos__realizados.xml" value="0.35493519441674976" />
-        <entry key="..\:/Users/Sho Lee/Documents/8vo ciclo UPC/Dispositivos moviles/MyLineCardV2/app/src/main/res/layout/fragment_pasajeros_preguntas_y_respuestas.xml" value="0.1" />
+        <entry key="..\:/Users/Sho Lee/Documents/8vo ciclo UPC/Dispositivos moviles/MyLineCardV2/app/src/main/res/layout/fragment_pasajero_quejas_y_sugerencias.xml" value="0.3111413043478261" />
+        <entry key="..\:/Users/Sho Lee/Documents/8vo ciclo UPC/Dispositivos moviles/MyLineCardV2/app/src/main/res/layout/fragment_pasajero_registro_quejas_y_sugerencias.xml" value="0.3111413043478261" />
+        <entry key="..\:/Users/Sho Lee/Documents/8vo ciclo UPC/Dispositivos moviles/MyLineCardV2/app/src/main/res/layout/fragment_pasajeros_preguntas_y_respuestas.xml" value="0.33" />
         <entry key="..\:/Users/Sho Lee/Documents/8vo ciclo UPC/Dispositivos moviles/MyLineCardV2/app/src/main/res/layout/fragment_recargar_saldo.xml" value="0.33" />
         <entry key="..\:/Users/Sho Lee/Documents/8vo ciclo UPC/Dispositivos moviles/MyLineCardV2/app/src/main/res/layout/fragment_rutas.xml" value="0.1" />
         <entry key="..\:/Users/Sho Lee/Documents/8vo ciclo UPC/Dispositivos moviles/MyLineCardV2/app/src/main/res/layout/fragment_slideshow.xml" value="0.3432971014492754" />
+        <entry key="..\:/Users/Sho Lee/Documents/8vo ciclo UPC/Dispositivos moviles/MyLineCardV2/app/src/main/res/layout/fragment_sugerencias_reclamos_admin.xml" value="0.3111413043478261" />
         <entry key="..\:/Users/Sho Lee/Documents/8vo ciclo UPC/Dispositivos moviles/MyLineCardV2/app/src/main/res/layout/fragment_tarifas.xml" value="0.25" />
+        <entry key="..\:/Users/Sho Lee/Documents/8vo ciclo UPC/Dispositivos moviles/MyLineCardV2/app/src/main/res/layout/nav_header_administrador.xml" value="0.3111413043478261" />
         <entry key="..\:/Users/Sho Lee/Documents/8vo ciclo UPC/Dispositivos moviles/MyLineCardV2/app/src/main/res/layout/nav_header_despligue_opciones.xml" value="0.25" />
+        <entry key="..\:/Users/Sho Lee/Documents/8vo ciclo UPC/Dispositivos moviles/MyLineCardV2/app/src/main/res/layout/view_comment_admin.xml" value="0.3111413043478261" />
         <entry key="..\:/Users/Sho Lee/Documents/8vo ciclo UPC/Dispositivos moviles/MyLineCardV2/app/src/main/res/layout/view_historial.xml" value="0.3828571428571429" />
         <entry key="..\:/Users/Sho Lee/Documents/8vo ciclo UPC/Dispositivos moviles/MyLineCardV2/app/src/main/res/layout/view_lineas_afiliadas.xml" value="0.3076923076923077" />
         <entry key="..\:/Users/Sho Lee/Documents/8vo ciclo UPC/Dispositivos moviles/MyLineCardV2/app/src/main/res/layout/view_lineas_price.xml" value="0.2965811965811966" />
+        <entry key="..\:/Users/Sho Lee/Documents/8vo ciclo UPC/Dispositivos moviles/MyLineCardV2/app/src/main/res/menu/activity_administrador_drawer.xml" value="0.3614583333333333" />
         <entry key="..\:/Users/Sho Lee/Documents/8vo ciclo UPC/Dispositivos moviles/MyLineCardV2/app/src/main/res/menu/activity_main_drawer.xml" value="0.33" />
+        <entry key="..\:/Users/Sho Lee/Documents/8vo ciclo UPC/Dispositivos moviles/MyLineCardV2/app/src/main/res/menu/administrador.xml" value="0.3625" />
         <entry key="..\:/Users/Sho Lee/Documents/8vo ciclo UPC/Dispositivos moviles/MyLineCardV2/app/src/main/res/menu/despligue__opciones.xml" value="0.33" />
         <entry key="..\:/Users/Sho Lee/Documents/8vo ciclo UPC/Dispositivos moviles/MyLineCardV2/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1935" />
         <entry key="..\:/Users/Sho Lee/Documents/8vo ciclo UPC/Dispositivos moviles/MyLineCardV2/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1935" />

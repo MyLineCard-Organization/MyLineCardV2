@@ -140,7 +140,7 @@
                                 android:textColor="@color/black" />
 
                             <EditText
-                                android:id="@+id/edit_passager_names"
+                                android:id="@+id/edit_passenger_names"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="20sp"
@@ -160,7 +160,7 @@
                                 android:textColor="@color/black" />
 
                             <EditText
-                                android:id="@+id/edit_passeger_surnames"
+                                android:id="@+id/edit_passenger_surnames"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="20sp"
@@ -180,7 +180,7 @@
                                 android:textColor="@color/black" />
 
                             <EditText
-                                android:id="@+id/edit_passeger_email"
+                                android:id="@+id/edit_passenger_email"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="20sp"
@@ -200,7 +200,7 @@
                                 android:textColor="@color/black" />
 
                             <EditText
-                                android:id="@+id/edit_passeger_password"
+                                android:id="@+id/edit_passenger_password"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="20sp"
@@ -220,7 +220,7 @@
                                 android:textColor="@color/black" />
 
                             <EditText
-                                android:id="@+id/edit_passeger_confirm_password"
+                                android:id="@+id/edit_passenger_confirm_password"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="20sp"
@@ -240,7 +240,7 @@
                                 android:textColor="@color/black" />
 
                             <EditText
-                                android:id="@+id/edit_passeger_direction"
+                                android:id="@+id/edit_passenger_direction"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="20sp"
@@ -254,7 +254,6 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="20sp"
                                 android:layout_marginTop="10sp"
-
                                 android:layout_marginEnd="20sp"
                                 android:fontFamily="@font/poppins_regular"
                                 android:text="Número de telefono"
