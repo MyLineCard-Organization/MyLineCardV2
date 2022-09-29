@@ -92,6 +92,29 @@
                     android:textSize="12dp" />
             </LinearLayout>
 
+            <TextView
+                android:id="@+id/txt_pagado4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_light"
+                android:gravity="center"
+                android:text="Comparado con el mes pasado:"
+                android:textColor="@color/black"
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/txt_estado_mes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_bold"
+                android:gravity="center"
+                android:text="estado"
+                android:textColor="@color/black"
+                android:textSize="12dp" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

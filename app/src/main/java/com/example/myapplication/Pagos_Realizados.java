@@ -48,7 +48,7 @@ public class Pagos_Realizados extends Fragment {
         firebaseFirestore = FirebaseFirestore.getInstance();
         recyclerView=view.findViewById(R.id.recyclerview_pago_realizados);
         String id = auth.getCurrentUser().getUid();
-        Query query = firebaseFirestore.collection("passenger").document(id).collection("historic");
+        Query query = firebaseFirestore.collection("passenger").document(id).collection("historic").orderBy("hour", Query.Direction.DESCENDING);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         // Inflate the layout for this fragment
         FirestoreRecyclerOptions<Historic> firestoreRecyclerOptions = new FirestoreRecyclerOptions

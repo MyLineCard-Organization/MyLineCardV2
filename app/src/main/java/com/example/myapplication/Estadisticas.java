@@ -32,10 +32,11 @@ public class Estadisticas extends Fragment {
     private FirebaseFirestore db;
     private String Mes;
     private String Year;
-    TextView total_pagado, mes_de_pago, total_pagado_all;
+    TextView total_pagado, mes_de_pago, total_pagado_all, txt_estado_mes;
     Button btn_seleccionar_mes;
-    Double total;
+    Double total, retornado, total_pasado;
     Double total_year;
+    Calendar calendario;
     Spinner spinner_mes, spinner_year;
 
     @Override
@@ -47,11 +48,13 @@ public class Estadisticas extends Fragment {
         auth = FirebaseAuth.getInstance();
         total_pagado = view.findViewById(R.id.txt_total_pagado);
         mes_de_pago = view.findViewById(R.id.txt_pagado_mes);
+        retornado = 0.0;
+        txt_estado_mes = view.findViewById(R.id.txt_estado_mes);
         total_pagado_all = view.findViewById(R.id.txt_pagado_year_all);
         btn_seleccionar_mes = view.findViewById(R.id.btn_seleccionar_mes);
         spinner_mes = view.findViewById(R.id.spinner_mes);
         spinner_year = view.findViewById(R.id.spinner_year);
-        Calendar calendario = Calendar.getInstance();
+        calendario = Calendar.getInstance();
         Mes = String.valueOf(calendario.get(Calendar.MONTH)+1);
         Year = String.valueOf(calendario.get(Calendar.YEAR));
         String [] years = {"2020","2021","2022","2023","2024","2025","2026","2027","2028","2029","2030"};
@@ -61,7 +64,6 @@ public class Estadisticas extends Fragment {
         String [] meses = {"Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"};
         ArrayAdapter <String> adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, meses);
         spinner_mes.setAdapter(adapter);
-
         btn_seleccionar_mes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,6 +83,72 @@ public class Estadisticas extends Fragment {
         super.onStart();
         estadisticas(Mes, Year);
         estadisticas_year(Year);
+        compararMesAnterior(calendario.get(Calendar.MONTH)+1,Year);
+    }
+
+    public void compararMesAnterior(int mesActual, String year){
+        if (mesActual == 1) {
+            txt_estado_mes.setText("El mes anterior pertenece al año anterior");
+        }else
+        {
+            total_pasado=0.0;
+            db.collection("administrator")
+                    .document(auth.getCurrentUser().getUid())
+                    .get()
+                    .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                            if (task.isSuccessful()) {
+                                DocumentSnapshot documentUID = task.getResult();
+                                if (documentUID.exists()) {
+                                    db.collection("transportation")
+                                            .document(documentUID.getString("transport_id"))
+                                            .collection("record")
+                                            .get()
+                                            .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                                    if (task.isSuccessful()) {
+                                                        for (QueryDocumentSnapshot document : task.getResult()) {
+                                                            db.collection("transportation")
+                                                                    .document(documentUID.getString("transport_id"))
+                                                                    .collection(document.getId())
+                                                                    .whereEqualTo("month", String.valueOf(mesActual-1))
+                                                                    .whereEqualTo("year", year)
+                                                                    .get()
+                                                                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                                                        @Override
+                                                                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                                                            if (task.isSuccessful()) {
+                                                                                for (QueryDocumentSnapshot documentTotal : task.getResult()) {
+                                                                                        DecimalFormat twoDForm = new DecimalFormat("#.##");
+                                                                                        total_pasado += Double.valueOf(twoDForm
+                                                                                                .format(documentTotal.getDouble("earnings")));
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    });
+                                                        }
+                                                        if (retornado ==0.0){
+                                                            txt_estado_mes.setText("No hay datos del mes actual");
+                                                        }
+                                                        else if (total_pasado == 0.0){
+                                                            txt_estado_mes.setText("No hay datos del mes anterior");
+                                                        } else if (total_pasado > retornado) {
+                                                            txt_estado_mes.setText("El mes anterior fue más rentable");
+                                                        } else if (total_pasado < retornado) {
+                                                            txt_estado_mes.setText("El mes anterior fue menos rentable");
+                                                        } else if (total_pasado == retornado) {
+                                                            txt_estado_mes.setText("El mes fue igual al anterior");
+                                                        }
+                                                    }
+                                                }
+                                            });
+                                }
+                            }
+                        }
+                    });
+        }
     }
 
     public void estadisticas(String mes, String year){
@@ -121,11 +189,13 @@ public class Estadisticas extends Fragment {
                                                                                 total += Double.valueOf(twoDForm
                                                                                         .format(documentTotal.getDouble("earnings")));
                                                                             }
+                                                                            retornado = total;
                                                                             total_pagado.setText(String.valueOf(total));
                                                                         }
                                                                     }
                                                                 });
                                                     }
+                                                    compararMesAnterior(Integer.parseInt(mes),year);
                                                 }
                                             }
                                         });

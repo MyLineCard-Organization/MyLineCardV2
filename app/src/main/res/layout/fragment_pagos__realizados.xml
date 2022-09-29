@@ -16,7 +16,10 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview_pago_realizados"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:paddingLeft="15dp"
+            android:paddingTop="10dp"
+            android:paddingRight="15dp" />
     </androidx.cardview.widget.CardView>
 
     <FrameLayout

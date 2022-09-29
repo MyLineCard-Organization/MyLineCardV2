@@ -40,7 +40,9 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.math.BigInteger;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -65,10 +67,6 @@ public class Despligue_Opciones extends AppCompatActivity{
     String Mes, Year;
     NavController navController;
     Calendar calendario;
-    Float Pasaje;
-    String date;
-    String hour;
-    //
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -204,34 +202,7 @@ public class Despligue_Opciones extends AppCompatActivity{
                                                                                                                         .update(map).addOnSuccessListener(new OnSuccessListener<Void>() {
                                                                                                                             @Override
                                                                                                                             public void onSuccess(Void unused) {
-                                                                                                                                //// Historial
-                                                                                                                                date = calendario.get(Calendar.DAY_OF_MONTH)
-                                                                                                                                        +"/"+ (calendario.get(Calendar.MONTH)+1)
-                                                                                                                                        +"/"+calendario.get(Calendar.YEAR);
-
-                                                                                                                                hour = calendario.get(Calendar.HOUR_OF_DAY)
-                                                                                                                                        +":"+calendario.get(Calendar.MINUTE)
-                                                                                                                                        +":"+ calendario.get(Calendar.SECOND);
-                                                                                                                                Map<String,Object> map = new HashMap<>();
-                                                                                                                                map.put("transportation", document.getString("name"));
-                                                                                                                                map.put("date", date);
-                                                                                                                                map.put("hour", hour);
-                                                                                                                                map.put("price", document.getDouble("price"));
-
-                                                                                                                                db.collection("passenger")
-                                                                                                                                        .document(id)
-                                                                                                                                        .collection("historic")
-                                                                                                                                        .document()
-                                                                                                                                        .set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                                                                                                                            @Override
-                                                                                                                                            public void onSuccess(Void unused) {
-
-                                                                                                                                            }
-                                                                                                                                        });
-                                                                                                                                // Se actualizo correctamente
-                                                                                                                                MediaPlayer mp = MediaPlayer.create(Despligue_Opciones.this,R.raw.sound);
-                                                                                                                                mp.start();
-                                                                                                                                navController.navigate(R.id.nav_pago_exitoso);
+                                                                                                                                Historial(document, id);
                                                                                                                             }
                                                                                                                         }).addOnFailureListener(new OnFailureListener() {
                                                                                                                             @Override
@@ -299,32 +270,7 @@ public class Despligue_Opciones extends AppCompatActivity{
                                                                                                                         .document().set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
                                                                                                                             @Override
                                                                                                                             public void onSuccess(Void unused) {
-                                                                                                                                //// Historial
-                                                                                                                                String date = calendario.get(Calendar.DAY_OF_MONTH)
-                                                                                                                                        +"/"+ calendario.get(Calendar.MONTH)
-                                                                                                                                        +"/"+calendario.get(Calendar.YEAR);
-
-                                                                                                                                String hour = calendario.get(Calendar.HOUR_OF_DAY)
-                                                                                                                                        +":"+calendario.get(Calendar.MINUTE)
-                                                                                                                                        +":"+ calendario.get(Calendar.SECOND);
-                                                                                                                                Map<String,Object> map = new HashMap<>();
-                                                                                                                                map.put("transportation", document.getString("name"));
-                                                                                                                                map.put("date", date);
-                                                                                                                                map.put("hour", hour);
-                                                                                                                                map.put("price", document.getDouble("price"));
-
-                                                                                                                                db.collection("passenger")
-                                                                                                                                        .document(id)
-                                                                                                                                        .collection("historic")
-                                                                                                                                        .document()
-                                                                                                                                        .set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                                                                                                                            @Override
-                                                                                                                                            public void onSuccess(Void unused) {
-
-                                                                                                                                            }
-                                                                                                                                        });
-                                                                                                                                // Se creo nuevo documento
-                                                                                                                                navController.navigate(R.id.nav_pago_exitoso);
+                                                                                                                               Historial(document, id);
                                                                                                                             }
                                                                                                                         }).addOnFailureListener(new OnFailureListener() {
                                                                                                                             @Override
@@ -378,6 +324,75 @@ public class Despligue_Opciones extends AppCompatActivity{
             //Toast.makeText(context, "No detecta", Toast.LENGTH_SHORT).show();
         }
     }///
+
+    public void Historial(QueryDocumentSnapshot document,String id){
+        // Funtion autoincrement
+        db.collection("passenger")
+                .document(id)
+                .collection("position")
+                .document("pos")
+                .get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshotNumber) {
+                        if(documentSnapshotNumber.exists()){
+                            /// Historial
+                            SimpleDateFormat Fecha = new SimpleDateFormat("dd/MM/yyyy");
+                            SimpleDateFormat Hora = new SimpleDateFormat("HH:mm:ss");
+                            String FechaFormat = Fecha.format(new Date());
+                            String HoraFormat = Hora.format(new Date());
+
+                            Map<String,Object> map = new HashMap<>();
+                            map.put("transportation", document.getString("name"));
+                            map.put("date", FechaFormat);
+                            map.put("hour", HoraFormat);
+                            map.put("price", document.getDouble("price"));
+
+                            db.collection("passenger")
+                                    .document(id)
+                                    .collection("historic")
+                                    .document(String.valueOf(Integer.parseInt(documentSnapshotNumber.getString("position"))+1))
+                                    .set(map);
+                            Map<String,Object> posi = new HashMap<>();
+                            posi.put("position", String.valueOf(Integer.parseInt(documentSnapshotNumber.getString("position"))+1));
+                            db.collection("passenger")
+                                    .document(id)
+                                    .collection("position")
+                                    .document("pos")
+                                    .update(posi);
+                        }else {
+                            Map<String,Object> posi = new HashMap<>();
+                            posi.put("position", "1");
+                            db.collection("passenger")
+                                    .document(id)
+                                    .collection("position")
+                                    .document("pos")
+                                    .set(posi);
+                            /// Historial
+                            SimpleDateFormat Fecha = new SimpleDateFormat("dd/MM/yyyy");
+                            SimpleDateFormat Hora = new SimpleDateFormat("HH:mm:ss");
+                            String FechaFormat = Fecha.format(new Date());
+                            String HoraFormat = Hora.format(new Date());
+
+                            Map<String,Object> map2 = new HashMap<>();
+                            map2.put("transportation", document.getString("name"));
+                            map2.put("date", FechaFormat);
+                            map2.put("hour", HoraFormat);
+                            map2.put("price", document.getDouble("price"));
+
+                            db.collection("passenger")
+                                    .document(id)
+                                    .collection("historic")
+                                    .document("1")
+                                    .set(map2);
+                        }
+                    }
+                });
+
+        // Se actualizo correctamente
+        MediaPlayer mp = MediaPlayer.create(Despligue_Opciones.this,R.raw.sound);
+        mp.start();
+        navController.navigate(R.id.nav_pago_exitoso);
+    }
 
     static String bin2hex(byte[] data) {
         return String.format("%0" + (data.length * 2) + "X", new BigInteger(1,data));

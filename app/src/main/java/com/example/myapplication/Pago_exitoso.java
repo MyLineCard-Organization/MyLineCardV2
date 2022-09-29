@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -25,8 +26,9 @@ public class Pago_exitoso extends Fragment {
         View view = inflater.inflate(R.layout.fragment_pago_exitoso, container, false);
         inicio = (Button) view.findViewById(R.id.pago_exitoso_btn);
         hora = (TextView) view.findViewById(R.id.hora);
-        Calendar calendario = Calendar.getInstance();
-        hora.setText(calendario.get(Calendar.HOUR_OF_DAY)+ ":"+calendario.get(Calendar.MINUTE)+":"+calendario.get(Calendar.SECOND));
+        SimpleDateFormat Hora = new SimpleDateFormat("HH:mm:ss");
+        String HoraFormat = Hora.format(new Date());
+        hora.setText(HoraFormat);
         inicio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
