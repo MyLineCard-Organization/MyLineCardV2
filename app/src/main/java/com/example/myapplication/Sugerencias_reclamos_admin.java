@@ -28,7 +28,7 @@ public class Sugerencias_reclamos_admin extends Fragment {
     FirebaseFirestore firebaseFirestore;
     private FirebaseAuth auth;
     private FirebaseFirestore db;
-
+    /*
     @Override
     public void onStart() {
         super.onStart();
@@ -39,7 +39,7 @@ public class Sugerencias_reclamos_admin extends Fragment {
     public void onStop() {
         super.onStop();
         //Adapter.stopListening();
-    }
+    }*/
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

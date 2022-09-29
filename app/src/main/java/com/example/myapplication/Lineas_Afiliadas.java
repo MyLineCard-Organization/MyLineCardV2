@@ -8,6 +8,7 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,7 +26,7 @@ public class Lineas_Afiliadas extends Fragment {
     RecyclerView recyclerView;
     ListViewTransport Adapter;
     FirebaseFirestore firebaseFirestore;
-
+    /*
     @Override
     public void onStart() {
         super.onStart();
@@ -36,7 +37,7 @@ public class Lineas_Afiliadas extends Fragment {
     public void onStop() {
         super.onStop();
         Adapter.stopListening();
-    }
+    }*/
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -50,13 +51,21 @@ public class Lineas_Afiliadas extends Fragment {
         firebaseFirestore = FirebaseFirestore.getInstance();
         recyclerView=view.findViewById(R.id.recyclerview_afiliados);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        Query query = firebaseFirestore.collection("transportation");
-        FirestoreRecyclerOptions<Transportation> firestoreRecyclerOptions = new FirestoreRecyclerOptions
-                .Builder<Transportation>().setQuery(query,Transportation.class).build();
 
-        Adapter = new ListViewTransport(firestoreRecyclerOptions);
-        Adapter.notifyDataSetChanged();
-        recyclerView.setAdapter(Adapter);
+        try {
+            Query query = firebaseFirestore.collection("transportation");
+            FirestoreRecyclerOptions<Transportation> firestoreRecyclerOptions = new FirestoreRecyclerOptions
+                    .Builder<Transportation>().setQuery(query,Transportation.class).build();
+
+            Adapter = new ListViewTransport(firestoreRecyclerOptions);
+            Adapter.notifyDataSetChanged();
+            recyclerView.setAdapter(Adapter);
+            Adapter.startListening();
+        }catch (Exception e){
+            e.printStackTrace();
+            Log.e("Error",e.getMessage());
+        }
+
         btnBack = (ImageButton) view.findViewById(R.id.lineas_Afiliadas_btn);
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override

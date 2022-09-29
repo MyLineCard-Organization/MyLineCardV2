@@ -46,7 +46,7 @@ public class Sugerencias_reclamos_pasajero extends Fragment {
     String [] id_empresa={};
     private FirebaseAuth auth;
     private FirebaseFirestore db;
-
+    /*
     @Override
     public void onStart() {
         super.onStart();
@@ -57,7 +57,7 @@ public class Sugerencias_reclamos_pasajero extends Fragment {
     public void onStop() {
         super.onStop();
         Adapter.stopListening();
-    }
+    }*/
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -81,6 +81,7 @@ public class Sugerencias_reclamos_pasajero extends Fragment {
         Adapter = new ListViewCommentPassenger(firestoreRecyclerOptions);
         Adapter.notifyDataSetChanged();
         recyclerView.setAdapter(Adapter);
+        Adapter.startListening();
         empresasExistentes();
         btn_seleccionar_empresa.setOnClickListener(new View.OnClickListener() {
             @Override

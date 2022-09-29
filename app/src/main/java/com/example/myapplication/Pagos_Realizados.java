@@ -26,7 +26,7 @@ public class Pagos_Realizados extends Fragment {
     RecyclerView recyclerView;
     ListViewHistoric Adapter;
     FirebaseFirestore firebaseFirestore;
-
+    /*
     @Override
     public void onStart() {
         super.onStart();
@@ -37,7 +37,7 @@ public class Pagos_Realizados extends Fragment {
     public void onStop() {
         super.onStop();
         Adapter.stopListening();
-    }
+    }*/
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -53,10 +53,10 @@ public class Pagos_Realizados extends Fragment {
         // Inflate the layout for this fragment
         FirestoreRecyclerOptions<Historic> firestoreRecyclerOptions = new FirestoreRecyclerOptions
                 .Builder<Historic>().setQuery(query,Historic.class).build();
-
         Adapter = new ListViewHistoric(firestoreRecyclerOptions);
         Adapter.notifyDataSetChanged();
         recyclerView.setAdapter(Adapter);
+        Adapter.startListening();
 
         return view;
     }

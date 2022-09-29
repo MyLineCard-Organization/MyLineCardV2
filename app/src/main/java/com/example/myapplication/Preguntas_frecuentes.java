@@ -25,6 +25,7 @@ public class Preguntas_frecuentes extends Fragment {
     ListViewQuestions Adapter;
     FirebaseFirestore firebaseFirestore;
 
+    /*
     @Override
     public void onStart() {
         super.onStart();
@@ -35,7 +36,7 @@ public class Preguntas_frecuentes extends Fragment {
     public void onStop() {
         super.onStop();
         Adapter.stopListening();
-    }
+    }*/
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -50,6 +51,7 @@ public class Preguntas_frecuentes extends Fragment {
         Adapter = new ListViewQuestions(firestoreRecyclerOptions);
         Adapter.notifyDataSetChanged();
         recyclerView.setAdapter(Adapter);
+        Adapter.startListening();
         return view;
     }
 }

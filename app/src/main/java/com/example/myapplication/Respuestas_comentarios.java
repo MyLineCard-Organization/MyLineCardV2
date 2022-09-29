@@ -31,7 +31,7 @@ public class Respuestas_comentarios extends Fragment {
     ListViewSeeAnswer Adapter;
     FirebaseFirestore firebaseFirestore;
     LinearLayout noFound;
-
+    /*
     @Override
     public void onStart() {
         super.onStart();
@@ -42,7 +42,7 @@ public class Respuestas_comentarios extends Fragment {
     public void onStop() {
         super.onStop();
         Adapter.stopListening();
-    }
+    }*/
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -72,7 +72,7 @@ public class Respuestas_comentarios extends Fragment {
         Adapter = new ListViewSeeAnswer(firestoreRecyclerOptions);
         Adapter.notifyDataSetChanged();
         recyclerView.setAdapter(Adapter);
-
+        Adapter.startListening();
         return view;
     }
 }

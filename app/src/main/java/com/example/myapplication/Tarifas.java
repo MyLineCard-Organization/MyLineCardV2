@@ -22,7 +22,7 @@ public class Tarifas extends Fragment {
     RecyclerView recyclerView;
     ListViewTransportPrice Adapter;
     FirebaseFirestore firebaseFirestore;
-
+    /*
     @Override
     public void onStart() {
         super.onStart();
@@ -33,7 +33,7 @@ public class Tarifas extends Fragment {
     public void onStop() {
         super.onStop();
         Adapter.stopListening();
-    }
+    }*/
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -45,10 +45,10 @@ public class Tarifas extends Fragment {
         Query query = firebaseFirestore.collection("transportation");
         FirestoreRecyclerOptions<Transportation> firestoreRecyclerOptions = new FirestoreRecyclerOptions
                 .Builder<Transportation>().setQuery(query,Transportation.class).build();
-
         Adapter = new ListViewTransportPrice(firestoreRecyclerOptions);
         Adapter.notifyDataSetChanged();
         recyclerView.setAdapter(Adapter);
+        Adapter.startListening();
         return view;
     }
 }
