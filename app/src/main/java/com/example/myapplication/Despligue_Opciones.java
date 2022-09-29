@@ -1,26 +1,20 @@
 package com.example.myapplication;
 
-import android.app.AlertDialog;
+
 import android.app.PendingIntent;
-import android.content.ClipData;
+
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.media.MediaPlayer;
 import android.nfc.NfcAdapter;
 import android.nfc.Tag;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -28,10 +22,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -48,8 +38,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.math.BigInteger;
 import java.text.DecimalFormat;
 import java.util.Calendar;
@@ -116,6 +104,7 @@ public class Despligue_Opciones extends AppCompatActivity{
         writingTagFilters = new IntentFilter[] { tagDetected };
         //
         NavigationView SignOut = findViewById(R.id.nav_sign_out);
+        navigationView.setItemIconTintList(null);
         navigationView.getMenu().findItem(R.id.nav_sign_out).setOnMenuItemClickListener(menuItem -> {
             finish();
             auth.signOut();
@@ -147,7 +136,8 @@ public class Despligue_Opciones extends AppCompatActivity{
             Tag tag = getIntent().getParcelableExtra(NfcAdapter.EXTRA_TAG);
             //byte[] tagId = getActivity().getIntent().getByteArrayExtra(NfcAdapter.EXTRA_ID);
             UID = bin2hex(tag.getId());
-            Toast.makeText(context, "UID: " + bin2hex(tag.getId()), Toast.LENGTH_SHORT).show();
+            //Toast.makeText(context, "UID: " + bin2hex(tag.getId()), Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Procesando pago...", Toast.LENGTH_SHORT).show();
             // Query para buscar uid
             db.collection("transportation")
                     .get()

@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -30,10 +31,12 @@ public class Estadisticas extends Fragment {
     private FirebaseAuth auth;
     private FirebaseFirestore db;
     private String Mes;
-    TextView total_pagado, mes_de_pago;
+    private String Year;
+    TextView total_pagado, mes_de_pago, total_pagado_all;
     Button btn_seleccionar_mes;
     Double total;
-    Spinner spinner_mes;
+    Double total_year;
+    Spinner spinner_mes, spinner_year;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -44,10 +47,17 @@ public class Estadisticas extends Fragment {
         auth = FirebaseAuth.getInstance();
         total_pagado = view.findViewById(R.id.txt_total_pagado);
         mes_de_pago = view.findViewById(R.id.txt_pagado_mes);
+        total_pagado_all = view.findViewById(R.id.txt_pagado_year_all);
         btn_seleccionar_mes = view.findViewById(R.id.btn_seleccionar_mes);
         spinner_mes = view.findViewById(R.id.spinner_mes);
+        spinner_year = view.findViewById(R.id.spinner_year);
         Calendar calendario = Calendar.getInstance();
         Mes = String.valueOf(calendario.get(Calendar.MONTH)+1);
+        Year = String.valueOf(calendario.get(Calendar.YEAR));
+        String [] years = {"2020","2021","2022","2023","2024","2025","2026","2027","2028","2029","2030"};
+        ArrayAdapter<String> adapter_year = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, years);
+        spinner_year.setAdapter(adapter_year);
+
         String [] meses = {"Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"};
         ArrayAdapter <String> adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, meses);
         spinner_mes.setAdapter(adapter);
@@ -56,8 +66,10 @@ public class Estadisticas extends Fragment {
             @Override
             public void onClick(View v) {
                 int mes = spinner_mes.getSelectedItemPosition()+1;
-                estadisticas(String.valueOf(mes));
+                String year = spinner_year.getSelectedItem().toString();
+                estadisticas(String.valueOf(mes), year);
                 mesEscopido(String.valueOf(mes));
+                estadisticas_year(year);
             }
         });
 
@@ -67,10 +79,11 @@ public class Estadisticas extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        estadisticas(Mes);
+        estadisticas(Mes, Year);
+        estadisticas_year(Year);
     }
 
-    public void estadisticas(String mes){
+    public void estadisticas(String mes, String year){
         total=0.0;
         db.collection("administrator")
                 .document(auth.getCurrentUser().getUid())
@@ -95,6 +108,7 @@ public class Estadisticas extends Fragment {
                                                                 .document(documentUID.getString("transport_id"))
                                                                 .collection(document.getId())
                                                                 .whereEqualTo("month", mes)
+                                                                .whereEqualTo("year", year)
                                                                 .get()
                                                                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                                                                     @Override
@@ -108,6 +122,56 @@ public class Estadisticas extends Fragment {
                                                                                         .format(documentTotal.getDouble("earnings")));
                                                                             }
                                                                             total_pagado.setText(String.valueOf(total));
+                                                                        }
+                                                                    }
+                                                                });
+                                                    }
+                                                }
+                                            }
+                                        });
+                            }
+                        }
+                    }
+                });
+    }
+
+    public void estadisticas_year(String year){
+        total_year=0.0;
+        db.collection("administrator")
+                .document(auth.getCurrentUser().getUid())
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if (task.isSuccessful()) {
+                            DocumentSnapshot documentUID = task.getResult();
+                            if (documentUID.exists()) {
+                                db.collection("transportation")
+                                        .document(documentUID.getString("transport_id"))
+                                        .collection("record")
+                                        .get()
+                                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                                if (task.isSuccessful()) {
+                                                    for (QueryDocumentSnapshot document : task.getResult()) {
+                                                        db.collection("transportation")
+                                                                .document(documentUID.getString("transport_id"))
+                                                                .collection(document.getId())
+                                                                .whereEqualTo("year", year)
+                                                                .get()
+                                                                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                                                    @Override
+                                                                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                                                        if (task.isSuccessful()) {
+                                                                            for (QueryDocumentSnapshot documentTotal : task.getResult()) {
+                                                                                DecimalFormat twoDForm = new DecimalFormat("#.##");
+                                                                                Log.d("Total", documentTotal.getId() + " => " + documentTotal.getData());
+                                                                                Log.d("Total", String.valueOf(total));
+                                                                                total_year += Double.valueOf(twoDForm
+                                                                                        .format(documentTotal.getDouble("earnings")));
+                                                                            }
+                                                                            total_pagado_all.setText(String.valueOf(total_year));
                                                                         }
                                                                     }
                                                                 });

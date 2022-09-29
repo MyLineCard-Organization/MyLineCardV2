@@ -25,6 +25,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -47,15 +48,24 @@ public class ListViewCommentPassenger extends FirestoreRecyclerAdapter<Comment, 
         DocumentSnapshot documentSnapshot = getSnapshots().getSnapshot(position);
         holder.author.setText(model.getAuthor());
         holder.message.setText(model.getMessage());
-        holder.VerRespuestas.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                NavController navController = Navigation.findNavController(v);
-                NavDirections action = Sugerencias_reclamos_pasajeroDirections
-                        .actionNavSugerenciasReclamosPasajeroToNavRespuestasComentariosPasajero(documentSnapshot.getId());
-                navController.navigate(action);
-            }
-        });
+        db.collection("comments").document(documentSnapshot.getId())
+                .collection("responses").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    @Override
+                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                        if(!queryDocumentSnapshots.isEmpty()){
+                            holder.VerRespuestas.setVisibility(View.VISIBLE);
+                            holder.VerRespuestas.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    NavController navController = Navigation.findNavController(v);
+                                    NavDirections action = Sugerencias_reclamos_pasajeroDirections
+                                            .actionNavSugerenciasReclamosPasajeroToNavRespuestasComentariosPasajero(documentSnapshot.getId());
+                                    navController.navigate(action);
+                                }
+                            });
+                        }
+                    }
+                });
     }
 
     @NonNull
