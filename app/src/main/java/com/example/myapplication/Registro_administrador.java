@@ -11,6 +11,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -35,6 +36,7 @@ public class Registro_administrador extends AppCompatActivity {
     private FirebaseAuth auth;
     private FirebaseUser mFirebaseUser;
     private String id, code;
+    private ImageButton btn_politicas_admin,btn_terminos_admin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +62,17 @@ public class Registro_administrador extends AppCompatActivity {
         editConfirmPass = findViewById(R.id.edit_admin_confirm_password);
         editDirection = findViewById(R.id.edit_admin_direction);
         editCode = findViewById(R.id.edit_admin_codigo);
+        btn_politicas_admin = findViewById(R.id.btn_politicas_admin);
+        btn_terminos_admin = findViewById(R.id.btn_terminos_admin);
+        // Button Policas
+       btn_politicas_admin.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+            Intent intent = new Intent(Registro_administrador.this,Politicas_registro.class);
+            startActivity(intent);
+           }
+       });
+        // Button Terminos
 
         // Button to register
         Button btnRegister = findViewById(R.id.btn_admin_register);

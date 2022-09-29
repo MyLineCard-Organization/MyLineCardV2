@@ -121,6 +121,7 @@ public class Despligue_Opciones extends AppCompatActivity{
             return true;
         });
         updateNavHeader();
+        // Llamas a la funcion para q se ejecute
     }
     @Override
     protected void onNewIntent(Intent intent) {

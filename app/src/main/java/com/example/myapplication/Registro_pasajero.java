@@ -98,6 +98,7 @@ public class Registro_pasajero extends AppCompatActivity {
                 map.put("password", newPass);
                 map.put("direction",Direction);
                 map.put("phone",Phone);
+                map.put("status",true);
 
                 db.collection("passenger").document(id).set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override

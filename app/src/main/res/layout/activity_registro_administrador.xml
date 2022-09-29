@@ -268,23 +268,50 @@
                                 android:ems="10"
                                 android:inputType="text" />
 
-                            <CheckBox
-                                android:id="@+id/checkBox"
+                            <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="20sp"
-                                android:layout_marginTop="10sp"
-                                android:layout_marginEnd="20sp"
-                                android:text="Acepto Políticas de Privacidad" />
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal">
 
-                            <CheckBox
-                                android:id="@+id/checkBox2"
+                                <CheckBox
+                                    android:id="@+id/checkBox"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="20sp"
+                                    android:layout_marginTop="10sp"
+                                    android:layout_marginEnd="20sp"
+                                    android:text="Acepto Políticas de Privacidad" />
+
+                                <ImageButton
+                                    android:id="@+id/btn_politicas_admin"
+                                    android:layout_width="37dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="bottom|center"
+                                    android:background="@color/fui_transparent"
+                                    app:srcCompat="@drawable/help" />
+                            </LinearLayout>
+
+                            <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="20sp"
-                                android:layout_marginTop="10sp"
-                                android:layout_marginEnd="20sp"
-                                android:text="Acepto Términos y Condiciones" />
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal">
+
+                                <CheckBox
+                                    android:id="@+id/checkBox2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginStart="20sp"
+                                    android:layout_marginTop="10sp"
+                                    android:layout_marginEnd="20sp"
+                                    android:text="Acepto Términos y Condiciones" />
+                                <ImageButton
+                                    android:id="@+id/btn_terminos_admin"
+                                    android:layout_width="37dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="bottom|center"
+                                    android:background="@color/fui_transparent"
+                                    app:srcCompat="@drawable/help" />
+                            </LinearLayout>
 
                             <Button
                                 android:id="@+id/btn_admin_register"
@@ -298,7 +325,6 @@
                                 android:backgroundTint="#323643"
                                 android:textColor="@color/white"
                                 app:cornerRadius="15dp" />
-
                         </LinearLayout>
                     </ScrollView>
                 </FrameLayout>

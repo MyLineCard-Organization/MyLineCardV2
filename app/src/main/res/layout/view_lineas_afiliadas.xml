@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="@font/poppins_semibold"
-                android:text="ETUCHISA"
+                android:text="------"
                 android:textColor="@color/black" />
 
             <TextView
@@ -37,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="@font/poppins_bold"
-                android:text="EX1237"
+                android:text="------"
                 android:textColor="@color/black" />
         </LinearLayout>
     </LinearLayout>
