@@ -3,15 +3,18 @@ package com.example.myapplication;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -30,11 +33,9 @@ import java.security.MessageDigest;
 public class MainActivity extends AppCompatActivity {
     private EditText editEmail, editPassword;
     private Button btn_login;
-    private FirebaseAuth auth;
-    private ProgressDialog progressDialog;
     private FirebaseFirestore db;
-    private DocumentReference Data;
-    private String id;
+    private FirebaseAuth auth;
+    private ProgressBar progressBar2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
         editEmail = findViewById(R.id.edit_login_email);
         editPassword = findViewById(R.id.edit_login_pass);
+        progressBar2 = findViewById(R.id.progressBar2);
         btn_login = findViewById(R.id.btn_login);
 
         btn_login.setOnClickListener(new View.OnClickListener() {
@@ -59,8 +61,9 @@ public class MainActivity extends AppCompatActivity {
                 if(Email.isEmpty() && Password.isEmpty()){
                     Toast.makeText(MainActivity.this, "Llene todas las casillas", Toast.LENGTH_SHORT).show();
                 }else{
+                    btn_login.setVisibility(View.GONE);
+                    progressBar2.setVisibility(View.VISIBLE);
                     login(Email, Password);
-                    //startActivity(new Intent(MainActivity.this, Administrador.class));
                 }
             }
         });
@@ -72,17 +75,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    id = auth.getCurrentUser().getUid();
-                    isExist(id);
-                    Toast.makeText(MainActivity.this, "Bienvenido", Toast.LENGTH_SHORT).show();
+                    isExist(auth.getCurrentUser().getUid());
                 }else{
-                    Toast.makeText(MainActivity.this, "Error", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Ingrese credenciales validas", Toast.LENGTH_SHORT).show();
+                    progressBar2.setVisibility(View.GONE);
+                    btn_login.setVisibility(View.VISIBLE);
                 }
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(MainActivity.this, "Error al iniciar sesion", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Cuenta no registrada", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -105,37 +108,26 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    protected void onStart() {
-        progressDialog = new ProgressDialog(this);
-        super.onStart();
-        FirebaseUser user = auth.getCurrentUser();
-
-        if(user != null){
-            id = auth.getCurrentUser().getUid();
-            isExist(id);
-        }
-
-    }
-
     public void isExist(String id){
-        progressDialog.setMessage("Espera un momento...");
-        progressDialog.setCanceledOnTouchOutside(false);
-        progressDialog.show();
         db.collection("passenger").document(id)
                 .get()
                 .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                if(documentSnapshot.exists()){
-                    startActivity(new Intent(MainActivity.this, Despligue_Opciones.class));
-                }else{
-                    startActivity(new Intent(MainActivity.this, Administrador.class));
-                }
-            }
-        });
-        progressDialog.dismiss();
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        if(documentSnapshot.exists()){
+                            startActivity(new Intent(MainActivity.this, Despligue_Opciones.class));
+                            Toast.makeText(MainActivity.this, "Bienvenido", Toast.LENGTH_SHORT).show();
+                            finish();
+                        }else{
+                            startActivity(new Intent(MainActivity.this, Administrador.class));
+                            Toast.makeText(MainActivity.this, "Bienvenido", Toast.LENGTH_SHORT).show();
+                            finish();
+                        }
+                    }
+                });
     }
+
+
 
     public void Registrate(View v)
     {
