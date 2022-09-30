@@ -287,8 +287,15 @@
                                 android:layout_marginEnd="20sp"
                                 android:text="Acepto Términos y Condiciones" />
 
+                            <ProgressBar
+                                android:id="@+id/progressBar_pasajero"
+                                style="?android:attr/progressBarStyle"
+                                android:visibility="gone"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+
                             <Button
-                                android:id="@+id/registro_btn"
+                                android:id="@+id/btn_register_pasajero"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="20sp"
@@ -296,7 +303,6 @@
                                 android:layout_marginEnd="20sp"
                                 android:layout_marginBottom="5sp"
                                 android:backgroundTint="#323643"
-                                android:onClick="saveNewPassenger"
                                 android:text="Registrarse"
                                 android:textColor="@color/white"
                                 app:cornerRadius="15dp" />

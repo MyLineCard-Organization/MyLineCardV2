@@ -9,7 +9,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -33,6 +35,8 @@ public class Registro_pasajero extends AppCompatActivity {
     private FirebaseAuth auth;
     private FirebaseUser mFirebaseUser;
     private String id;
+    private Button btn_register_pasajero;
+    private ProgressBar progressBar_pasajero;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +54,8 @@ public class Registro_pasajero extends AppCompatActivity {
         mFirebaseUser= auth.getCurrentUser();
 
         // Information of EditText
-
+        btn_register_pasajero = findViewById(R.id.btn_register_pasajero);
+        progressBar_pasajero = findViewById(R.id.progressBar_pasajero);
         editName = findViewById(R.id.edit_passenger_names);
         editSurnames = findViewById(R.id.edit_passenger_surnames);
         editEmail = findViewById(R.id.edit_passenger_email);
@@ -58,61 +63,73 @@ public class Registro_pasajero extends AppCompatActivity {
         editConfirmPass = findViewById(R.id.edit_passenger_confirm_password);
         editDirection = findViewById(R.id.edit_passenger_direction);
         editPhone = findViewById(R.id.edit_passeger_phone);
+        btn_register_pasajero.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String Names = editName.getText().toString().trim();
+                String Surnames = editSurnames.getText().toString().trim();
+                String Email = editEmail.getText().toString().trim();
+                String Pass = editPass.getText().toString().trim();
+                String ConfirmPass = editConfirmPass.getText().toString().trim();
+                String Direction = editDirection.getText().toString().trim();
+                String Phone = editPhone.getText().toString().trim();
 
-    }
+                if(Names.isEmpty() && Surnames.isEmpty() && Email.isEmpty() && Pass.isEmpty() && ConfirmPass.isEmpty() && Direction.isEmpty() && Phone.isEmpty()){
+                    Toast.makeText(Registro_pasajero.this, "Complete todos los datos", Toast.LENGTH_SHORT).show();
+                }
+                else if(Pass.equals(ConfirmPass)){
 
-    public void saveNewPassenger(View v){
-        String Names = editName.getText().toString().trim();
-        String Surnames = editSurnames.getText().toString().trim();
-        String Email = editEmail.getText().toString().trim();
-        String Pass = editPass.getText().toString().trim();
-        String ConfirmPass = editConfirmPass.getText().toString().trim();
-        String Direction = editDirection.getText().toString().trim();
-        String Phone = editPhone.getText().toString().trim();
+                    registerPassenger(Names,Surnames, Email, Pass, Direction, Phone);
+                }
+                else{
+                    Toast.makeText(Registro_pasajero.this, Pass, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Registro_pasajero.this, ConfirmPass, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Registro_pasajero.this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
-        if(Names.isEmpty() && Surnames.isEmpty() && Email.isEmpty() && Pass.isEmpty() && ConfirmPass.isEmpty() && Direction.isEmpty() && Phone.isEmpty()){
-            Toast.makeText(this, "Complete todos los datos", Toast.LENGTH_SHORT).show();
-        }
-        else if(Pass.equals(ConfirmPass)){
-
-                registerPassenger(Names,Surnames, Email, Pass, Direction, Phone);
-        }
-        else{
-            Toast.makeText(this, Pass, Toast.LENGTH_SHORT).show();
-            Toast.makeText(this, ConfirmPass, Toast.LENGTH_SHORT).show();
-            Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
-        }
     }
 
     private void registerPassenger(String name, String surname, String email, String pass, String Direction, String Phone){
         String newPass = sha256(pass).toString();
+        progressBar_pasajero.setVisibility(View.VISIBLE);
+        btn_register_pasajero.setVisibility(View.GONE);
+
         auth.createUserWithEmailAndPassword(email,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                id = auth.getCurrentUser().getUid();
-                Map<String,Object> map = new HashMap<>();
-                map.put("id", id);
-                map.put("name", name);
-                map.put("surname", surname);
-                map.put("email", email);
-                map.put("password", newPass);
-                map.put("direction",Direction);
-                map.put("phone",Phone);
-                map.put("status",true);
+                if(task.isSuccessful()){
+                    id = auth.getCurrentUser().getUid();
+                    Map<String,Object> map = new HashMap<>();
+                    map.put("id", id);
+                    map.put("name", name);
+                    map.put("surname", surname);
+                    map.put("email", email);
+                    map.put("password", newPass);
+                    map.put("direction",Direction);
+                    map.put("phone",Phone);
+                    map.put("status",true);
 
-                db.collection("passenger").document(id).set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void unused) {
+                    db.collection("passenger").document(id).set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
                             finish();
                             startActivity(new Intent(Registro_pasajero.this, MainActivity.class));
                             Toast.makeText(Registro_pasajero.this, "Pasajero registrado!!!", Toast.LENGTH_SHORT).show();
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(Registro_pasajero.this, "Error al guardar", Toast.LENGTH_SHORT).show();
-                    }
-                });
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(Registro_pasajero.this, "Error al guardar", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }else {
+                    btn_register_pasajero.setVisibility(View.VISIBLE);
+                    progressBar_pasajero.setVisibility(View.GONE);
+                    Toast.makeText(Registro_pasajero.this, "La contraseña debe contener una mayuscula", Toast.LENGTH_SHORT).show();
+                }
+
             }
 
 

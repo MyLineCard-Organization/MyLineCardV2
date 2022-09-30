@@ -12,6 +12,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -37,6 +38,7 @@ public class Registro_administrador extends AppCompatActivity {
     private FirebaseUser mFirebaseUser;
     private String id, code;
     private ImageButton btn_politicas_admin,btn_terminos_admin;
+    private ProgressBar progressBar_admin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +56,7 @@ public class Registro_administrador extends AppCompatActivity {
         mFirebaseUser= auth.getCurrentUser();
 
         // Information of EditText
-
+        progressBar_admin = findViewById(R.id.progressBar_admin);
         editName = findViewById(R.id.edit_admin_names);
         editSurnames = findViewById(R.id.edit_admin_surnames);
         editEmail = findViewById(R.id.edit_admin_email);
@@ -64,6 +66,7 @@ public class Registro_administrador extends AppCompatActivity {
         editCode = findViewById(R.id.edit_admin_codigo);
         btn_politicas_admin = findViewById(R.id.btn_politicas_admin);
         btn_terminos_admin = findViewById(R.id.btn_terminos_admin);
+        btnRegister = findViewById(R.id.btn_admin_register);
         // Button Policas
        btn_politicas_admin.setOnClickListener(new View.OnClickListener() {
            @Override
@@ -75,7 +78,7 @@ public class Registro_administrador extends AppCompatActivity {
         // Button Terminos
 
         // Button to register
-        Button btnRegister = findViewById(R.id.btn_admin_register);
+
 
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,6 +96,8 @@ public class Registro_administrador extends AppCompatActivity {
     }
 
     public void validateCode(View view){
+        progressBar_admin.setVisibility(View.VISIBLE);
+        btnRegister.setVisibility(View.INVISIBLE);
         db.collection("transportation")
                 .whereEqualTo("check", editCode.getText().toString())
                 .get()
@@ -112,6 +117,8 @@ public class Registro_administrador extends AppCompatActivity {
                                 }
                             });
                         }else {
+                            progressBar_admin.setVisibility(View.INVISIBLE);
+                            btnRegister.setVisibility(View.VISIBLE);
                             Toast.makeText(Registro_administrador.this, "El código no es válido", Toast.LENGTH_SHORT).show();
                         }
                     }
@@ -142,6 +149,8 @@ public class Registro_administrador extends AppCompatActivity {
 
     private void registerPassenger(String name, String surname, String email, String pass, String Direction){
         String newPass = sha256(pass).toString();
+        progressBar_admin.setVisibility(View.VISIBLE);
+        btnRegister.setVisibility(View.INVISIBLE);
         auth.createUserWithEmailAndPassword(email,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -169,6 +178,8 @@ public class Registro_administrador extends AppCompatActivity {
                         }
                     });
                 }else {
+                    progressBar_admin.setVisibility(View.INVISIBLE);
+                    btnRegister.setVisibility(View.VISIBLE);
                     Toast.makeText(Registro_administrador.this, "La contraseña debe contener una mayuscula", Toast.LENGTH_SHORT).show();
                 }
 
