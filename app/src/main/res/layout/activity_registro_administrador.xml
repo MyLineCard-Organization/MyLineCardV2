@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="#323643"
-    tools:context=".Registro_administrador"
-    android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+    android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+    tools:context=".Registro_administrador">
 
     <FrameLayout
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="15dp"
         android:foregroundGravity="bottom|center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -87,20 +88,20 @@
                         android:layout_width="163dp"
                         android:layout_height="41dp"
                         android:backgroundTint="#00B1AC"
-                        android:textColor="@color/white"
                         android:insetBottom="0dp"
+                        android:onClick="pasajero"
                         android:text="Pasajero"
-                        android:onClick="pasajero" />
+                        android:textColor="@color/white" />
 
                     <Button
                         android:id="@+id/button4"
                         android:layout_width="163dp"
                         android:layout_height="41dp"
+                        android:backgroundTint="#FFFFFF"
                         android:insetTop="5dp"
                         android:insetBottom="0dp"
-                        android:backgroundTint="#FFFFFF"
-                        android:textColor="@color/black"
-                        android:text="Administrador" />
+                        android:text="Administrador"
+                        android:textColor="@color/black" />
                 </LinearLayout>
             </TableRow>
 
@@ -247,7 +248,6 @@
                                 android:inputType="textPersonName" />
 
 
-
                             <TextView
                                 android:id="@+id/validate"
                                 android:layout_width="match_parent"
@@ -304,6 +304,7 @@
                                     android:layout_marginTop="10sp"
                                     android:layout_marginEnd="20sp"
                                     android:text="Acepto Términos y Condiciones" />
+
                                 <ImageButton
                                     android:id="@+id/btn_terminos_admin"
                                     android:layout_width="37dp"
@@ -315,10 +316,10 @@
 
                             <ProgressBar
                                 android:id="@+id/progressBar_admin"
-                                android:visibility="gone"
                                 style="?android:attr/progressBarStyle"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content" />
+                                android:layout_height="wrap_content"
+                                android:visibility="gone" />
 
                             <Button
                                 android:id="@+id/btn_admin_register"
@@ -342,4 +343,4 @@
     </FrameLayout>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_gravity="bottom|center"
+    android:layout_height="wrap_content"
+    android:layout_gravity="start"
     android:background="#323643"
+
     android:theme="@style/Theme.AppCompat.Light.NoActionBar"
     tools:context=".Registro_pasajero">
 
     <FrameLayout
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:foregroundGravity="bottom|center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -290,9 +292,9 @@
                             <ProgressBar
                                 android:id="@+id/progressBar_pasajero"
                                 style="?android:attr/progressBarStyle"
-                                android:visibility="gone"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content" />
+                                android:layout_height="wrap_content"
+                                android:visibility="gone" />
 
                             <Button
                                 android:id="@+id/btn_register_pasajero"
@@ -308,7 +310,6 @@
                                 app:cornerRadius="15dp" />
 
 
-
                         </LinearLayout>
                     </ScrollView>
                 </FrameLayout>
@@ -318,5 +319,4 @@
         </TableLayout>
     </FrameLayout>
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
