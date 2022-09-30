@@ -145,29 +145,33 @@ public class Registro_administrador extends AppCompatActivity {
         auth.createUserWithEmailAndPassword(email,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                id = auth.getCurrentUser().getUid();
-                Map<String,Object> map = new HashMap<>();
-                map.put("id", id);
-                map.put("name", name);
-                map.put("surname", surname);
-                map.put("email", email);
-                map.put("password", newPass);
-                map.put("direction",Direction);
-                map.put("transport_id", code);
+                if (task.isSuccessful()){
+                    Map<String,Object> map = new HashMap<>();
+                    map.put("id", auth.getCurrentUser().getUid());
+                    map.put("name", name);
+                    map.put("surname", surname);
+                    map.put("email", email);
+                    map.put("password", newPass);
+                    map.put("direction",Direction);
+                    map.put("transport_id", code);
 
-                db.collection("administrator").document(id).set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void unused) {
-                        finish();
-                        startActivity(new Intent(Registro_administrador.this, MainActivity.class));
-                        Toast.makeText(Registro_administrador.this, "Administrador registrado!!!", Toast.LENGTH_SHORT).show();
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(Registro_administrador.this, "Error al guardar", Toast.LENGTH_SHORT).show();
-                    }
-                });
+                    db.collection("administrator").document(auth.getCurrentUser().getUid()).set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            finish();
+                            startActivity(new Intent(Registro_administrador.this, MainActivity.class));
+                            Toast.makeText(Registro_administrador.this, "Administrador registrado!!!", Toast.LENGTH_SHORT).show();
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(Registro_administrador.this, "Error al guardar", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }else {
+                    Toast.makeText(Registro_administrador.this, "La contraseña debe contener una mayuscula", Toast.LENGTH_SHORT).show();
+                }
+
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override

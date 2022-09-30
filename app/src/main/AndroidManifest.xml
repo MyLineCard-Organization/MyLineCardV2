@@ -46,21 +46,26 @@
         <activity
             android:name=".Administrador"
             android:exported="false"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_administrador"
             android:theme="@style/Theme.MyApplication.NoActionBar" />
         <activity
             android:name=".Despligue_Opciones"
             android:exported="false"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_despligue_opciones"
             android:theme="@style/Theme.MyApplication.NoActionBar" />
         <activity
             android:name=".Recuperar_password"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".Registro_administrador"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".Registro_pasajero"
+            android:screenOrientation="portrait"
             android:exported="false" />
     </application>
 
