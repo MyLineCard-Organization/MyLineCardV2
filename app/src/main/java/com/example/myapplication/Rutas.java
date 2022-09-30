@@ -29,7 +29,7 @@ public class Rutas extends Fragment {
         ImageView imageView = new ImageView(getContext());
         imageView.setBackgroundResource(image);
         viewFlipper.addView(imageView);
-        viewFlipper.setFlipInterval(5000);
+        viewFlipper.setFlipInterval(3000);
         viewFlipper.setAutoStart(true);
         viewFlipper.setInAnimation(getContext(),android.R.anim.slide_in_left);
         viewFlipper.setOutAnimation(getContext(),android.R.anim.slide_out_right);
