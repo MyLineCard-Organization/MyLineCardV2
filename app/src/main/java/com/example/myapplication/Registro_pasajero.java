@@ -11,6 +11,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -37,6 +38,7 @@ public class Registro_pasajero extends AppCompatActivity {
     private String id;
     private Button btn_register_pasajero;
     private ProgressBar progressBar_pasajero;
+    private ImageButton btn_politicas_pasajero,btn_terminos_pasajero;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +65,27 @@ public class Registro_pasajero extends AppCompatActivity {
         editConfirmPass = findViewById(R.id.edit_passenger_confirm_password);
         editDirection = findViewById(R.id.edit_passenger_direction);
         editPhone = findViewById(R.id.edit_passeger_phone);
+        btn_politicas_pasajero = findViewById(R.id.btn_politicas_pasajero);
+        btn_terminos_pasajero = findViewById(R.id.btn_terminos_pasajero);
+
+
+        // Button Policas
+        btn_politicas_pasajero.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Registro_pasajero.this,Politicas_registro.class);
+                startActivity(intent);
+            }
+        });
+        // Button Terminos
+        btn_terminos_pasajero.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Registro_pasajero.this,Terminos_Y_Condiciones_resgistro.class);
+                startActivity(intent);
+            }
+        });
+
         btn_register_pasajero.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

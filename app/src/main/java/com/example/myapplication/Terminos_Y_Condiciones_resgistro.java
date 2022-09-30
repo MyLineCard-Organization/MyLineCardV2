@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
-public class Politicas_registro extends AppCompatActivity {
+public class Terminos_Y_Condiciones_resgistro extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +18,7 @@ public class Politicas_registro extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_politicas_registro);
+        setContentView(R.layout.activity_terminos_ycondiciones_resgistro);
     }
 
     public void btn_back(View v){

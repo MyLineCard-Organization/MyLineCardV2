@@ -76,6 +76,13 @@ public class Registro_administrador extends AppCompatActivity {
            }
        });
         // Button Terminos
+        btn_terminos_admin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Registro_administrador.this,Terminos_Y_Condiciones_resgistro.class);
+                startActivity(intent);
+            }
+        });
 
         // Button to register
 

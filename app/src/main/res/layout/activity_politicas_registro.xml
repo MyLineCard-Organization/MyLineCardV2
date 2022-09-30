@@ -1,9 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#D1D5DB"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Politicas_registro">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_line_join"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|top"
+        android:layout_marginTop="130sp"
+        android:layout_marginBottom="20dp"
+        app:cardCornerRadius="15dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txt_estado_mes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Es importante mencionar que las siguientes políticas de privacidad están relacionadas con la recolección, uso y gestión de toda la información brindada por el usuario al aceptar y crear un perfil de usuario dentro de la app MyLinecard.
+
+1.	La información recopilada del usuario solo se utilizará, a partir de la aceptación de nuestras políticas de privacidad, de acuerdo con la Ley de Protección de Datos del Ministerio de Justicia del Perú.
+
+2.	Los detalles brindados por el usuario y cualquier otra información personal, se conservará en los servidores de MyLinecard con fines operativos, por ejemplo, el registro de usuarios, pago de pasajes.
+
+3.	Al momento de registrarse, recargar saldo, o pagar un viaje mediante MyLinecard, se le solicita información personal. La cual una vez que se registre y acepte nuestras políticas de privacidad, y términos y condiciones, no será anónimo para MyLinecard. Es decir, podemos hacer uso de la información brindada para dar informe de nuestros propios productos y servicios. Asimismo, podemos contactarlo con respecto a cualquier tipo de cambios en la app o los servicios que involucra a MyLinecard.
+
+4.	Al momento de compra de saldo para ser usado en el pago de pasajes de alguna de las rutas afiliadas a MyLinecard, se registrará información de datos personales, los cuales serán utilizados única y principalmente para responder a su solicitud.
+
+5.	Viajes realizados utilizando MyLinecard, cuando hace uso de nuestra app para realizar viajes en una línea afiliada, mantenemos un registro de estos viajes en una base de datos. Se mantendrá algunos o todos los detalles mencionados a continuación:
+
+•	El método de pago utilizado para cargar saldo y los detalles de la forma de pago
+•	Nombres y apellidos, correo electrónico, dirección y número de teléfono celular
+•	Tarifa pagada
+•	Empresa y ruta en la cual realizó el viaje
+•	Otros detalles del viaje
+•	Otras funciones del móvil
+
+6.	MyLinecard utiliza la información de los datos personales del usuario para obligaciones contractuales, servicio al cliente y administración, investigación de clientes, mercadeo. También, se usa la información como medio probatorio de algún tipo de delito cometido por el usuario o para procesar y responder reclamos y/o quejas realizadas por el usuario.
+
+7.	MyLinecard tendrá la potestad de enviar información sobre promociones relacionadas con el servicio, solo si usted acepta las políticas de privacidad y los términos y condiciones que se encuentran ubicados antes del botón de registro en la app. En caso no desee que estas promociones u ofertas le lleguen, podría contactar a MyLinecard para revertir dicho suceso.
+
+8.	Al aceptar las políticas de privacidad, usted acepta recibir información para otros fines, asimismo, podremos compartir dicha información con terceros afiliados a MyLinecard. También podemos compartir su información con la Policía Nacional del Perú y otras autoridades relevantes, con el fin de prevenir y detectar delitos y/o prevenir algún tipo de fraude.
+
+9.	La información que se recopila de los usuarios será almacenada en nuestros servidores. Nuestro proveedor de servicios de almacenamiento contiene una variedad de técnicas de seguridad de información, lo cual permite salvaguardar el acceso y el uso de información personal para garantizar que se conserve la integridad y la disponibilidad. Para más información visitar https://firebase.google.com/support/privacy?hl=es-419 .
+
+10.	Usted como usuario de MyLinecard tiene el derecho a solicitarnos no hacer uso de su información personal con fines de comercialización. Si tiene alguna duda de como se hace uso de sus datos personales, comuníquese con MyLinecard a través de sus medios de contacto.
+
+11.	Usted como usuario de MyLinecard tiene el derecho a solicitarnos una copia de la información personal que tenemos registrada de usted. Para ello, MyLinecard necesitara más información para verificar quien es usted. MyLinecard tiene la obligación de dar respuesta en un plazo no mayor a 30 días, en caso se presente demoras o algún problema durante este plazo se le informará dentro de los 30 días y asimismo se le dará el detalle de lo ocurrido.
+
+12.	Si usted cree que la información que tiene MyLinecard de su persona es inexacta o incompleta, tiene la potestad de pedirnos una rectificación de datos personales. Deberá contactar a MyLinecard y proporcionarnos el detalle del suceso y en un plazo no mayor de 30 días después de recibir este contacto. Nosotros enviaremos respuesta a lo solicitado, en caso el asunto requiera de más tiempo del establecido será informado previamente al usuario.
+
+13.	Usted tiene el derecho de pedir la eliminación de sus datos personales de la app MyLinecard, por lo que deberá solicitar la eliminación de dicha información. Le proporcionaremos una respuesta dentro de los 30 días posteriores a su solicitud, confirmando si es que sus datos personales han sido eliminados y/o explicando por qué no estamos de acuerdo en que algunos datos necesiten ser eliminados. Es importante tener en cuenta que la eliminación de sus datos personales nos imposibilita brindarle el servicio de MyLinecard, ya que este requiere de los datos del usuario para habilitar un viaje en alguna línea de transporte afiliada a la app.
+
+14.	Si MyLinecard no da respuesta dentro de los 30 días establecidos después de su solicitud o si no esta satisfecho con nuestra respuesta, podrá presentar una queja ante la oficina de Indecopi, o el Ministerio de Justicas según sea el caso. Asimismo, si usted no esta satisfecho con la forma que tratamos sus datos personales háganoslo saber mediante los canales de contacto de MyLinecard.
+"
+                android:textColor="@color/black"
+                android:textSize="12dp" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <FrameLayout
+        android:id="@+id/partTwo"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="#00B1AC">
+
+        <ImageButton
+            android:id="@+id/lineas_Afiliadas_btn"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="15sp"
+            android:onClick="btn_back"
+            android:scaleType="center"
+            android:src="@drawable/arrow"
+            app:backgroundTint="@android:color/transparent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Politicas de Privacidad"
+                android:textColor="@color/white"
+                android:textSize="25dp" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</FrameLayout>
