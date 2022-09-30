@@ -12,7 +12,7 @@
         android:layout_width="330dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center|top"
-        android:layout_marginTop="190sp"
+        android:layout_marginTop="170sp"
         android:layout_marginBottom="20dp"
         app:cardCornerRadius="15dp">
 
@@ -35,14 +35,14 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/poppins_light"
-                    android:gravity="center"
+                    android:gravity="start"
                     android:text="Seleccione año:"
                     android:textColor="@color/black"
                     android:textSize="13dp" />
 
                 <Spinner
                     android:id="@+id/spinner_year"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
 
@@ -52,20 +52,21 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/poppins_light"
-                    android:gravity="center"
                     android:text="Seleccione mes:"
                     android:textColor="@color/black"
                     android:textSize="13dp" />
 
                 <Spinner
                     android:id="@+id/spinner_mes"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
                 android:layout_weight="1"
                 android:gravity="start"
                 android:orientation="horizontal">
@@ -117,36 +118,6 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
-                android:layout_weight="1"
-                android:gravity="start"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/txt_year"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/poppins_light"
-                    android:gravity="center"
-                    android:text="Total del año:"
-                    android:textColor="@color/black"
-                    android:textSize="13dp" />
-
-                <TextView
-                    android:id="@+id/txt_pagado_year_all"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/poppins_bold"
-                    android:text="año"
-                    android:textColor="@color/black"
-                    android:textSize="12dp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:orientation="horizontal">
@@ -193,6 +164,36 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:src="@drawable/estadisticas" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:gravity="start"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txt_year"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/poppins_light"
+                    android:gravity="center"
+                    android:text="Total del año:"
+                    android:textColor="@color/black"
+                    android:textSize="13dp" />
+
+                <TextView
+                    android:id="@+id/txt_pagado_year_all"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="año"
+                    android:textColor="@color/black"
+                    android:textSize="12dp" />
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
