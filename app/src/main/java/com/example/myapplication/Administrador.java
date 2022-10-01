@@ -49,7 +49,7 @@ public class Administrador extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home2, R.id.nav_lineas_afiliadas,R.id.nav_tarifas,R.id.nav_configuraciones, R.id.nav_sugerencias_reclamos, R.id.nav_home_admin)
+                R.id.nav_home_admin, R.id.nav_lineas_afiliadas,R.id.nav_tarifas,R.id.nav_configuraciones, R.id.nav_sugerencias_reclamos, R.id.nav_home2)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_administrador);

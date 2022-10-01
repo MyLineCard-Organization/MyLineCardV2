@@ -2,16 +2,22 @@ package com.example.myapplication;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
+import androidx.navigation.NavHost;
 import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.NavigationUI;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
-public class Home_admin extends Fragment {
+import com.google.android.material.navigation.NavigationView;
+
+public class Home_admin extends Fragment{
 
     ImageButton btn_bus_icon;
     ImageButton btn_estadisticas_icon;
@@ -29,8 +35,11 @@ public class Home_admin extends Fragment {
         btn_estadisticas_icon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                NavController navController = Navigation.findNavController(view);
-                navController.navigate(R.id.nav_home2);
+                //NavController navController = Navigation.findNavController(getActivity(), R.id.nav_home2);
+                //return NavigationUI.onNavDestinationSelected(v, navController);
+                //Navigation.findNavController(view).navigate(R.id.nav_home2);
+                //NavHostFragment.findNavController(Home_admin.this).navigate(R.id.nav_home2);
+                //navigationView.getMenu().getItem(1).setChecked(true);
             }
         });
 
@@ -38,8 +47,8 @@ public class Home_admin extends Fragment {
         btn_control_icon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                NavController navController = Navigation.findNavController(view);
-                navController.navigate(R.id.nav_configuraciones);
+                //NavController navController = Navigation.findNavController(view);
+                //navController.navigate(R.id.nav_configuraciones);
             }
         });
 
@@ -47,8 +56,8 @@ public class Home_admin extends Fragment {
         btn_quejas_icon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                NavController navController = Navigation.findNavController(view);
-                navController.navigate(R.id.nav_sugerencias_reclamos_pasajero);
+                //NavController navController = Navigation.findNavController(view);
+                //navController.navigate(R.id.nav_sugerencias_reclamos_pasajero);
             }
         });
 
@@ -56,8 +65,8 @@ public class Home_admin extends Fragment {
         btn_bus_icon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                NavController navController = Navigation.findNavController(view);
-                navController.navigate(R.id.nav_lineas_afiliadas);
+                //NavController navController = Navigation.findNavController(view);
+                //navController.navigate(R.id.nav_lineas_afiliadas);
             }
         });
 
