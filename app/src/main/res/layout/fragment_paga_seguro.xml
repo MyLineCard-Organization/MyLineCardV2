@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:fontFamily="@font/poppins_medium"
-            android:hint="Miguel Angel Alfaro Gonzales"
+            android:hint="Nombres y Apellidos"
             android:inputType="textPersonName"
             android:textColor="@color/black" />
 
@@ -55,7 +55,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:fontFamily="@font/poppins_medium"
-            android:hint="4567923401346784"
+            android:hint="XXXX XXXX XXXX XXXX"
             android:inputType="numberSigned"
             android:textColor="@color/black" />
 
@@ -131,7 +131,7 @@
                     android:layout_height="wrap_content"
                     android:ems="5"
                     android:fontFamily="@font/poppins_medium"
-                    android:hint="876"
+                    android:hint="XXX"
                     android:inputType="numberSigned"
                     android:textColor="@color/black" />
             </LinearLayout>

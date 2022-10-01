@@ -142,15 +142,33 @@
                         android:paddingTop="25dp"
                         android:text="&quot;Da click en el link para pagar&quot;" />
 
-                    <TextView
-                        android:id="@+id/textView31"
-                        android:layout_width="match_parent"
+                    <LinearLayout
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppins_medium"
-                        android:gravity="center"
-                        android:paddingTop="25dp"
-                        android:textColor="@color/black"
-                        android:text="powered by OpenPay" />
+                        android:layout_marginTop="10sp"
+                        android:layout_gravity="center">
+
+                        <TextView
+                            android:id="@+id/textView31"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/poppins_medium"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginEnd="20sp"
+                            android:textColor="@color/black"
+                            android:text="powered by" />
+
+                        <ImageView
+                            android:id="@+id/imageView33"
+                            android:layout_width="120sp"
+                            android:layout_height="40sp"
+                            android:layout_weight="1"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/logoopenpay" />
+
+                    </LinearLayout>
+
                 </LinearLayout>
 
             </LinearLayout>
