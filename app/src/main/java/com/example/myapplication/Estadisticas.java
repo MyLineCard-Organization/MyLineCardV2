@@ -184,13 +184,15 @@ public class Estadisticas extends Fragment {
                                                                         if (task.isSuccessful()) {
                                                                             for (QueryDocumentSnapshot documentTotal : task.getResult()) {
                                                                                 DecimalFormat twoDForm = new DecimalFormat("#.##");
-                                                                                Log.d("Total", documentTotal.getId() + " => " + documentTotal.getData());
-                                                                                Log.d("Total", String.valueOf(total));
                                                                                 total += Double.valueOf(twoDForm
                                                                                         .format(documentTotal.getDouble("earnings")));
                                                                             }
+                                                                            DecimalFormat twoDForm = new DecimalFormat("#.##");
+                                                                            total += Double.valueOf(twoDForm
+                                                                                    .format(retornado));
                                                                             retornado = total;
-                                                                            total_pagado.setText(String.valueOf(total));
+                                                                            total_pagado.setText(String.valueOf(Double.valueOf(twoDForm
+                                                                                    .format(total))));
                                                                         }
                                                                     }
                                                                 });
@@ -241,7 +243,9 @@ public class Estadisticas extends Fragment {
                                                                                 total_year += Double.valueOf(twoDForm
                                                                                         .format(documentTotal.getDouble("earnings")));
                                                                             }
-                                                                            total_pagado_all.setText(String.valueOf(total_year));
+                                                                            DecimalFormat twoDForm = new DecimalFormat("#.##");
+                                                                            total_pagado_all.setText(String.valueOf(Double.valueOf(twoDForm
+                                                                                    .format(total_year))));
                                                                         }
                                                                     }
                                                                 });
