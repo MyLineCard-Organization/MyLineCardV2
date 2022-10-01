@@ -1,98 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
     tools:context=".Home_admin">
 
 
-
-    <TextView
-        android:id="@+id/textView40"
-        android:layout_width="110dp"
-        android:layout_height="22dp"
-        android:gravity="center"
-        android:text="ESTADÍSTICAS"
-        android:textColor="@color/black"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="56dp"
-        tools:layout_editor_absoluteY="269dp" />
-
-    <TextView
-        android:id="@+id/textView39"
-        android:layout_width="111dp"
-        android:layout_height="16dp"
-        android:gravity="center"
-        android:text="LINEAS AFILIADAS"
-        android:textColor="@color/black"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="56dp"
-        tools:layout_editor_absoluteY="535dp" />
-
-    <TextView
-        android:id="@+id/textView27"
-        android:layout_width="115dp"
-        android:layout_height="43dp"
-        android:gravity="center"
-        android:text="QUEJAS Y SUJERENCIAS"
-        android:textColor="@color/black"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="247dp"
-        tools:layout_editor_absoluteY="269dp" />
-
-    <TextView
-        android:id="@+id/textView25"
-        android:layout_width="108dp"
-        android:layout_height="47dp"
-        android:gravity="center"
-        android:text="CONTROL Y SEGUIMIENTO"
-        android:textColor="@color/black"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="247dp"
-        tools:layout_editor_absoluteY="535dp" />
-
-    <ImageButton
-        android:id="@+id/btn_estadisticas_icon"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/estadisticas_icon"
-        android:layout_marginTop="110sp"
-        android:layout_marginStart="40sp"
-        android:onClick="btn_estadisticas_icon"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="30dp">
 
-    <ImageButton
-        android:id="@+id/btn_bus_icon"
-        android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/btn_estadisticas_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="btn_estadisticas_icon"
+                android:src="@drawable/estadisticas_icon" />
+
+            <TextView
+                android:id="@+id/textView40"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="ESTADÍSTICAS"
+                android:textColor="@color/black"
+                tools:ignore="MissingConstraints" />
+        </LinearLayout>
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/btn_bus_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="btn_bus_icon"
+                android:src="@drawable/bus_icon"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/textView39"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="LINEAS AFILIADAS"
+                android:textColor="@color/black"
+                tools:ignore="MissingConstraints" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/bus_icon"
-        tools:layout_editor_absoluteX="38dp"
-        tools:layout_editor_absoluteY="366dp"
-        android:onClick="btn_bus_icon"
-        tools:ignore="MissingConstraints" />
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="30dp">
 
-    <ImageButton
-        android:id="@+id/btn_control_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/control_icon"
-        tools:layout_editor_absoluteX="230dp"
-        tools:layout_editor_absoluteY="375dp"
-        android:onClick="btn_control_icon"
-        tools:ignore="MissingConstraints" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
 
-    <ImageButton
-        android:id="@+id/btn_quejas_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/quejas_icon"
-        android:layout_marginTop="110sp"
-        android:layout_marginEnd="40sp"
-        android:onClick="btn_quejas_icon"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+            <ImageButton
+                android:id="@+id/btn_control_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="btn_control_icon"
+                android:src="@drawable/control_icon"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/textView27"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="QUEJAS Y SUJERENCIAS"
+                android:textColor="@color/black"
+                tools:ignore="MissingConstraints" />
+        </LinearLayout>
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/btn_quejas_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="btn_quejas_icon"
+                android:src="@drawable/quejas_icon" />
+
+            <TextView
+                android:id="@+id/textView25"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="CONTROL Y SEGUIMIENTO"
+                android:textColor="@color/black"
+                tools:ignore="MissingConstraints" />
+        </LinearLayout>
+    </LinearLayout>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
