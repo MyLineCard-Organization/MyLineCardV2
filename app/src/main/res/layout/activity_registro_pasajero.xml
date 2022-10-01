@@ -11,7 +11,7 @@
     tools:context=".Registro_pasajero">
 
     <FrameLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:foregroundGravity="bottom|center"
@@ -110,7 +110,7 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="738dp"
+                android:layout_height="match_parent"
                 android:foregroundGravity="center"
                 android:gravity="center">
 
@@ -121,14 +121,16 @@
 
                     <ScrollView
                         android:id="@+id/scrollView2"
-                        android:layout_width="393dp"
+                        android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@color/white">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:layout_marginEnd="20sp"
+                            android:layout_marginBottom="15sp">
 
                             <TextView
                                 android:id="@+id/textView4"
@@ -328,8 +330,6 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="20sp"
                                 android:layout_marginTop="10sp"
-                                android:layout_marginEnd="20sp"
-                                android:layout_marginBottom="5sp"
                                 android:backgroundTint="#323643"
                                 android:text="Registrarse"
                                 android:textColor="@color/white"
