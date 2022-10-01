@@ -70,14 +70,12 @@ public class Paga_seguro extends Fragment {
                 /*
                Firebase Se crea por primera vez*/
                 /// Obtener Dinero///
-                Wallet = db.collection("passenger").document(id)
-                        .collection("wallet").document(id);
-
-                    Wallet.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                db.collection("passenger").document(id)
+                        .collection("wallet").document(id).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                         @Override
                         public void onSuccess(DocumentSnapshot documentSnapshot) {
                             if (documentSnapshot.exists()) {
-                                    Toast.makeText(getContext(),"Pago exitoso" , Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getContext(),"Recarga exitosa" , Toast.LENGTH_SHORT).show();
                                     DecimalFormat twoDForm = new DecimalFormat("#.##");
                                     monto = Double.valueOf(twoDForm.format(monto+documentSnapshot.getDouble("balance"))) ;
                                     Map<String,Object> map = new HashMap<>();
