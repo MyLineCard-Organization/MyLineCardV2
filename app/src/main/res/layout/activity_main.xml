@@ -23,13 +23,13 @@
         app:srcCompat="@drawable/logo" />
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginHorizontal="30sp">
 
         <TextView
-
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_regular"
@@ -44,8 +44,8 @@
 
         <EditText
             android:id="@+id/edit_login_email"
-            android:layout_width="349dp"
-            android:layout_height="47dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:backgroundTint="@color/white"
             android:ems="10"
             android:fontFamily="@font/poppins_regular"
@@ -53,17 +53,16 @@
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.483"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.456" />
+            app:layout_constraintTop_toTopOf="parent" />
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginHorizontal="30sp">
 
         <TextView
             android:id="@+id/textView2"
@@ -112,15 +111,16 @@
         app:layout_constraintVertical_bias="0.697" />
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:gravity="center"
+        android:layout_marginHorizontal="30sp"
         android:orientation="vertical">
 
         <Button
             android:id="@+id/btn_login"
-            android:layout_width="347dp"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
             android:backgroundTint="#00B1AC"
             android:fontFamily="@font/poppins_regular"
@@ -128,10 +128,8 @@
             app:cornerRadius="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.468"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.809"
             tools:ignore="TextContrastCheck" />
 
         <ProgressBar
@@ -148,7 +146,7 @@
         <Button
             android:id="@+id/button2"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_width="345dp"
+            android:layout_width="match_parent"
             android:layout_height="53dp"
             android:layout_marginTop="15dp"
             android:color="@android:color/white"
@@ -160,10 +158,8 @@
             app:cornerRadius="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.454"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.886"
             app:strokeColor="@color/white" />
     </LinearLayout>
 
