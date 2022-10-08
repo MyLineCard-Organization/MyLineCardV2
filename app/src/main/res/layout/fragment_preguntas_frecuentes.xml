@@ -5,12 +5,42 @@
     android:layout_height="match_parent"
     tools:context=".Preguntas_frecuentes">
 
-   <androidx.recyclerview.widget.RecyclerView
-       android:id="@+id/recycler_preguntas_frecuentes"
+   <LinearLayout
        android:layout_width="match_parent"
        android:layout_height="match_parent"
-       android:layout_margin="15dp">
+       android:orientation="vertical">
 
-   </androidx.recyclerview.widget.RecyclerView>
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:gravity="center"
+          android:orientation="horizontal">
+
+         <EditText
+             android:id="@+id/edit_palabra_clave"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:ems="9"
+             android:inputType="textPersonName"
+             android:fontFamily="@font/poppins_medium"
+             android:hint="Palabra clave"/>
+
+         <Button
+             android:id="@+id/btn_buscar_palabra_clave"
+             android:layout_marginLeft="10dp"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:backgroundTint="#323643"
+             android:text="Buscar" />
+      </LinearLayout>
+
+      <androidx.recyclerview.widget.RecyclerView
+          android:id="@+id/recycler_preguntas_frecuentes"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:layout_margin="15dp">
+
+      </androidx.recyclerview.widget.RecyclerView>
+   </LinearLayout>
 
 </FrameLayout>

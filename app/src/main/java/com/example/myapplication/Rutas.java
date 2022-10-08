@@ -3,6 +3,7 @@ package com.example.myapplication;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,28 +11,28 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ViewFlipper;
 
+import com.example.myapplication.Adapter.RutasItemAdapter;
+import com.example.myapplication.Models.RutasItem;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Rutas extends Fragment {
-    ViewFlipper viewFlipper;
+    private ViewPager2 viewPager2;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         View view =inflater.inflate(R.layout.fragment_rutas, container, false);
-        viewFlipper = view.findViewById(R.id.viewFlipper);
-        int images[] = {R.drawable.ruta1,R.drawable.ruta2,R.drawable.ruta3};
-        for (int image:images){
-            flipperImages(image);
-        }
-        return view;
-    }
+        viewPager2 = view.findViewById(R.id.viewPagerImageSlider);
+        List<RutasItem> rutasItems = new ArrayList<>();
 
-    public void flipperImages(int image){
-        ImageView imageView = new ImageView(getContext());
-        imageView.setBackgroundResource(image);
-        viewFlipper.addView(imageView);
-        viewFlipper.setFlipInterval(3000);
-        viewFlipper.setAutoStart(true);
-        viewFlipper.setInAnimation(getContext(),android.R.anim.slide_in_left);
-        viewFlipper.setOutAnimation(getContext(),android.R.anim.slide_out_right);
+        rutasItems.add(new RutasItem(R.drawable.ruta1));
+        rutasItems.add(new RutasItem(R.drawable.ruta2));
+        rutasItems.add(new RutasItem(R.drawable.ruta3));
+
+        viewPager2.setAdapter(new RutasItemAdapter(rutasItems, viewPager2));
+        return view;
     }
 }
