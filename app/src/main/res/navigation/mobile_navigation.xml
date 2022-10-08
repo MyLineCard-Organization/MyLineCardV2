@@ -96,4 +96,10 @@
         android:name="com.example.myapplication.Preguntas_frecuentes"
         android:label="Preguntas frecuentes"
         tools:layout="@layout/fragment_preguntas_frecuentes"/>
+
+    <fragment
+        android:id="@+id/nav_consultar_detalle"
+        android:name="com.example.myapplication.Consultar_Detalles"
+        android:label=""
+        tools:layout="@layout/fragment_consultar__detalles"/>
 </navigation>

@@ -35,7 +35,7 @@ public class Billetera_Virtual extends Fragment {
     private DocumentReference Data;
     private DocumentReference Wallet;
     private TextView fullnameMain, Balance, Dia, Mes;
-    private CardView Recarga_saldo;
+    private CardView Recarga_saldo, Consultar_detalle;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_billetera__virtual, container, false);
@@ -48,6 +48,15 @@ public class Billetera_Virtual extends Fragment {
                 navController.navigate(R.id.nav_Recarga);
             }
         });
+        Consultar_detalle = (CardView) view.findViewById(R.id.Consultar);
+        Consultar_detalle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavController navController = Navigation.findNavController(view);
+                navController.navigate(R.id.nav_consultar_detalle);
+            }
+        });
+
         return view;
     }
 

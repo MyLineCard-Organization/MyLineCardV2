@@ -24,19 +24,6 @@ public class Preguntas_frecuentes extends Fragment {
     RecyclerView recyclerView;
     ListViewQuestions Adapter;
     FirebaseFirestore firebaseFirestore;
-
-    /*
-    @Override
-    public void onStart() {
-        super.onStart();
-        Adapter.startListening();
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        Adapter.stopListening();
-    }*/
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

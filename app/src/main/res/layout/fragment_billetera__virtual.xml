@@ -68,6 +68,7 @@
             android:background="#D1D5DB">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/Consultar"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
