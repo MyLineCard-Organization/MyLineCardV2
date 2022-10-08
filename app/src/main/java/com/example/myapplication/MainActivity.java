@@ -72,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void login(String email, String password){
         DeleteSharePreferenceRegister_Pasajero();
+        DeleteSharePreferenceRegister_admin();
             String passHash = sha256(password).toString();
             auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
@@ -132,6 +133,12 @@ public class MainActivity extends AppCompatActivity {
     private void DeleteSharePreferenceRegister_Pasajero() {
         SharedPreferences preferences = getSharedPreferences("register_pasajero",MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
+        editor.clear();
+        editor.apply();
+    }
+    private void DeleteSharePreferenceRegister_admin() {
+        SharedPreferences sharedPref = getSharedPreferences("register_admin", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
         editor.clear();
         editor.apply();
     }
