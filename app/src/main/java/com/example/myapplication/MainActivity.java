@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -58,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
                 String Email = editEmail.getText().toString().trim();
                 String Password = editPassword.getText().toString().trim();
 
-                if(Email.isEmpty() && Password.isEmpty()){
+                if(Email.isEmpty() || Password.isEmpty()){
                     Toast.makeText(MainActivity.this, "Llene todas las casillas", Toast.LENGTH_SHORT).show();
                 }else{
                     btn_login.setVisibility(View.GONE);
@@ -70,24 +71,25 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void login(String email, String password){
-        String passHash = sha256(password).toString();
-        auth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()){
-                    isExist(auth.getCurrentUser().getUid());
-                }else{
-                    Toast.makeText(MainActivity.this, "Ingrese credenciales validas", Toast.LENGTH_SHORT).show();
-                    progressBar2.setVisibility(View.GONE);
-                    btn_login.setVisibility(View.VISIBLE);
+        DeleteSharePreferenceRegister_Pasajero();
+            String passHash = sha256(password).toString();
+            auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if (task.isSuccessful()) {
+                        isExist(auth.getCurrentUser().getUid());
+                    } else {
+                        Toast.makeText(MainActivity.this, "Ingrese credenciales validas", Toast.LENGTH_SHORT).show();
+                        progressBar2.setVisibility(View.GONE);
+                        btn_login.setVisibility(View.VISIBLE);
+                    }
                 }
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(MainActivity.this, "Cuenta no registrada", Toast.LENGTH_SHORT).show();
-            }
-        });
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(MainActivity.this, "Cuenta no registrada", Toast.LENGTH_SHORT).show();
+                }
+            });
     }
 
     public static String sha256(String base) {
@@ -127,7 +129,12 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
-
+    private void DeleteSharePreferenceRegister_Pasajero() {
+        SharedPreferences preferences = getSharedPreferences("register_pasajero",MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.clear();
+        editor.apply();
+    }
 
     public void Registrate(View v)
     {

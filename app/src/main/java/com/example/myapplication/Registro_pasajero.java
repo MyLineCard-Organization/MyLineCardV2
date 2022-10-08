@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
@@ -73,14 +74,20 @@ public class Registro_pasajero extends AppCompatActivity {
         btn_politicas_pasajero.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                CreateSharePreferenceRegister();
                 Intent intent = new Intent(Registro_pasajero.this,Politicas_registro.class);
                 startActivity(intent);
             }
         });
         // Button Terminos
+
+        //CreateSharePreferenceRegister();
+        ReadSharePreferenceRegister();
+
         btn_terminos_pasajero.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                CreateSharePreferenceRegister();
                 Intent intent = new Intent(Registro_pasajero.this,Terminos_Y_Condiciones_resgistro.class);
                 startActivity(intent);
             }
@@ -114,6 +121,30 @@ public class Registro_pasajero extends AppCompatActivity {
 
     }
 
+    private void ReadSharePreferenceRegister() {
+        SharedPreferences preferences = getSharedPreferences("register_pasajero",MODE_PRIVATE);
+        editName.setText(preferences.getString("name",""));
+        editSurnames.setText(preferences.getString("surnames",""));
+        editEmail.setText(preferences.getString("email",""));
+        editPass.setText(preferences.getString("pass",""));
+        editConfirmPass.setText(preferences.getString("confirm_pass",""));
+        editDirection.setText(preferences.getString("direction",""));
+        editPhone.setText(preferences.getString("phone",""));
+    }
+
+    private void CreateSharePreferenceRegister() {
+        SharedPreferences sharedPref = getSharedPreferences("register_pasajero", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putString("name", editName.getText().toString());
+        editor.putString("surnames", editSurnames.getText().toString());
+        editor.putString("email", editEmail.getText().toString());
+        editor.putString("pass", editPass.getText().toString());
+        editor.putString("confirm_pass", editConfirmPass.getText().toString());
+        editor.putString("direction", editDirection.getText().toString());
+        editor.putString("phone", editPhone.getText().toString());
+        editor.apply();
+    }
+
     private void registerPassenger(String name, String surname, String email, String pass, String Direction, String Phone){
         String newPass = sha256(pass).toString();
         progressBar_pasajero.setVisibility(View.VISIBLE);
@@ -137,6 +168,8 @@ public class Registro_pasajero extends AppCompatActivity {
                     db.collection("passenger").document(id).set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
+                            DeleteSharePreferenceRegister();
+
                             finish();
                             startActivity(new Intent(Registro_pasajero.this, MainActivity.class));
                             Toast.makeText(Registro_pasajero.this, "Pasajero registrado!!!", Toast.LENGTH_SHORT).show();
@@ -165,6 +198,13 @@ public class Registro_pasajero extends AppCompatActivity {
         });
     }
 
+    private void DeleteSharePreferenceRegister() {
+        SharedPreferences preferences = getSharedPreferences("register_pasajero",MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.clear();
+        editor.apply();
+    }
+
     public static String sha256(String base) {
         try{
             MessageDigest digest = MessageDigest.getInstance("SHA-256");
@@ -184,10 +224,12 @@ public class Registro_pasajero extends AppCompatActivity {
     }
 
     public void back(View v){
+        CreateSharePreferenceRegister();
         Intent intent= new Intent(this, MainActivity.class);
         startActivity(intent);
     }
     public void administrador(View v){
+        CreateSharePreferenceRegister();
         Intent intent= new Intent(this, Registro_administrador.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(intent);
