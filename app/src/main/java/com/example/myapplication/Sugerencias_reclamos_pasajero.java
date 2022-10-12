@@ -104,17 +104,23 @@ public class Sugerencias_reclamos_pasajero extends Fragment {
                                 map.put("author",fullname);
                                 map.put("message",edit_comentario_pasajero.getText().toString());
                                 map.put("id_transport",id_empresa[spinner_empresas.getSelectedItemPosition()]);
-                                edit_comentario_pasajero.setText("");
-                                db.collection("comments").add(map).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<DocumentReference> task) {
-                                        if (task.isSuccessful()){
-                                            Toast.makeText(getContext(), "Comentario enviado", Toast.LENGTH_SHORT).show();
-                                        }else{
-                                            Toast.makeText(getContext(), "Error al enviar comentario", Toast.LENGTH_SHORT).show();
+
+                                if(edit_comentario_pasajero.getText().length() >= 1 && edit_comentario_pasajero.getText().length() <= 200){
+                                    edit_comentario_pasajero.setText("");
+                                    db.collection("comments").add(map).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<DocumentReference> task) {
+                                            if (task.isSuccessful()){
+                                                Toast.makeText(getContext(), "Comentario enviado", Toast.LENGTH_SHORT).show();
+                                            }else{
+                                                Toast.makeText(getContext(), "Error al enviar comentario", Toast.LENGTH_SHORT).show();
+                                            }
                                         }
-                                    }
-                                });
+                                    });
+
+                                }else{
+                                    Toast.makeText(getContext(), "Agregar almenos un caracter", Toast.LENGTH_SHORT).show();
+                                }
                             }
                         }
                 });
