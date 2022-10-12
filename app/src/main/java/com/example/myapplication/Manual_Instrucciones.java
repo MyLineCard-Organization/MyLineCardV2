@@ -12,7 +12,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ViewFlipper;
 
+import com.example.myapplication.Adapter.InstruccionesItemAdapter;
 import com.example.myapplication.Adapter.RutasItemAdapter;
+import com.example.myapplication.Models.InstruccionesItem;
 import com.example.myapplication.Models.RutasItem;
 
 import java.util.ArrayList;
@@ -27,12 +29,12 @@ public class Manual_Instrucciones extends Fragment {
         // Inflate the layout for this fragment
         View view =inflater.inflate(R.layout.fragment_manual__instrucciones, container, false);
         viewPager2 = view.findViewById(R.id.viewPagerImageManual);
-        List<RutasItem> rutasItems = new ArrayList<>();
+        List<InstruccionesItem> instruccionesItems = new ArrayList<>();
 
-        rutasItems.add(new RutasItem(R.drawable.instrucion1));
-        rutasItems.add(new RutasItem(R.drawable.instrucion2));
+        instruccionesItems.add(new InstruccionesItem(R.drawable.instrucion1));
+        instruccionesItems.add(new InstruccionesItem(R.drawable.instrucion2));
 
-        viewPager2.setAdapter(new RutasItemAdapter(rutasItems, viewPager2));
+        viewPager2.setAdapter(new InstruccionesItemAdapter(instruccionesItems, viewPager2));
         return view;
 
 
