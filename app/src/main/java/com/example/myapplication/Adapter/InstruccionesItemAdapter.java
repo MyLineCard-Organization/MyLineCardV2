@@ -10,6 +10,7 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.myapplication.Models.InstruccionesItem;
 import com.example.myapplication.R;
+import com.makeramen.roundedimageview.RoundedImageView;
 
 import java.util.List;
 

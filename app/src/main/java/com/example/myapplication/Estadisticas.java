@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -59,13 +60,14 @@ public class Estadisticas extends Fragment {
         calendario = Calendar.getInstance();
         Mes = String.valueOf(calendario.get(Calendar.MONTH)+1);
         Year = String.valueOf(calendario.get(Calendar.YEAR));
-        String [] years = {"2020","2021","2022","2023","2024","2025","2026","2027","2028","2029","2030"};
+        String [] years = {"2022","2023","2024","2025","2026","2027","2028","2029","2030"};
         ArrayAdapter<String> adapter_year = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, years);
         spinner_year.setAdapter(adapter_year);
 
         String [] meses = {"Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"};
         ArrayAdapter <String> adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, meses);
         spinner_mes.setAdapter(adapter);
+        spinner_mes.setSelection(Integer.parseInt(Mes)-1);
         btn_seleccionar_mes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -138,8 +140,10 @@ public class Estadisticas extends Fragment {
                                                             txt_estado_mes.setText("No hay datos del mes anterior");
                                                         } else if (total_pasado > retornado) {
                                                             txt_estado_mes.setText("El mes anterior fue más rentable");
+                                                            txt_estado_mes.setTextColor(Color.RED);
                                                         } else if (total_pasado < retornado) {
                                                             txt_estado_mes.setText("El mes anterior fue menos rentable");
+                                                            txt_estado_mes.setTextColor(Color.GREEN);
                                                         } else if (total_pasado == retornado) {
                                                             txt_estado_mes.setText("El mes fue igual al anterior");
                                                         }
@@ -154,7 +158,7 @@ public class Estadisticas extends Fragment {
     }
 
     public void estadisticas(String mes, String year){
-        total=0.0;
+
         db.collection("administrator")
                 .document(auth.getCurrentUser().getUid())
                 .get()
@@ -173,6 +177,7 @@ public class Estadisticas extends Fragment {
                                             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                                                 if (task.isSuccessful()) {
                                                     mesEscopido(mes);
+                                                    total=0.0;
                                                     for (QueryDocumentSnapshot document : task.getResult()) {
                                                         db.collection("transportation")
                                                                 .document(documentUID.getString("transport_id"))
@@ -184,14 +189,13 @@ public class Estadisticas extends Fragment {
                                                                     @Override
                                                                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                                                                         if (task.isSuccessful()) {
+
                                                                             for (QueryDocumentSnapshot documentTotal : task.getResult()) {
                                                                                 DecimalFormat twoDForm = new DecimalFormat("#.##");
                                                                                 total += Double.valueOf(twoDForm
                                                                                         .format(documentTotal.getDouble("earnings")));
                                                                             }
                                                                             DecimalFormat twoDForm = new DecimalFormat("#.##");
-                                                                            total += Double.valueOf(twoDForm
-                                                                                    .format(retornado));
                                                                             retornado = total;
                                                                             total_pagado.setText(String.valueOf(Double.valueOf(twoDForm
                                                                                     .format(total))));
@@ -210,7 +214,6 @@ public class Estadisticas extends Fragment {
     }
 
     public void estadisticas_year(String year){
-        total_year=0.0;
         db.collection("administrator")
                 .document(auth.getCurrentUser().getUid())
                 .get()
@@ -228,6 +231,7 @@ public class Estadisticas extends Fragment {
                                             @Override
                                             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                                                 if (task.isSuccessful()) {
+                                                    total_year=0.0;
                                                     for (QueryDocumentSnapshot document : task.getResult()) {
                                                         db.collection("transportation")
                                                                 .document(documentUID.getString("transport_id"))

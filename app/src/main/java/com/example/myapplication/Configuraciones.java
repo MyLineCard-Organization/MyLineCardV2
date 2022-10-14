@@ -145,4 +145,5 @@ public class Configuraciones extends Fragment {
 
         return view;
     }
+
 }
