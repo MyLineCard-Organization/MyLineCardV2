@@ -27,7 +27,7 @@ public class InstruccionesItemAdapter extends RecyclerView.Adapter<Instrucciones
     @NonNull
     @Override
     public InstruccionesItemAdapter.InstruccionesItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new InstruccionesItemAdapter.InstruccionesItemViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.instructions_view, parent, false));
+        return new InstruccionesItemAdapter.InstruccionesItemViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.view_instructions, parent, false));
     }
 
     @Override
