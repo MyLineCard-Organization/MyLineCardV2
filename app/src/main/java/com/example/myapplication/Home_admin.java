@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.NavHost;
 import androidx.navigation.Navigation;
@@ -40,6 +41,9 @@ public class Home_admin extends Fragment{
                 //Navigation.findNavController(view).navigate(R.id.nav_home2);
                 //NavHostFragment.findNavController(Home_admin.this).navigate(R.id.nav_home2);
                 //navigationView.getMenu().getItem(1).setChecked(true);
+                Fragment estadistica = new Estadisticas();
+                FragmentTransaction fn = getActivity().getSupportFragmentManager().beginTransaction();
+                fn.replace(R.id.container, estadistica).commit();
             }
         });
 
@@ -58,6 +62,9 @@ public class Home_admin extends Fragment{
             public void onClick(View v) {
                 //NavController navController = Navigation.findNavController(view);
                 //navController.navigate(R.id.nav_sugerencias_reclamos_pasajero);
+                Fragment reclamos = new Sugerencias_reclamos_admin();
+                FragmentTransaction fn = getActivity().getSupportFragmentManager().beginTransaction();
+                fn.replace(R.id.container, reclamos).commit();
             }
         });
 
@@ -67,6 +74,9 @@ public class Home_admin extends Fragment{
             public void onClick(View v) {
                 //NavController navController = Navigation.findNavController(view);
                 //navController.navigate(R.id.nav_lineas_afiliadas);
+                Fragment bus = new Lineas_Afiliadas();
+                FragmentTransaction fn = getActivity().getSupportFragmentManager().beginTransaction();
+                fn.replace(R.id.container, bus).commit();
             }
         });
 
