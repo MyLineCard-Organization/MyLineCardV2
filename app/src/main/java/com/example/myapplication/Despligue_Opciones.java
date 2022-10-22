@@ -234,7 +234,7 @@ public class Despligue_Opciones extends AppCompatActivity{
                                                                                             }else {
                                                                                                 MediaPlayer mp = MediaPlayer.create(Despligue_Opciones.this,R.raw.soundfalse);
                                                                                                 mp.start();
-                                                                                                Toast.makeText(Despligue_Opciones.this, "No dispone de saldo", Toast.LENGTH_SHORT).show();
+                                                                                                Toast.makeText(Despligue_Opciones.this, "No dispone de saldo suficiente. Recargue saldo", Toast.LENGTH_SHORT).show();
                                                                                             }
                                                                                         }
                                                                                     }).addOnFailureListener(new OnFailureListener() {
