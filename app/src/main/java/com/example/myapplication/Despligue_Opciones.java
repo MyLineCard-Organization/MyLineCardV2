@@ -91,7 +91,7 @@ public class Despligue_Opciones extends AppCompatActivity{
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
         // NFC SYSTEM
-        /*nfcAdapter = NfcAdapter.getDefaultAdapter(context);
+        nfcAdapter = NfcAdapter.getDefaultAdapter(context);
         if(nfcAdapter == null){
             Toast.makeText(context, "This device does not support NFC", Toast.LENGTH_SHORT).show();
         }
@@ -100,7 +100,7 @@ public class Despligue_Opciones extends AppCompatActivity{
         IntentFilter tagDetected = new IntentFilter(NfcAdapter.ACTION_TAG_DISCOVERED);
         tagDetected.addCategory(Intent.CATEGORY_DEFAULT);
         writingTagFilters = new IntentFilter[] { tagDetected };
-        //*/
+        //
         NavigationView SignOut = findViewById(R.id.nav_sign_out);
         navigationView.setItemIconTintList(null);
         navigationView.getMenu().findItem(R.id.nav_sign_out).setOnMenuItemClickListener(menuItem -> {
@@ -401,23 +401,23 @@ public class Despligue_Opciones extends AppCompatActivity{
     @Override
     public void onPause(){
         super.onPause();
-        //WriteModeOff();
+        WriteModeOff();
     }
     @Override
     public void onResume(){
         super.onResume();
-        //WriteModeOn();
+        WriteModeOn();
     }
 
-    /*private void WriteModeOn(){
+    private void WriteModeOn(){
         writeMode = true;
         nfcAdapter.enableForegroundDispatch(this,pendingIntent,writingTagFilters,null);
-    }*/
+    }
 
-   /* private void WriteModeOff(){
+    private void WriteModeOff(){
         writeMode = false;
         nfcAdapter.disableForegroundDispatch(this);
-    }*/
+    }
     ///
 
     @Override
