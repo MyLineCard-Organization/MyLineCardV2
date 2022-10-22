@@ -105,22 +105,10 @@ public class Despligue_Opciones extends AppCompatActivity{
         NavigationView SignOut = findViewById(R.id.nav_sign_out);
         navigationView.setItemIconTintList(null);
         navigationView.getMenu().findItem(R.id.nav_sign_out).setOnMenuItemClickListener(menuItem -> {
-            /*finish();
+            finish();
             auth.signOut();
             startActivity(new Intent(Despligue_Opciones.this,MainActivity.class));
             Toast.makeText(Despligue_Opciones.this, "Sesión cerrada", Toast.LENGTH_SHORT).show();
-            return true;*/
-            AlertDialog.Builder alerta = new AlertDialog.Builder(Despligue_Opciones.this);
-            alerta.setMessage("Desea cerrar la sesion");
-            alerta.setPositiveButton("Sí", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    finish();
-                    auth.signOut();
-                    startActivity(new Intent(Despligue_Opciones.this,MainActivity.class));
-                    Toast.makeText(Despligue_Opciones.this, "Sesión cerrada", Toast.LENGTH_SHORT).show();
-                }
-            });
             return true;
         });
         updateNavHeader();
