@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -68,6 +69,12 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        /*FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.add(R.id.fra)*/
+
+
+
     }
 
     private void login(String email, String password){

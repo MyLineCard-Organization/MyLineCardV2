@@ -7,9 +7,10 @@ public class Passenger {
     private String email;
     private String password;
     private String phone;
+    private String photo;
     private String direction;
 
-    public Passenger(String id, String name, String surname, String email, String password, String phone, String direction) {
+    public Passenger(String id, String name, String surname, String email, String password, String phone, String direction, String photo) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -17,6 +18,7 @@ public class Passenger {
         this.password = password;
         this.phone = phone;
         this.direction = direction;
+        this.photo = photo;
     }
     public Passenger(){}
 // Get and Set
@@ -76,4 +78,8 @@ public class Passenger {
     public void setDirection(String direction) {
         this.direction = direction;
     }
+
+    public String getPhoto(String photo) { return photo; }
+
+    public void setPhoto(String photo) { this.photo = photo; }
 }

@@ -1,9 +1,9 @@
 package com.example.myapplication;
 
-
 import android.app.PendingIntent;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.media.MediaPlayer;
@@ -22,6 +22,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -104,10 +105,22 @@ public class Despligue_Opciones extends AppCompatActivity{
         NavigationView SignOut = findViewById(R.id.nav_sign_out);
         navigationView.setItemIconTintList(null);
         navigationView.getMenu().findItem(R.id.nav_sign_out).setOnMenuItemClickListener(menuItem -> {
-            finish();
+            /*finish();
             auth.signOut();
             startActivity(new Intent(Despligue_Opciones.this,MainActivity.class));
             Toast.makeText(Despligue_Opciones.this, "Sesión cerrada", Toast.LENGTH_SHORT).show();
+            return true;*/
+            AlertDialog.Builder alerta = new AlertDialog.Builder(Despligue_Opciones.this);
+            alerta.setMessage("Desea cerrar la sesion");
+            alerta.setPositiveButton("Sí", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    finish();
+                    auth.signOut();
+                    startActivity(new Intent(Despligue_Opciones.this,MainActivity.class));
+                    Toast.makeText(Despligue_Opciones.this, "Sesión cerrada", Toast.LENGTH_SHORT).show();
+                }
+            });
             return true;
         });
         updateNavHeader();
@@ -221,7 +234,7 @@ public class Despligue_Opciones extends AppCompatActivity{
                                                                                             }else {
                                                                                                 MediaPlayer mp = MediaPlayer.create(Despligue_Opciones.this,R.raw.soundfalse);
                                                                                                 mp.start();
-                                                                                                Toast.makeText(Despligue_Opciones.this, "No dispone de saldo", Toast.LENGTH_SHORT).show();
+                                                                                                Toast.makeText(Despligue_Opciones.this, "No dispone de saldo suficiente. Recargue saldo", Toast.LENGTH_SHORT).show();
                                                                                             }
                                                                                         }
                                                                                     }).addOnFailureListener(new OnFailureListener() {
