@@ -92,9 +92,10 @@
 
             <TextView
                 android:id="@+id/textView27"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:layout_weight="2"
                 android:text="QUEJAS Y SUJERENCIAS"
                 android:textColor="@color/black"
                 tools:ignore="MissingConstraints" />
@@ -120,9 +121,10 @@
 
             <TextView
                 android:id="@+id/textView25"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:layout_weight="2"
                 android:text="CONTROL Y SEGUIMIENTO"
                 android:textColor="@color/black"
                 tools:ignore="MissingConstraints" />

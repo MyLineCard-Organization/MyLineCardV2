@@ -104,11 +104,28 @@ public class Despligue_Opciones extends AppCompatActivity{
         //
         NavigationView SignOut = findViewById(R.id.nav_sign_out);
         navigationView.setItemIconTintList(null);
+
         navigationView.getMenu().findItem(R.id.nav_sign_out).setOnMenuItemClickListener(menuItem -> {
-            finish();
-            auth.signOut();
-            startActivity(new Intent(Despligue_Opciones.this,MainActivity.class));
-            Toast.makeText(Despligue_Opciones.this, "Sesión cerrada", Toast.LENGTH_SHORT).show();
+            AlertDialog.Builder builder = new AlertDialog.Builder(Despligue_Opciones.this);
+            builder.setMessage("¿Desea salir de la aplicación?")
+                    .setCancelable(false)
+                    .setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            finish();
+                            auth.signOut();
+                            startActivity(new Intent(Despligue_Opciones.this,MainActivity.class));
+                            Toast.makeText(Despligue_Opciones.this, "Sesión cerrada", Toast.LENGTH_SHORT).show();
+
+                        }
+                    }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.cancel();
+                        }
+                    });
+            AlertDialog alert = builder.create();
+            alert.setTitle("Cerrar Sesión");
+            alert.show();
             return true;
         });
         updateNavHeader();
@@ -120,8 +137,6 @@ public class Despligue_Opciones extends AppCompatActivity{
         setIntent(intent);
         if (navigationView.getMenu().findItem(R.id.nav_home).isChecked()) {
                 readFromIntent(intent);
-        }else {
-           // Toast.makeText(Despligue_Opciones.this, "No s", Toast.LENGTH_SHORT).show();
         }
     }
 

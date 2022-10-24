@@ -102,4 +102,10 @@
         android:name="com.example.myapplication.Consultar_Detalles"
         android:label=""
         tools:layout="@layout/fragment_consultar__detalles"/>
+
+    <fragment
+        android:id="@+id/nav_phone"
+        android:name="com.example.myapplication.Phone"
+        android:label="Teléfonos"
+        tools:layout="@layout/fragment_phone" />
 </navigation>

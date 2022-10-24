@@ -66,7 +66,6 @@ public class Configuraciones extends Fragment {
 
     ProgressDialog progressDialog;
 
-    @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -83,9 +82,10 @@ public class Configuraciones extends Fragment {
         btn_delete=view.findViewById(R.id.btn_delete);
         Layout_perfil=view.findViewById(R.id.Layout_perfil);
         progressBar_perfil=view.findViewById(R.id.progressBar_perfil);
-        photo_profile=view.findViewById(R.id.imageView11);
+        photo_profile =view.findViewById(R.id.img_profile_passenger);
         auth=FirebaseAuth.getInstance();
         db=FirebaseFirestore.getInstance();
+        progressDialog=new ProgressDialog(getContext());
         storageReference = FirebaseStorage.getInstance().getReference();
         // Load data
         Layout_perfil.setVisibility(View.GONE);
@@ -101,6 +101,20 @@ public class Configuraciones extends Fragment {
                             edit_config_address.setText(documentSnapshot.getString("direction"));
                             Layout_perfil.setVisibility(View.VISIBLE);
                             progressBar_perfil.setVisibility(View.GONE);
+                            try {
+                                if(!documentSnapshot.getString("photo").equals("")){
+                                   Toast toast = Toast.makeText(getContext(), "Cargando foto de perfil", Toast.LENGTH_SHORT);
+                                    toast.setGravity(Gravity.CENTER, 0, 0);
+                                    toast.show();
+                                    Picasso.with(getContext())
+                                            .load(documentSnapshot.getString("photo"))
+                                            .resize(150,150)
+                                            .into(photo_profile);
+                                }
+                            }catch (Exception e){
+                                Log.e("Error",e.getMessage());
+                            }
+
                         }else {
                             db.collection("administrator").document(auth.getCurrentUser().getUid())
                                     .get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
@@ -216,10 +230,9 @@ public class Configuraciones extends Fragment {
     private void subirPhoto(Uri image_url){
         progressDialog.setMessage("Actualizando Foto");
         progressDialog.show();
-        String rute_storage_photo = storage_path + "" + photo + "" + auth.getUid() + "" + idd;
+        String rute_storage_photo = storage_path + "" + photo + "" + auth.getUid();
         StorageReference reference = storageReference.child(rute_storage_photo);
         reference.putFile(image_url).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-            @SuppressLint("SuspiciousIndentation")
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                 Task<Uri> uriTask = taskSnapshot.getStorage().getDownloadUrl();
@@ -231,7 +244,7 @@ public class Configuraciones extends Fragment {
                             String download_uri = uri.toString();
                             HashMap<String, Object> map = new HashMap<>();
                             map.put("photo",download_uri);
-                            db.collection("passenger").document(idd).update(map);
+                            db.collection("passenger").document(auth.getUid()).update(map);
                             Toast.makeText(getContext(), "Foto Actualizada", Toast.LENGTH_SHORT).show();
                             progressDialog.dismiss();
                         }

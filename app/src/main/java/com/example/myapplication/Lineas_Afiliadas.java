@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.example.myapplication.Adapter.ListViewTransport;
@@ -22,22 +23,10 @@ import com.google.firebase.firestore.Query;
 
 public class Lineas_Afiliadas extends Fragment {
 
-    ImageButton btnBack;
+    Button btnPhone;
     RecyclerView recyclerView;
     ListViewTransport Adapter;
     FirebaseFirestore firebaseFirestore;
-    /*
-    @Override
-    public void onStart() {
-        super.onStart();
-        Adapter.startListening();
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        Adapter.stopListening();
-    }*/
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -66,12 +55,12 @@ public class Lineas_Afiliadas extends Fragment {
             Log.e("Error",e.getMessage());
         }
 
-        btnBack = (ImageButton) view.findViewById(R.id.lineas_Afiliadas_btn);
-        btnBack.setOnClickListener(new View.OnClickListener() {
+        btnPhone = view.findViewById(R.id.btn_admin_contact);
+        btnPhone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                     NavController navController = Navigation.findNavController(view);
-                    navController.navigate(R.id.nav_home);
+                    navController.navigate(R.id.nav_phone);
             }
         });
         return view;

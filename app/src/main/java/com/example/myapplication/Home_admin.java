@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.NavHost;
+import androidx.navigation.NavOptions;
 import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
@@ -31,19 +32,15 @@ public class Home_admin extends Fragment{
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_home_admin, container, false);
         // Inflate the layout for this fragment
-
+        NavOptions navOptions = new NavOptions.Builder()
+                .setPopUpTo(R.id.nav_home_admin, true)
+                .build();
         btn_estadisticas_icon = (ImageButton) view.findViewById(R.id.btn_estadisticas_icon);
         btn_estadisticas_icon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //NavController navController = Navigation.findNavController(getActivity(), R.id.nav_home2);
-                //return NavigationUI.onNavDestinationSelected(v, navController);
-                //Navigation.findNavController(view).navigate(R.id.nav_home2);
-                //NavHostFragment.findNavController(Home_admin.this).navigate(R.id.nav_home2);
-                //navigationView.getMenu().getItem(1).setChecked(true);
-                Fragment estadistica = new Estadisticas();
-                FragmentTransaction fn = getActivity().getSupportFragmentManager().beginTransaction();
-                fn.replace(R.id.container, estadistica).commit();
+                NavController navController = Navigation.findNavController(view);
+                navController.navigate(R.id.nav_home2, null, navOptions);
             }
         });
 
@@ -51,8 +48,8 @@ public class Home_admin extends Fragment{
         btn_control_icon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //NavController navController = Navigation.findNavController(view);
-                //navController.navigate(R.id.nav_configuraciones);
+                NavController navController = Navigation.findNavController(view);
+                navController.navigate(R.id.nav_sugerencias_reclamos, null, navOptions);
             }
         });
 
@@ -60,11 +57,8 @@ public class Home_admin extends Fragment{
         btn_quejas_icon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //NavController navController = Navigation.findNavController(view);
-                //navController.navigate(R.id.nav_sugerencias_reclamos_pasajero);
-                Fragment reclamos = new Sugerencias_reclamos_admin();
-                FragmentTransaction fn = getActivity().getSupportFragmentManager().beginTransaction();
-                fn.replace(R.id.container, reclamos).commit();
+                NavController navController = Navigation.findNavController(view);
+                navController.navigate(R.id.nav_sugerencias_reclamos, null, navOptions);
             }
         });
 
@@ -72,11 +66,8 @@ public class Home_admin extends Fragment{
         btn_bus_icon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //NavController navController = Navigation.findNavController(view);
-                //navController.navigate(R.id.nav_lineas_afiliadas);
-                Fragment bus = new Lineas_Afiliadas();
-                FragmentTransaction fn = getActivity().getSupportFragmentManager().beginTransaction();
-                fn.replace(R.id.container, bus).commit();
+                NavController navController = Navigation.findNavController(view);
+                navController.navigate(R.id.nav_lineas_afiliadas, null, navOptions);
             }
         });
 

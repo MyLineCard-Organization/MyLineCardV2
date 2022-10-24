@@ -5,12 +5,14 @@ public class Transportation {
     private String name;
     private String code;
     private Double price;
+    private String phone;
 
-    public Transportation(String id, String name, String code, Double price) {
+    public Transportation(String id, String name, String code, Double price, String phone) {
         this.id = id;
         this.name = name;
         this.code = code;
         this.price = price;
+        this.phone = phone;
     }
     public Transportation() {
     }
@@ -47,4 +49,6 @@ public class Transportation {
     public void setPrice(Double price) {
         this.price = price;
     }
+    public String getPhone() { return phone; }
+    public void setPhone(String phone) { this.phone = phone; }
 }

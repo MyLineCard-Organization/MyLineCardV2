@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -14,6 +15,7 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -33,6 +35,7 @@ public class Administrador extends AppCompatActivity {
     private ActivityAdministradorBinding binding;
     private FirebaseAuth auth;
     private FirebaseFirestore db;
+    private NavController navController;
     private NavigationView navigationView;
     TextView Option;
     @Override
@@ -52,18 +55,40 @@ public class Administrador extends AppCompatActivity {
                 R.id.nav_home_admin, R.id.nav_lineas_afiliadas,R.id.nav_tarifas,R.id.nav_configuraciones, R.id.nav_sugerencias_reclamos, R.id.nav_home2)
                 .setOpenableLayout(drawer)
                 .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_administrador);
+        navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_administrador);
         navigationView.setItemIconTintList(null);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
         // sign off
         navigationView.getMenu().findItem(R.id.nav_sign_out_admin).setOnMenuItemClickListener(menuItem -> {
-            finish();
-            auth.signOut();
-            startActivity(new Intent(Administrador.this,MainActivity.class));
-            Toast.makeText(Administrador.this, "Sesión cerrada", Toast.LENGTH_SHORT).show();
+            AlertDialog.Builder builder = new AlertDialog.Builder(Administrador.this);
+            builder.setMessage("¿Desea salir de la aplicación?")
+                    .setCancelable(false)
+                    .setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            finish();
+                            auth.signOut();
+                            startActivity(new Intent(Administrador.this,MainActivity.class));
+                            Toast.makeText(Administrador.this, "Sesión cerrada", Toast.LENGTH_SHORT).show();
+
+                        }
+                    }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.cancel();
+                        }
+                    });
+            AlertDialog alert = builder.create();
+            alert.setTitle("Cerrar Sesión");
+            alert.show();
             return true;
         });
+        /*
+        navigationView.getMenu().findItem(R.id.nav_home_admin).setOnMenuItemClickListener(menuItem -> {
+            navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_administrador);
+            navController.navigate(R.id.nav_home_admin);
+            return true;
+        });*/
         updateNavHeader();
     }
 
