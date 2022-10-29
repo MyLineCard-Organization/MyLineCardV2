@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
+import androidx.navigation.NavOptions;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -24,6 +25,7 @@ import com.google.firebase.firestore.Query;
 public class Lineas_Afiliadas extends Fragment {
 
     Button btnPhone;
+    ImageButton lineas_Afiliadas_btn;
     RecyclerView recyclerView;
     ListViewTransport Adapter;
     FirebaseFirestore firebaseFirestore;
@@ -61,6 +63,18 @@ public class Lineas_Afiliadas extends Fragment {
             public void onClick(View v) {
                     NavController navController = Navigation.findNavController(view);
                     navController.navigate(R.id.nav_phone);
+            }
+        });
+
+        lineas_Afiliadas_btn = view.findViewById(R.id.lineas_Afiliadas_btn);
+        lineas_Afiliadas_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavOptions navOptions = new NavOptions.Builder()
+                        .setPopUpTo(R.id.nav_home_admin, true)
+                        .build();
+                NavController navController = Navigation.findNavController(view);
+                navController.navigate(R.id.nav_home, null, navOptions);
             }
         });
         return view;
