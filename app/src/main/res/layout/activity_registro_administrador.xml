@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#323643"
+    android:background="#00B1AC"
     android:theme="@style/Theme.AppCompat.Light.NoActionBar"
     tools:context=".Registro_administrador">
 
@@ -120,7 +120,7 @@
                         android:id="@+id/scrollView2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@color/white">
+                        style="@style/SCREEN">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -138,7 +138,7 @@
                                 android:layout_marginEnd="20sp"
                                 android:fontFamily="@font/poppins_regular"
                                 android:text="Nombres"
-                                android:textColor="@color/black" />
+                                style="@style/TEXT"/>
 
                             <EditText
                                 android:id="@+id/edit_admin_names"
@@ -147,7 +147,8 @@
                                 android:layout_marginStart="20sp"
                                 android:layout_marginEnd="20sp"
                                 android:ems="10"
-                                android:inputType="textPersonName" />
+                                android:inputType="textPersonName"
+                                style="@style/EDIT_TEXT"/>
 
                             <TextView
                                 android:id="@+id/textView5"
@@ -158,7 +159,7 @@
                                 android:layout_marginEnd="20sp"
                                 android:fontFamily="@font/poppins_regular"
                                 android:text="Apellidos"
-                                android:textColor="@color/black" />
+                                style="@style/TEXT"/>
 
                             <EditText
                                 android:id="@+id/edit_admin_surnames"
@@ -167,7 +168,8 @@
                                 android:layout_marginStart="20sp"
                                 android:layout_marginEnd="20sp"
                                 android:ems="10"
-                                android:inputType="textPersonName" />
+                                android:inputType="textPersonName"
+                                style="@style/EDIT_TEXT"/>
 
                             <TextView
                                 android:id="@+id/textView7"
@@ -178,7 +180,7 @@
                                 android:layout_marginEnd="20sp"
                                 android:fontFamily="@font/poppins_regular"
                                 android:text="Correo"
-                                android:textColor="@color/black" />
+                                style="@style/TEXT" />
 
                             <EditText
                                 android:id="@+id/edit_admin_email"
@@ -187,7 +189,8 @@
                                 android:layout_marginStart="20sp"
                                 android:layout_marginEnd="20sp"
                                 android:ems="10"
-                                android:inputType="textEmailAddress" />
+                                android:inputType="textEmailAddress"
+                                style="@style/EDIT_TEXT"/>
 
                             <TextView
                                 android:id="@+id/textView6"
@@ -198,7 +201,7 @@
                                 android:layout_marginEnd="20sp"
                                 android:fontFamily="@font/poppins_regular"
                                 android:text="Contraseña"
-                                android:textColor="@color/black" />
+                                style="@style/TEXT" />
                             <TextView
                                 android:id="@+id/textView34564"
                                 android:layout_width="match_parent"
@@ -218,7 +221,8 @@
                                 android:layout_marginStart="20sp"
                                 android:layout_marginEnd="20sp"
                                 android:ems="10"
-                                android:inputType="textPassword" />
+                                android:inputType="textPassword"
+                                style="@style/EDIT_TEXT"/>
 
                             <TextView
                                 android:id="@+id/textView8"
@@ -229,7 +233,7 @@
                                 android:layout_marginEnd="20sp"
                                 android:fontFamily="@font/poppins_regular"
                                 android:text="Confirmar contraseña"
-                                android:textColor="@color/black" />
+                                style="@style/TEXT" />
 
                             <EditText
                                 android:id="@+id/edit_admin_confirm_password"
@@ -238,7 +242,8 @@
                                 android:layout_marginStart="20sp"
                                 android:layout_marginEnd="20sp"
                                 android:ems="10"
-                                android:inputType="textPassword" />
+                                android:inputType="textPassword"
+                                style="@style/EDIT_TEXT"/>
 
                             <TextView
                                 android:id="@+id/textView9"
@@ -249,7 +254,7 @@
                                 android:layout_marginEnd="20sp"
                                 android:fontFamily="@font/poppins_regular"
                                 android:text="Dirección"
-                                android:textColor="@color/black" />
+                                style="@style/TEXT" />
 
                             <EditText
                                 android:id="@+id/edit_admin_direction"
@@ -258,8 +263,8 @@
                                 android:layout_marginStart="20sp"
                                 android:layout_marginEnd="20sp"
                                 android:ems="10"
-                                android:inputType="textPersonName" />
-
+                                android:inputType="textPersonName"
+                                style="@style/EDIT_TEXT"/>
 
                             <TextView
                                 android:id="@+id/validate"
@@ -270,7 +275,7 @@
                                 android:layout_marginEnd="20sp"
                                 android:fontFamily="@font/poppins_regular"
                                 android:text="Código de validación"
-                                android:textColor="@color/black" />
+                                style="@style/TEXT" />
 
                             <EditText
                                 android:id="@+id/edit_admin_codigo"
@@ -279,7 +284,8 @@
                                 android:layout_marginStart="20sp"
                                 android:layout_marginEnd="20sp"
                                 android:ems="10"
-                                android:inputType="text" />
+                                android:inputType="text"
+                                style="@style/EDIT_TEXT"/>
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -293,14 +299,15 @@
                                     android:layout_marginStart="20sp"
                                     android:layout_marginTop="10sp"
                                     android:layout_marginEnd="20sp"
-                                    android:text="Acepto Políticas de Privacidad" />
+                                    android:text="Acepto Políticas de Privacidad"
+                                    style="@style/TEXT"/>
 
                                 <ImageButton
                                     android:id="@+id/btn_politicas_admin"
                                     android:layout_width="37dp"
                                     android:layout_height="match_parent"
                                     android:layout_gravity="bottom|center"
-                                    android:background="@color/fui_transparent"
+                                    app:backgroundTint="@android:color/transparent"
                                     app:srcCompat="@drawable/help" />
                             </LinearLayout>
 
@@ -316,14 +323,15 @@
                                     android:layout_marginStart="20sp"
                                     android:layout_marginTop="10sp"
                                     android:layout_marginEnd="20sp"
-                                    android:text="Acepto Términos y Condiciones" />
+                                    android:text="Acepto Términos y Condiciones"
+                                    style="@style/TEXT" />
 
                                 <ImageButton
                                     android:id="@+id/btn_terminos_admin"
                                     android:layout_width="37dp"
                                     android:layout_height="match_parent"
                                     android:layout_gravity="bottom|center"
-                                    android:background="@color/fui_transparent"
+                                    android:background="@android:color/transparent"
                                     app:srcCompat="@drawable/help" />
                             </LinearLayout>
 
@@ -342,9 +350,8 @@
                                 android:layout_marginTop="10sp"
                                 android:layout_marginEnd="20sp"
                                 android:layout_marginBottom="5sp"
-                                android:backgroundTint="#323643"
                                 android:text="Registrarse"
-                                android:textColor="@color/white"
+                                style="@style/BUTTON_PRINCIPAL"
                                 app:cornerRadius="15dp" />
                         </LinearLayout>
                     </ScrollView>

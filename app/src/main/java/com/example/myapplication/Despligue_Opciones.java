@@ -92,7 +92,7 @@ public class Despligue_Opciones extends AppCompatActivity{
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
         // NFC SYSTEM
-        /*
+
         nfcAdapter = NfcAdapter.getDefaultAdapter(context);
         if(nfcAdapter == null){
             Toast.makeText(context, "This device does not support NFC", Toast.LENGTH_SHORT).show();
@@ -102,11 +102,9 @@ public class Despligue_Opciones extends AppCompatActivity{
         IntentFilter tagDetected = new IntentFilter(NfcAdapter.ACTION_TAG_DISCOVERED);
         tagDetected.addCategory(Intent.CATEGORY_DEFAULT);
         writingTagFilters = new IntentFilter[] { tagDetected };
-         */
         //
         NavigationView SignOut = findViewById(R.id.nav_sign_out);
         navigationView.setItemIconTintList(null);
-
         navigationView.getMenu().findItem(R.id.nav_sign_out).setOnMenuItemClickListener(menuItem -> {
             AlertDialog.Builder builder = new AlertDialog.Builder(Despligue_Opciones.this);
             builder.setMessage("¿Desea salir de la aplicación?")
@@ -426,7 +424,7 @@ public class Despligue_Opciones extends AppCompatActivity{
         super.onResume();
         //WriteModeOn();
     }
-
+    /*
     private void WriteModeOn(){
         writeMode = true;
         nfcAdapter.enableForegroundDispatch(this,pendingIntent,writingTagFilters,null);
@@ -436,7 +434,7 @@ public class Despligue_Opciones extends AppCompatActivity{
         writeMode = false;
         nfcAdapter.disableForegroundDispatch(this);
     }
-    ///
+    *///
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {

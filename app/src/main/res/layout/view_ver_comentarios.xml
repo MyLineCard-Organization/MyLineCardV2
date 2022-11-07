@@ -7,8 +7,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        android:orientation="vertical">
+        android:padding="15dp"
+        android:orientation="vertical"
+        android:background="@color/white">
 
         <TextView
             android:id="@+id/txt_comentario_name_pasajero"
@@ -27,7 +28,7 @@
             android:fontFamily="@font/poppins_light"
             android:text="text"
             android:textSize="17dp"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"/>
 
         <LinearLayout
             android:layout_width="match_parent"

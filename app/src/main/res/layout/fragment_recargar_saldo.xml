@@ -58,7 +58,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:background="@color/white">
+            style="@style/SCREEN">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -74,7 +74,7 @@
                     android:gravity="center"
                     android:paddingTop="25dp"
                     android:text="Ingresa el monto a recargar:"
-                    android:textColor="@color/black"
+                    style="@style/TEXT"
                     android:textSize="20dp" />
 
                 <LinearLayout
@@ -93,16 +93,15 @@
                         android:gravity="right"
                         android:text="S/"
                         android:textSize="20dp"
-                        android:textColor="@color/black" />
+                        style="@style/TEXT" />
 
                     <EditText
                         android:id="@+id/edit_recargar_saldo"
                         android:layout_width="wrap_content"
-                        android:backgroundTint="@color/black"
                         android:layout_height="wrap_content"
                         android:ems="3"
                         android:fontFamily="@font/poppins_medium"
-                        android:textColor="@color/black"
+                        style="@style/EDIT_TEXT"
                         android:inputType="numberDecimal"
                         tools:text="0.00" />
 
@@ -122,9 +121,8 @@
                     android:layout_marginEnd="20sp"
                     android:layout_marginBottom="5sp"
                     android:fontFamily="@font/poppins_medium"
-                    android:backgroundTint="#323643"
+                    style="@style/BUTTON_PRINCIPAL"
                     android:text="Generar enlace de pago"
-                    android:textColor="@color/white"
                     app:cornerRadius="15dp" />
 
                 <LinearLayout
@@ -138,7 +136,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_medium"
                         android:gravity="center"
-                        android:textColor="@color/black"
+                        style="@style/TEXT"
                         android:paddingTop="25dp"
                         android:text="&quot;Da click en el link para pagar&quot;" />
 
@@ -156,7 +154,7 @@
                             android:fontFamily="@font/poppins_medium"
                             android:layout_gravity="center_vertical"
                             android:layout_marginEnd="20sp"
-                            android:textColor="@color/black"
+                            style="@style/TEXT"
                             android:text="powered by" />
 
                         <ImageView

@@ -11,8 +11,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="15dp"
-            android:orientation="horizontal">
+            android:padding="15dp"
+            android:orientation="horizontal"
+            style="@style/SCREEN">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -25,7 +26,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_semibold"
                     android:text="Pregunta"
-                    android:textColor="@color/black"
+                    style="@style/TEXT"
                     android:textSize="18dp" />
 
                 <TextView
@@ -35,16 +36,15 @@
                     android:fontFamily="@font/poppins_light"
                     android:text="Pregunta"
                     android:lines="2"
-                    android:textColor="@color/black"
+                    style="@style/TEXT"
                     android:textSize="17dp" />
 
                 <Button
                     android:id="@+id/btn_seleccionar_pregunta"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="#323643"
                     android:text="Ver mas"
-                    android:textColor="@color/white"
+                    style="@style/BUTTON_PRINCIPAL"
                     android:textSize="12dp"
                     app:cornerRadius="15dp" />
             </LinearLayout>
@@ -62,11 +62,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="start"
-            android:layout_margin="15dp"
             android:visibility="gone"
             android:gravity="right"
-            android:padding="10dp"
-            android:background="#D1D5DB"
+            android:padding="25dp"
+            style="@style/SCREEN"
             android:orientation="vertical">
 
             <TextView
@@ -75,7 +74,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_semibold"
                 android:text="Repuesta:"
-                android:textColor="@color/black"
+                style="@style/TEXT"
                 android:textSize="18dp" />
 
             <ScrollView
@@ -94,7 +93,7 @@
                         android:fontFamily="@font/poppins_light"
                         android:lines="8"
                         android:text="respuesta"
-                        android:textColor="@color/black"
+                        style="@style/TEXT"
                         android:textSize="17dp" />
                 </LinearLayout>
             </ScrollView>
@@ -103,10 +102,9 @@
                 android:id="@+id/btn_cerrar_respuesta"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#323643"
                 android:text="CERRAR"
-                android:textColor="@color/white"
                 android:textSize="12dp"
+                style="@style/BUTTON_PRINCIPAL"
                 app:cornerRadius="15dp" />
         </LinearLayout>
 

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#D1D5DB"
+    style="@style/SCREEN"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Terminos_Y_Condiciones_resgistro">
 
@@ -19,7 +19,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:cardBackgroundColor="#00000000">
 
         <ScrollView
             android:layout_width="wrap_content"
@@ -93,7 +94,7 @@ MyLinecard cuenta con 2 tipos de canales de comunicación para dar atención a c
 
 Los usuarios dan autorización expresamente y brindar su consentimiento para la cesión de las obligaciones de MyLinecard surgidas de estos Términos de Uso en favor de cualquier tercero que quede bajo estos Términos y condiciones de uso y/o que sea el nuevo responsable del banco de datos que contenga la información personal de los Usuarios. Por lo cual, una vez realizada la cesión, MyLinecard no será responsable sobre cualquier suceso que se presente a partir de la fecha de la cesión de términos y condiciones de uso.
 "
-                android:textColor="@color/black"
+                style="@style/TEXT"
                 android:textSize="12dp" />
 
         </LinearLayout>
@@ -111,10 +112,11 @@ Los usuarios dan autorización expresamente y brindar su consentimiento para la 
             android:id="@+id/lineas_Afiliadas_btn"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginTop="15sp"
+            android:layout_marginTop="45sp"
+            android:layout_marginLeft="15sp"
             android:onClick="btn_back"
             android:scaleType="center"
-            android:src="@drawable/arrow"
+            android:src="@drawable/arrow_write"
             app:backgroundTint="@android:color/transparent" />
 
         <LinearLayout
