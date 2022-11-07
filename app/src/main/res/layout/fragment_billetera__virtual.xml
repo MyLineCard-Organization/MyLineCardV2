@@ -65,7 +65,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:background="#D1D5DB">
+            style="@style/SCREEN_SECONDARY">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/Consultar"
@@ -78,7 +78,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:background="@color/white">
 
                     <TextView
                         android:id="@+id/textView23"
@@ -88,7 +89,7 @@
                         android:layout_weight="1"
                         android:fontFamily="@font/poppins_medium"
                         android:text="Consultar detalle"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/black"/>
 
                     <View
                         android:id="@+id/divider5"
@@ -118,7 +119,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:background="@color/white">
 
                     <TextView
                         android:id="@+id/textView24"
@@ -128,7 +130,7 @@
                         android:layout_weight="1"
                         android:fontFamily="@font/poppins_medium"
                         android:text="Recargar saldo"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/black"/>
 
                     <View
                         android:id="@+id/divider6"
@@ -160,7 +162,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="@color/white">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -188,8 +191,8 @@
                         android:layout_weight="1"
                         android:fontFamily="@font/poppins_bold"
                         android:text="Pasajero"
-                        android:textColor="@color/black"
-                        android:textSize="18dp" />
+                        android:textSize="18dp"
+                        android:textColor="@color/black"/>
 
                     <TextView
                         android:id="@+id/text_fullname_bv"
@@ -198,7 +201,7 @@
                         android:layout_weight="1"
                         android:fontFamily="@font/poppins_medium"
                         android:text="--------------"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/black"/>
                 </LinearLayout>
 
                 <View
@@ -232,7 +235,8 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="20sp"
                             android:fontFamily="@font/poppins_medium"
-                            android:text="SALDO" />
+                            android:text="SALDO"
+                            android:textColor="@color/black"/>
 
                         <LinearLayout
                             android:layout_width="wrap_content"

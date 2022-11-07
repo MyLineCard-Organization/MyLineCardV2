@@ -5,13 +5,15 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_gravity="center"
-    tools:context=".Tarifas">
+    tools:context=".Tarifas"
+    android:background="@color/black">
     <androidx.cardview.widget.CardView
         android:layout_width="330dp"
         android:layout_height="489dp"
         android:layout_gravity="center|top"
         android:layout_marginTop="180sp"
-        app:cardCornerRadius="15dp">
+        app:cardCornerRadius="15dp"
+        android:backgroundTint="@color/white">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview_tarifas"
@@ -24,7 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:background="#D1D5DB"/>
+        style="@style/SCREEN_SECONDARY"/>
 
     <FrameLayout
         android:id="@+id/partTwo"
@@ -40,10 +42,11 @@
 
             <ImageButton
                 android:id="@+id/lineas_Afiliadas_btn"
-                android:layout_width="87dp"
-                android:layout_height="wrap_content"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_marginTop="15sp"
-                android:src="@drawable/arrow"
+                android:layout_marginLeft="20sp"
+                android:src="@drawable/arrow_write"
                 app:backgroundTint="@android:color/transparent" />
 
         </LinearLayout>

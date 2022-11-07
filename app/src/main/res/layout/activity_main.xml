@@ -29,7 +29,6 @@
         android:layout_marginTop="15dp"
         android:orientation="vertical"
         android:layout_marginHorizontal="30sp">
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -45,12 +44,12 @@
 
         <EditText
             android:id="@+id/edit_login_email"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:backgroundTint="@color/white"
+            android:layout_width="346dp"
+            android:layout_height="51dp"
             android:ems="10"
             android:fontFamily="@font/poppins_regular"
             android:inputType="textEmailAddress"
+            android:backgroundTint="@color/white"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -83,10 +82,10 @@
             android:id="@+id/edit_login_pass"
             android:layout_width="346dp"
             android:layout_height="51dp"
-            android:backgroundTint="@color/white"
             android:ems="10"
             android:fontFamily="@font/poppins_regular"
             android:inputType="textPassword"
+            android:backgroundTint="@color/white"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -147,22 +146,22 @@
 
         <Button
             android:id="@+id/button2"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="match_parent"
             android:layout_height="53dp"
             android:layout_marginTop="15dp"
-            android:color="@android:color/white"
             android:fontFamily="@font/poppins_regular"
             android:onClick="Registrate"
             android:text="Registrate"
-            android:textColor="@color/white"
-            app:backgroundTint="@android:color/transparent"
+            android:backgroundTint="#00000000"
+            android:textColor="#FFFFFF"
+            app:strokeColor="#FFFFFFFF"
+            app:strokeWidth="1dp"
             app:cornerRadius="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:strokeColor="@color/white" />
+            />
     </LinearLayout>
 
 </LinearLayout>

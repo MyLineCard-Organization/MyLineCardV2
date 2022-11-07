@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#D1D5DB"
+    style="@style/SCREEN"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Politicas_registro">
 
@@ -19,7 +19,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:cardCornerRadius="15dp">
+        app:cardCornerRadius="15dp"
+        app:cardBackgroundColor="#00000000"
+        >
 
         <ScrollView
             android:layout_width="wrap_content"
@@ -77,7 +79,7 @@
 
 14.	Si MyLinecard no da respuesta dentro de los 30 días establecidos después de su solicitud o si no esta satisfecho con nuestra respuesta, podrá presentar una queja ante la oficina de Indecopi, o el Ministerio de Justicas según sea el caso. Asimismo, si usted no esta satisfecho con la forma que tratamos sus datos personales háganoslo saber mediante los canales de contacto de MyLinecard.
 "
-                android:textColor="@color/black"
+                style="@style/TEXT"
                 android:textSize="12dp" />
 
         </LinearLayout>
@@ -95,10 +97,11 @@
             android:id="@+id/lineas_Afiliadas_btn"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginTop="15sp"
+            android:layout_marginTop="43sp"
+            android:layout_marginLeft="15sp"
             android:onClick="btn_back"
             android:scaleType="center"
-            android:src="@drawable/arrow"
+            android:src="@drawable/arrow_write"
             app:backgroundTint="@android:color/transparent" />
 
         <LinearLayout

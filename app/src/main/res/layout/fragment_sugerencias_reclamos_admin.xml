@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#D1D5DB"
+    style="@style/SCREEN_SECONDARY"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Sugerencias_reclamos_admin">
 
@@ -14,13 +14,14 @@
         android:layout_gravity="center|top"
         android:layout_marginTop="100dp"
         android:layout_marginBottom="30dp"
-        app:cardCornerRadius="15dp">
+        app:cardCornerRadius="15dp"
+        android:backgroundTint="@color/white">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_sugerencias"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="10dp"/>
+            android:layout_margin="10dp" />
     </androidx.cardview.widget.CardView>
 
     <FrameLayout

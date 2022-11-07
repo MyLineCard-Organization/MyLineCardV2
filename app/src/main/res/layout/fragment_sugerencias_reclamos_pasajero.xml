@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Sugerencias_reclamos_pasajero">
+    tools:context=".Sugerencias_reclamos_pasajero"
+    style="@style/SCREEN_SECONDARY">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_line_join"
@@ -13,7 +14,8 @@
         android:layout_gravity="center|top"
         android:layout_marginTop="250dp"
         android:layout_marginBottom="30dp"
-        app:cardCornerRadius="15dp">
+        app:cardCornerRadius="15dp"
+        android:backgroundTint="@color/white">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_respuestas_pasajero"
@@ -70,7 +72,8 @@
                     android:id="@+id/spinner_empresas"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:backgroundTint="#323643"/>
 
                 <Button
                     android:id="@+id/btn_seleccionar_empresa"

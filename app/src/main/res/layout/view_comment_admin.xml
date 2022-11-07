@@ -7,8 +7,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        android:orientation="vertical">
+        android:padding="15dp"
+        android:orientation="vertical"
+        style="@style/SCREEN">
 
         <TextView
             android:id="@+id/txt_comentario_name"
@@ -17,7 +18,7 @@
             android:fontFamily="@font/poppins_semibold"
             android:text="Name"
             android:textSize="18dp"
-            android:textColor="@color/black" />
+            style="@style/TEXT"/>
 
 
         <TextView
@@ -27,7 +28,7 @@
             android:fontFamily="@font/poppins_light"
             android:text="text"
             android:textSize="17dp"
-            android:textColor="@color/black" />
+            style="@style/TEXT" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -44,7 +45,7 @@
                 android:inputType="textPersonName"
                 android:hint="Respuesta"
                 android:gravity="top"
-                android:textColor="@color/black"
+                style="@style/EDIT_TEXT"
                 android:textSize="15dp" />
 
             <LinearLayout
@@ -57,10 +58,8 @@
                     android:id="@+id/btn_mostrar_respuesta"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
-                    android:backgroundTint="#323643"
+                    style="@style/BUTTON_PRINCIPAL"
                     android:text="Ver comentarios"
-                    android:textColor="@color/white"
                     android:textSize="12dp"
                     app:cornerRadius="15dp" />
 
@@ -69,9 +68,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:backgroundTint="#323643"
+                    style="@style/BUTTON_PRINCIPAL"
                     android:text="Enviar"
-                    android:textColor="@color/white"
                     app:cornerRadius="15dp" />
             </LinearLayout>
 

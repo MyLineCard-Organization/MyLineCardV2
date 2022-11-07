@@ -24,6 +24,7 @@ import com.google.firebase.firestore.Query;
 public class Lineas_Afiliadas extends Fragment {
 
     Button btnPhone;
+
     RecyclerView recyclerView;
     ListViewTransport Adapter;
     FirebaseFirestore firebaseFirestore;

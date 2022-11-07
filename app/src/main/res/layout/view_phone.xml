@@ -12,7 +12,8 @@
             android:layout_width="match_parent"
             android:layout_height="95dp"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:background="@color/white">
 
             <ImageView
                 android:id="@+id/img_bus"
@@ -27,7 +28,7 @@
                 android:layout_weight="2"
                 android:fontFamily="@font/poppins_semibold"
                 android:text="ETUCHISA"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"/>
 
             <TextView
                 android:id="@+id/text_bus_phone"
@@ -36,7 +37,7 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/poppins_semibold"
                 android:text="923456789"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"/>
         </LinearLayout>
     </LinearLayout>
 
