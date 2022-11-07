@@ -22,7 +22,6 @@ public class Terminos_Y_Condiciones_resgistro extends AppCompatActivity {
     }
 
     public void btn_back(View v){
-        Intent intent= new Intent(this, Registro_administrador.class);
-        startActivity(intent);
+        onBackPressed();
     }
 }

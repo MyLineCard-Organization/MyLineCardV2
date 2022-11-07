@@ -12,11 +12,6 @@
         tools:layout="@layout/fragment_estadisticas" />
 
     <fragment
-        android:id="@+id/nav_lineas_afiliadas"
-        android:name="com.example.myapplication.Lineas_Afiliadas"
-        android:label="Líneas afiliadas"
-        tools:layout="@layout/fragment_lineas__afiliadas" />
-    <fragment
         android:id="@+id/nav_tarifas"
         android:name="com.example.myapplication.Tarifas"
         android:label="Tarifas"

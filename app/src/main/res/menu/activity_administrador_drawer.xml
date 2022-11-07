@@ -10,11 +10,6 @@
             android:fontFamily="@font/poppins_regular"
             android:title="@string/menu_home" />
         <item
-            android:id="@+id/nav_lineas_afiliadas"
-            android:icon="@drawable/bus_line"
-            android:fontFamily="@font/poppins_regular"
-            android:title="Líneas afiliadas" />
-        <item
             android:id="@+id/nav_tarifas"
             android:icon="@drawable/tarifa"
             android:fontFamily="@font/poppins_regular"

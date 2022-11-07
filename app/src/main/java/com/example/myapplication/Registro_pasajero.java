@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
@@ -40,6 +41,7 @@ public class Registro_pasajero extends AppCompatActivity {
     private Button btn_register_pasajero;
     private ProgressBar progressBar_pasajero;
     private ImageButton btn_politicas_pasajero,btn_terminos_pasajero;
+    private CheckBox checkPassengerTerms, checkPassengerPolicy;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +70,9 @@ public class Registro_pasajero extends AppCompatActivity {
         editPhone = findViewById(R.id.edit_passeger_phone);
         btn_politicas_pasajero = findViewById(R.id.btn_politicas_pasajero);
         btn_terminos_pasajero = findViewById(R.id.btn_terminos_pasajero);
+        // Checkboxes
+        checkPassengerTerms = findViewById(R.id.checkPassengerTerms);
+        checkPassengerPolicy = findViewById(R.id.checkPassengerPolicy);
 
 
         // Button Policas
@@ -104,7 +109,16 @@ public class Registro_pasajero extends AppCompatActivity {
                 String Direction = editDirection.getText().toString().trim();
                 String Phone = editPhone.getText().toString().trim();
 
-                if(Names.isEmpty() && Surnames.isEmpty() && Email.isEmpty() && Pass.isEmpty() && ConfirmPass.isEmpty() && Direction.isEmpty() && Phone.isEmpty()){
+                if(Names.isEmpty() ||
+                        Surnames.isEmpty() ||
+                        Email.isEmpty() ||
+                        Pass.isEmpty() ||
+                        ConfirmPass.isEmpty() ||
+                        Direction.isEmpty() ||
+                        Phone.isEmpty() ||
+                        !checkPassengerTerms.isChecked() ||
+                        !checkPassengerPolicy.isChecked()
+                ){
                     Toast.makeText(Registro_pasajero.this, "Complete todos los datos", Toast.LENGTH_SHORT).show();
                 }
                 else if(Pass.equals(ConfirmPass)){
@@ -112,8 +126,6 @@ public class Registro_pasajero extends AppCompatActivity {
                     registerPassenger(Names,Surnames, Email, Pass, Direction, Phone);
                 }
                 else{
-                    Toast.makeText(Registro_pasajero.this, Pass, Toast.LENGTH_SHORT).show();
-                    Toast.makeText(Registro_pasajero.this, ConfirmPass, Toast.LENGTH_SHORT).show();
                     Toast.makeText(Registro_pasajero.this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
                 }
             }

@@ -10,7 +10,6 @@ import android.view.Window;
 import android.view.WindowManager;
 
 public class Politicas_registro extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
@@ -20,9 +19,7 @@ public class Politicas_registro extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_politicas_registro);
     }
-
     public void btn_back(View v){
-        Intent intent= new Intent(this, Registro_administrador.class);
-        startActivity(intent);
+        onBackPressed();
     }
 }

@@ -27,10 +27,9 @@ public class Rutas extends Fragment {
         View view =inflater.inflate(R.layout.fragment_rutas, container, false);
         viewPager2 = view.findViewById(R.id.viewPagerImageSlider);
         List<RutasItem> rutasItems = new ArrayList<>();
-
-        rutasItems.add(new RutasItem(R.drawable.ruta1));
-        rutasItems.add(new RutasItem(R.drawable.ruta2));
         rutasItems.add(new RutasItem(R.drawable.ruta3));
+        rutasItems.add(new RutasItem(R.drawable.ruta2));
+        rutasItems.add(new RutasItem(R.drawable.ruta1));
 
         viewPager2.setAdapter(new RutasItemAdapter(rutasItems, viewPager2));
         return view;
