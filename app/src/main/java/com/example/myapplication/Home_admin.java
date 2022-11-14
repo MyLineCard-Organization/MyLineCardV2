@@ -67,7 +67,7 @@ public class Home_admin extends Fragment{
             @Override
             public void onClick(View v) {
                 NavController navController = Navigation.findNavController(view);
-                navController.navigate(R.id.nav_lineas_afiliadas, null, navOptions);
+                navController.navigate(R.id.nav_tarifas, null, navOptions);
             }
         });
 

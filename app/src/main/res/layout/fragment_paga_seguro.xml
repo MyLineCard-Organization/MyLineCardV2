@@ -32,7 +32,7 @@
             android:text="Nombre completo del titular" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName"
+            android:id="@+id/editPagoName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -51,7 +51,7 @@
             android:text="Número de la tarjeta" />
 
         <EditText
-            android:id="@+id/editTextNumberSigned"
+            android:id="@+id/editPagoNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -85,7 +85,7 @@
                     android:orientation="horizontal">
 
                     <EditText
-                        android:id="@+id/editTextTime"
+                        android:id="@+id/editPagoMes"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:ems="2"
@@ -95,7 +95,7 @@
                         style="@style/EDIT_TEXT" />
 
                     <EditText
-                        android:id="@+id/editTextDate"
+                        android:id="@+id/editPagoYear"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -127,7 +127,7 @@
                     android:text="CVV" />
 
                 <EditText
-                    android:id="@+id/editTextNumberSigned2"
+                    android:id="@+id/editPagoCvv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="5"

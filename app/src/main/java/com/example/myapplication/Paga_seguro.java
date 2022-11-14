@@ -13,7 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -36,6 +36,7 @@ public class Paga_seguro extends Fragment {
     private Double monto;
     private String Dia, Mes;
     private DocumentReference Wallet;
+    private EditText editPagoCvv, editPagoNumber, editPagoName, editPagoMes, editPagoYear;
     private ProgressDialog progressDialog;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -43,6 +44,11 @@ public class Paga_seguro extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_paga_seguro, container, false);
         // Code
+        editPagoCvv = view.findViewById(R.id.editPagoCvv);
+        editPagoNumber = view.findViewById(R.id.editPagoNumber);
+        editPagoName = view.findViewById(R.id.editPagoName);
+        editPagoMes = view.findViewById(R.id.editPagoMes);
+        editPagoYear = view.findViewById(R.id.editPagoYear);
         // Componentes
         auth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
@@ -62,81 +68,87 @@ public class Paga_seguro extends Fragment {
         Pagar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                progressDialog.setMessage("Procesando pago...");
-                progressDialog.setCanceledOnTouchOutside(false);
-                progressDialog.show();
-                /* Firebase Se crea por primera vez*/
-                id = auth.getCurrentUser().getUid();
-                /*
-               Firebase Se crea por primera vez*/
-                /// Obtener Dinero///
-                db.collection("passenger").document(id)
-                        .collection("wallet").document(id).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-                        @Override
-                        public void onSuccess(DocumentSnapshot documentSnapshot) {
-                            if (documentSnapshot.exists()) {
-                                    Toast.makeText(getContext(),"Recarga exitosa" , Toast.LENGTH_SHORT).show();
-                                    DecimalFormat twoDForm = new DecimalFormat("#.##");
-                                    monto = Double.valueOf(twoDForm.format(monto+documentSnapshot.getDouble("balance"))) ;
-                                    Map<String,Object> map = new HashMap<>();
-                                    map.put("balance", monto);
-                                    map.put("Dia", Dia);
-                                    map.put("Mes", Mes);
-                                    db.collection("passenger").document(id)
-                                            .collection("wallet").document(id).update(map).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                                @Override
-                                                public void onSuccess(Void unused) {
-                                                    // Lo que pasa cuando se realiza correctamente el pago
-                                                    progressDialog.dismiss();
-                                                    NavController navController = Navigation.findNavController(view);
-                                                    navController.navigate(R.id.nav_home);
-                                                }
-                                            }).addOnFailureListener(new OnFailureListener() {
-                                                @Override
-                                                public void onFailure(@NonNull Exception e) {
-                                                    progressDialog.dismiss();
-                                                    Toast.makeText(getContext(), "Error al procesar los datos", Toast.LENGTH_SHORT).show();
-                                                }
-                                            });
-                            }else {
-                                //Toast.makeText(getContext(), "No existe", Toast.LENGTH_SHORT).show();
-                                Map<String,Object> map = new HashMap<>();
-                                map.put("id", id);
-                                map.put("balance", monto);
-                                map.put("Dia", Dia);
-                                map.put("Mes", Mes);
-                                db.collection("passenger").document(id)
-                                        .collection("wallet").document(id).set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                            @Override
-                                            public void onSuccess(Void unused) {
-                                                // Lo que pasa cuando se realiza correctamente el pago
-                                                progressDialog.dismiss();
-                                                NavController navController = Navigation.findNavController(view);
-                                                navController.navigate(R.id.nav_home);
-                                            }
-                                        }).addOnFailureListener(new OnFailureListener() {
-                                            @Override
-                                            public void onFailure(@NonNull Exception e) {
-                                                progressDialog.dismiss();
-                                                Toast.makeText(getContext(), "Error al procesar los datos", Toast.LENGTH_SHORT).show();
-                                            }
-                                        });
-                            }
-
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            progressDialog.dismiss();
-                            Toast.makeText(getContext(), "Null?", Toast.LENGTH_SHORT).show();
-                        }
-                    });
-
-                    }
+              if(editPagoCvv.getText().toString().isEmpty() || editPagoNumber.getText().toString().isEmpty() || editPagoName.getText().toString().isEmpty() || editPagoMes.getText().toString().isEmpty() || editPagoYear.getText().toString().isEmpty()){
+                  Toast.makeText(getContext(), "Complete todos los campos", Toast.LENGTH_SHORT).show();
+              }else {
+                  pagar(view);
+              }
+            }
 
         });
-
         return view;
     }
 
+    public void pagar(View view){
+        progressDialog.setMessage("Procesando pago...");
+        progressDialog.setCanceledOnTouchOutside(false);
+        progressDialog.show();
+        /* Firebase Se crea por primera vez*/
+        id = auth.getCurrentUser().getUid();
+                /*
+               Firebase Se crea por primera vez*/
+        /// Obtener Dinero///
+        db.collection("passenger").document(id)
+                .collection("wallet").document(id).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        if (documentSnapshot.exists()) {
+                            Toast.makeText(getContext(),"Recarga exitosa" , Toast.LENGTH_SHORT).show();
+                            DecimalFormat twoDForm = new DecimalFormat("#.##");
+                            monto = Double.valueOf(twoDForm.format(monto+documentSnapshot.getDouble("balance"))) ;
+                            Map<String,Object> map = new HashMap<>();
+                            map.put("balance", monto);
+                            map.put("Dia", Dia);
+                            map.put("Mes", Mes);
+                            db.collection("passenger").document(id)
+                                    .collection("wallet").document(id).update(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void unused) {
+                                            // Lo que pasa cuando se realiza correctamente el pago
+                                            progressDialog.dismiss();
+                                            NavController navController = Navigation.findNavController(view);
+                                            navController.navigate(R.id.nav_home);
+                                        }
+                                    }).addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            progressDialog.dismiss();
+                                            Toast.makeText(getContext(), "Error al procesar los datos", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+                        }else {
+                            //Toast.makeText(getContext(), "No existe", Toast.LENGTH_SHORT).show();
+                            Map<String,Object> map = new HashMap<>();
+                            map.put("id", id);
+                            map.put("balance", monto);
+                            map.put("Dia", Dia);
+                            map.put("Mes", Mes);
+                            db.collection("passenger").document(id)
+                                    .collection("wallet").document(id).set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void unused) {
+                                            // Lo que pasa cuando se realiza correctamente el pago
+                                            progressDialog.dismiss();
+                                            NavController navController = Navigation.findNavController(view);
+                                            navController.navigate(R.id.nav_home);
+                                        }
+                                    }).addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            progressDialog.dismiss();
+                                            Toast.makeText(getContext(), "Error al procesar los datos", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+                        }
+
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        progressDialog.dismiss();
+                        Toast.makeText(getContext(), "Null?", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+    }
 }

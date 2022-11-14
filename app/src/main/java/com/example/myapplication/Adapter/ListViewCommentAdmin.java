@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.myapplication.Models.Comment;
 
@@ -51,33 +52,38 @@ public class ListViewCommentAdmin extends FirestoreRecyclerAdapter<Comment, List
         holder.Responder.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
-                    Log.d("id_transport", documentSnapshot.getString("id_transport"));
-                    // see auth and db
-                    db.collection("administrator")
-                            .document(auth.getCurrentUser().getUid()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-                                @Override
-                                public void onSuccess(DocumentSnapshot documentSnapshotAdmin) {
-                                    if (documentSnapshotAdmin.exists()){
-                                       String fullname = documentSnapshotAdmin.getString("name")+ " "
-                                               + documentSnapshotAdmin.getString("surname");
-                                        Map<String,Object> map = new HashMap<>();
-                                        map.put("author",fullname);
-                                        map.put("message",holder.respuesta.getText().toString());
-                                        holder.respuesta.setText("");
-                                        db.collection("comments")
-                                                .document(documentSnapshot.getId())
-                                                .collection("responses")
-                                                .add(map).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                                                    @Override
-                                                    public void onSuccess(DocumentReference documentReference) {
-                                                        Log.d("respuesta","respuesta enviada");
-                                                    }
-                                                });
-                                        Log.d("id_transport", auth.getUid());
+                    if (holder.respuesta.getText().toString().length()>=10){
+                        db.collection("administrator")
+                                .document(auth.getCurrentUser().getUid()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                                    @Override
+                                    public void onSuccess(DocumentSnapshot documentSnapshotAdmin) {
+                                        if (documentSnapshotAdmin.exists()){
+                                            String fullname = documentSnapshotAdmin.getString("name")+ " "
+                                                    + documentSnapshotAdmin.getString("surname");
+                                            Map<String,Object> map = new HashMap<>();
+                                            map.put("author",fullname);
+                                            map.put("message",holder.respuesta.getText().toString());
+                                            holder.respuesta.setText("");
+                                            db.collection("comments")
+                                                    .document(documentSnapshot.getId())
+                                                    .collection("responses")
+                                                    .add(map).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                                        @Override
+                                                        public void onSuccess(DocumentReference documentReference) {
+                                                            Log.d("respuesta","respuesta enviada");
+                                                            Toast.makeText(holder.itemView.getContext(), "Respuesta enviada", Toast.LENGTH_SHORT).show();
+                                                        }
+                                                    });
+                                            Log.d("id_transport", auth.getUid());
+                                        }
                                     }
-                                }
-                            });
+                                });
+                    }else {
+                        Toast.makeText(holder.itemView.getContext(), "La respuesta debe tener al menos 10 caracteres", Toast.LENGTH_SHORT).show();
+                    }
+
+
+
                 }
             });
 

@@ -46,18 +46,6 @@ public class Sugerencias_reclamos_pasajero extends Fragment {
     String [] id_empresa={};
     private FirebaseAuth auth;
     private FirebaseFirestore db;
-    /*
-    @Override
-    public void onStart() {
-        super.onStart();
-        Adapter.startListening();
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        Adapter.stopListening();
-    }*/
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -87,7 +75,6 @@ public class Sugerencias_reclamos_pasajero extends Fragment {
             @Override
             public void onClick(View v) {
                 int empresa_ok = spinner_empresas.getSelectedItemPosition();
-                Log.d("empresa_ok", String.valueOf(id_empresa[empresa_ok]));
                 empresaSeleccionada(id_empresa[empresa_ok], view);
             }
         });
@@ -105,7 +92,7 @@ public class Sugerencias_reclamos_pasajero extends Fragment {
                                 map.put("message",edit_comentario_pasajero.getText().toString());
                                 map.put("id_transport",id_empresa[spinner_empresas.getSelectedItemPosition()]);
 
-                                if(edit_comentario_pasajero.getText().length() >= 1 && edit_comentario_pasajero.getText().length() <= 200){
+                                if(edit_comentario_pasajero.getText().toString().length() >= 10){
                                     edit_comentario_pasajero.setText("");
                                     db.collection("comments").add(map).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
                                         @Override
@@ -119,7 +106,7 @@ public class Sugerencias_reclamos_pasajero extends Fragment {
                                     });
 
                                 }else{
-                                    Toast.makeText(getContext(), "Agregar almenos un caracter", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getContext(), "Agregar un comentario de al menos 10 caracteres", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         }

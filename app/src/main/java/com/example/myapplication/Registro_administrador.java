@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
@@ -40,12 +41,13 @@ public class Registro_administrador extends AppCompatActivity {
     private String id, code;
     private ImageButton btn_politicas_admin,btn_terminos_admin;
     private ProgressBar progressBar_admin;
+    private CheckBox checkAdminTerminos, checkAdminPoliticas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro_administrador);
@@ -54,7 +56,7 @@ public class Registro_administrador extends AppCompatActivity {
 
         db = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
-        mFirebaseUser= auth.getCurrentUser();
+        mFirebaseUser = auth.getCurrentUser();
 
         // Information of EditText
         progressBar_admin = findViewById(R.id.progressBar_admin);
@@ -68,6 +70,10 @@ public class Registro_administrador extends AppCompatActivity {
         btn_politicas_admin = findViewById(R.id.btn_politicas_admin);
         btn_terminos_admin = findViewById(R.id.btn_terminos_admin);
         btnRegister = findViewById(R.id.btn_admin_register);
+
+        // Checkboxes
+        checkAdminTerminos = findViewById(R.id.checkAdminTerminos);
+        checkAdminPoliticas = findViewById(R.id.checkAdminPoliticas);
         // Button Policas
        btn_politicas_admin.setOnClickListener(new View.OnClickListener() {
            @Override
@@ -141,7 +147,14 @@ public class Registro_administrador extends AppCompatActivity {
         String ConfirmPass = editConfirmPass.getText().toString().trim();
         String Direction = editDirection.getText().toString().trim();
 
-        if(Names.isEmpty() && Surnames.isEmpty() && Email.isEmpty() && Pass.isEmpty() && ConfirmPass.isEmpty() && Direction.isEmpty()){
+        if(Names.isEmpty() ||
+                Surnames.isEmpty() ||
+                Email.isEmpty() ||
+                Pass.isEmpty() ||
+                ConfirmPass.isEmpty() ||
+                Direction.isEmpty() ||
+                !checkAdminTerminos.isChecked() ||
+                !checkAdminPoliticas.isChecked()){
             Toast.makeText(this, "Complete todos los datos", Toast.LENGTH_SHORT).show();
         }
         else if(Pass.equals(ConfirmPass)){
@@ -149,8 +162,6 @@ public class Registro_administrador extends AppCompatActivity {
             registerPassenger(Names,Surnames, Email, Pass, Direction);
         }
         else{
-            Toast.makeText(this, Pass, Toast.LENGTH_SHORT).show();
-            Toast.makeText(this, ConfirmPass, Toast.LENGTH_SHORT).show();
             Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
         }
     }
