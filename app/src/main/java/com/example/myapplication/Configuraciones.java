@@ -43,7 +43,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Configuraciones extends Fragment {
-    private TextView txt_config_phone;
+    private TextView txt_config_phone, name_below_photo;
     private EditText edit_config_nombres, edit_config_surnames,
             edit_config_phone,edit_config_address;
     private Button btn_config_save;
@@ -72,10 +72,11 @@ public class Configuraciones extends Fragment {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_configuraciones, container, false);
         // Initialize
+        name_below_photo = view.findViewById(R.id.name_below_photo);
         txt_config_phone = view.findViewById(R.id.txt_config_phone);
+        edit_config_phone=view.findViewById(R.id.edit_config_phone);
         edit_config_nombres=view.findViewById(R.id.edit_config_nombres);
         edit_config_surnames=view.findViewById(R.id.edit_config_surnames);
-        edit_config_phone=view.findViewById(R.id.edit_config_phone);
         edit_config_address=view.findViewById(R.id.edit_config_address);
         btn_config_save=view.findViewById(R.id.btn_config_save);
         btn_photo=view.findViewById(R.id.btn_photo);
@@ -95,6 +96,7 @@ public class Configuraciones extends Fragment {
                     @Override
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
                         if (documentSnapshot.exists()){
+                            name_below_photo.setText(documentSnapshot.getString("name") + " " + documentSnapshot.getString("surname"));
                             edit_config_nombres.setText(documentSnapshot.getString("name"));
                             edit_config_surnames.setText(documentSnapshot.getString("surname"));
                             edit_config_phone.setText(documentSnapshot.getString("phone"));
