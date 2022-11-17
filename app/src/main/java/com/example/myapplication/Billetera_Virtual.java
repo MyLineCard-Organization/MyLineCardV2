@@ -1,7 +1,9 @@
 package com.example.myapplication;
 
+import android.app.AlertDialog;
 import android.app.PendingIntent;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.nfc.NfcAdapter;
@@ -28,6 +30,8 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.math.BigInteger;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Billetera_Virtual extends Fragment {
     private FirebaseFirestore db;
@@ -39,6 +43,7 @@ public class Billetera_Virtual extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_billetera__virtual, container, false);
+
         Recarga_saldo = (CardView) view.findViewById(R.id.Recarga);
         Recarga_saldo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,6 +110,26 @@ public class Billetera_Virtual extends Fragment {
                                 String datoFail = documentSnapshot.getString("fail");
                                 if(datoFail==null||datoFail==""){
                                     //Toast.makeText(getContext(), "Dato no existe", Toast.LENGTH_SHORT).show();
+                                }
+                                if(documentSnapshot.getBoolean("status")){
+                                    //
+                                    AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                                    builder.setCancelable(true);
+                                    builder.setTitle("¡Bienvenido a MyLineCard!");
+                                    builder.setMessage("Felices de tenerte por aquí, esperemos tu estadía sea de lo más provechosa. Empezamos a pagar con NFC!");
+                                    builder.setPositiveButton("Empezar",
+                                            new DialogInterface.OnClickListener() {
+                                                @Override
+                                                public void onClick(DialogInterface dialog, int which) {
+                                                }
+                                            });
+
+                                    AlertDialog dialog = builder.create();
+                                    dialog.show();
+                                    //
+                                    Map<String,Object> map = new HashMap<>();
+                                    map.put("status", false);
+                                    Data.update(map);
                                 }
                             } else {
                                 Toast.makeText(getContext(), "Document does not exist", Toast.LENGTH_SHORT).show();
