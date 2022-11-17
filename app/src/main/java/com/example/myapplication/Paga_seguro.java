@@ -71,7 +71,11 @@ public class Paga_seguro extends Fragment {
               if(editPagoCvv.getText().toString().isEmpty() || editPagoNumber.getText().toString().isEmpty() || editPagoName.getText().toString().isEmpty() || editPagoMes.getText().toString().isEmpty() || editPagoYear.getText().toString().isEmpty()){
                   Toast.makeText(getContext(), "Complete todos los campos", Toast.LENGTH_SHORT).show();
               }else {
-                  pagar(view);
+                  if(editPagoCvv.getText().toString().length() != 3 || editPagoNumber.getText().toString().length() != 16 || Double.valueOf(editPagoMes.getText().toString()) < 1 || Double.valueOf(editPagoMes.getText().toString()) > 12 || Double.valueOf(editPagoYear.getText().toString()) < 22 || editPagoYear.getText().toString().length() != 2){
+                      Toast.makeText(getContext(), "Ingrese un formato válido", Toast.LENGTH_SHORT).show();
+                  }else{
+                      pagar(view);
+                  }
               }
             }
 

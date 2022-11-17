@@ -94,7 +94,7 @@
         android:background="#00B1AC">
 
         <ImageButton
-            android:id="@+id/lineas_Afiliadas_btn"
+            android:id="@+id/politicas_registro_btn"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginTop="43sp"

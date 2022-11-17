@@ -2,6 +2,8 @@ package com.example.myapplication;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -27,6 +29,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.security.MessageDigest;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -37,7 +40,7 @@ public class Registro_pasajero extends AppCompatActivity {
     private FirebaseFirestore db;
     private FirebaseAuth auth;
     private FirebaseUser mFirebaseUser;
-    private String id;
+    private String id, Dia, Mes;
     private Button btn_register_pasajero;
     private ProgressBar progressBar_pasajero;
     private ImageButton btn_politicas_pasajero,btn_terminos_pasajero;
@@ -73,7 +76,9 @@ public class Registro_pasajero extends AppCompatActivity {
         // Checkboxes
         checkPassengerTerms = findViewById(R.id.checkPassengerTerms);
         checkPassengerPolicy = findViewById(R.id.checkPassengerPolicy);
-
+        Calendar calendario = Calendar.getInstance();
+        Dia =String.valueOf( calendario.get(Calendar.DAY_OF_MONTH));
+        Mes = String.valueOf(calendario.get(Calendar.MONTH));
 
         // Button Policas
         btn_politicas_pasajero.setOnClickListener(new View.OnClickListener() {
@@ -181,10 +186,23 @@ public class Registro_pasajero extends AppCompatActivity {
                         @Override
                         public void onSuccess(Void unused) {
                             DeleteSharePreferenceRegister();
-
                             finish();
                             startActivity(new Intent(Registro_pasajero.this, MainActivity.class));
                             Toast.makeText(Registro_pasajero.this, "Pasajero registrado!!!", Toast.LENGTH_SHORT).show();
+                            // Se le regalan 5 soles
+                            Map<String,Object> map = new HashMap<>();
+                            map.put("id", id);
+                            map.put("balance", 5.0);
+                            map.put("Dia", Dia);
+                            map.put("Mes", Mes);
+                            db.collection("passenger").document(id)
+                                    .collection("wallet").document(id).set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void unused) {
+
+                                        }
+                                    });
+                            ///
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override

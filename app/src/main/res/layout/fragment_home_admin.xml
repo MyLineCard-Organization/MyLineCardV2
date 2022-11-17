@@ -65,7 +65,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="TARIFAS"
-                android:textColor="@color/black"
+                style="@style/TEXT"
                 tools:ignore="MissingConstraints" />
         </LinearLayout>
     </LinearLayout>
